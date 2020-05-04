@@ -23,7 +23,9 @@ from django.conf import settings
 urlpatterns = [
     path('grappelli/', include('grappelli.urls')),
     path('admin/', admin.site.urls),
-    path('',include('pages.urls')),
+    path('',views.initial),
+
+    path('shop/',include('pages.urls')),
     path('cart/',include('cart.urls')),
     path('users/',include('users.urls')),
     path('wishlists/',include('wishlists.urls')),
