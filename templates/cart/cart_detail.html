@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+
+{% block title %}
+    {{title}}
+{% endblock title %}
+
+
+
+{% block content %}
+
+
+  <div class="col-md-12">
+
+	<table class="table table-inverse mt-3">
+		<thead>
+			<tr>
+				<th>Image</th>
+				<th>Title</th>
+				<th>Price</th>
+				<th>Quantity</th>
+				<th></th>
+				<th>SubTotal</th>
+			</tr>
+		</thead>
+		<tbody>
+
+		    {% for key,value in request.session.cart.items %}
+
+
+
+		    <tr>
+		        <td><img class="cpi" width="100px" src="{{value.photo}}" alt=""></td>
+		        <td>{{value.title}}</td>
+		        <td>${{value.price}}</td>
+		        <td>{{value.quantity}}</td>
+		        <td>
+		            <a href="{% url "cart:item_increment" value.title %}">+</a>&nbsp;
+		            <a href="{% url "cart:item_decrement" value.title %}">-</a>&nbsp;
+		            <a href="{% url "cart:item_clear" value.title %}">Clear</a>&nbsp;
+		        </td>
+
+					<td>$ {{sub}} </td>
+
+
+		    </tr>
+
+		    {% endfor %}
+		    <tr>
+		        <td colspan="6" align="right"><b>Total: </b>$ {{total}}</td>
+		    </tr>
+		    <tr>
+		        <td colspan="5" align="right">
+		            <a onclick="return confirm('Are You Sure')" class="clearcart btn btn-danger" href="{% url "cart:cart_clear"  %}">Clear cart</a>
+		        </td>
+		        <td colspan="5" align="right">
+		            <a class="btn btn-primary buynow" href="{% url "cart:checkout" %}">Buy now</a>
+		        </td>
+		</tr>
+		</tbody>
+	</table>
+	 <a class="btn btn-primary buynow" href="{% url "pages:all_products" %}">Continue Shopping</a>
+  </div>
+
+
+
+
+{% endblock content %}
+
+

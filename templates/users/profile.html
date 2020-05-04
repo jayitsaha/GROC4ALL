@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+
+{% block title %}
+    Profile
+{% endblock title %}
+
+{% block content %}
+
+
+
+    <div class="col-md-12">
+        <form action="{% url "users:profile" user.id %}" method="POST" enctype="multipart/form-data">
+
+
+                {% csrf_token %}
+
+
+        <div class="col-md-6 float-left">
+
+           <div class="form-group">
+                <label>UserName</label>
+                <input type="text" name="username" class="form-control" value="{{user.username}}" >
+            </div>
+
+            <div class="form-group">
+                <label>Email</label>
+                <input type="text" name="email" class="form-control" value="{{user.email}}" >
+            </div>
+
+        </div>
+
+        <div class="col-md-6 float-right">
+            <div>
+                <img src="{{user.profile.image.url}}" class="img-thumbnail" alt="">
+            </div>
+            <label>Change Profile Picture</label>
+            <input type="file" name="image" class="fomr-control">
+        </div>
+
+        <div class="form-group">
+            <input type="submit" value="Update"  class="btn btn-dark btn-block">
+        </div>
+
+        </form>
+    </div>
+
+
+
+
+
+
+{% endblock content %}
+

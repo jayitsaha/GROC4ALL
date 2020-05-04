@@ -1,0 +1,57 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="{% url "pages:home" %}">EcomSite</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavDropdown">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="{% url "pages:home" %}">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url "pages:about" %}">About</a>
+      </li>
+    </ul>
+
+    <ul class="nav navbar-nav navbar-right mr-5">
+      {% if user.is_authenticated %}
+        <li class="nav-item">
+          <a class="nav-link" href="{% url "users:dashboard"%}">DashBoard</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url "users:profile" user.id %}">Profile</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url "wishlists:my_wishlists"%}">My WishLists</a>
+        </li>
+        <li class="nav-item mr-3">
+          <a class="nav-link" href="javascript:{document.getElementById('logout').submit()}">
+          <i class="fas fa-sign-out-alt"></i> Logout
+          </a>
+
+           <form  method="post" id="logout" action="{% url "users:logout" %}">
+              {% csrf_token %}
+              <input type="hidden">
+          </form>
+       </li>
+        <li class="nav-item">
+        <a href="{% url "cart:cart_detail" %}" class="nav-link">
+          <i class="fa fa-cart-plus" style="font-size:30px" aria-hidden="true"></i>
+          <strong class="text-info">({{request.session.cart | length}}) Item</strong>
+        </a>
+      </li>
+      {% else %}
+      <li class="nav-item">
+        <a class="nav-link" href="{% url "users:register" %}">Register</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url "users:login" %}">Login</a>
+      </li>
+      {% endif %}
+
+
+    </ul>
+
+
+  </div>
+</nav>
