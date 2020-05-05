@@ -14,7 +14,11 @@
           </div>
         </div>
       </div>
-    </div>
+	</div>
+	
+
+
+
 
     <section class="ftco-section">
     	<div class="container">
@@ -82,7 +86,31 @@
           </div>
         </div>
     	</div>
-    </section>
+	</section>
+	
+	<div class="container" style="z-index: 100;">
+		<div class="widget">
+		   <div class="chat_header">
+			  <!--Add the name of the bot here -->
+			  <span style="color:white;margin-left: 5px;">Moodbot 😃</span>
+			  <span style="color:white;margin-right: 5px;float:right;margin-top: 5px;" id="close">
+			  <i class="material-icons">close</i>
+			  </span>
+		   </div>
+		   <!--Chatbot contents goes here -->
+		   <div class="chats" id="chats">
+			  <div class="clearfix"></div>
+		   </div>
+		   <!--user typing indicator -->
+		   <div class="keypad" >
+			  <input type="text" id="keypad" class="usrInput browser-default" placeholder="Type a message..." autocomplete="off">
+		   </div>
+		</div>
+		<!--bot widget -->
+		<div class="profile_div" id="profile_div">
+		   <img class="imgProfile" src="{% static 'img/botAvatar.png' %}"/>
+		</div>
+	  </div>
 
 		<section class="ftco-section ftco-no-pt ftco-no-pb py-5 bg-light">
       <div class="container py-4">
