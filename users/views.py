@@ -7,7 +7,7 @@ from django.contrib.auth.decorators import login_required
 from django.utils.datastructures import MultiValueDictKeyError
 from django.core.paginator import Paginator
 from django.contrib.auth.decorators import login_required
-
+import users.face_detect as face_detect
 from users.models import Profile
 from orders.models import Order
 
@@ -51,9 +51,13 @@ def login(request):
 
 			user = auth.authenticate(username=username , password=password)
 			if user is not None:
-				auth.login(request,user)
-				messages.success(request,'You Are Now LoggedIn')
-				return redirect('users:dashboard')
+				res = face_detect.check(user)
+				if res:
+					auth.login(request,user)
+					messages.success(request,'You Are Now LoggedIn')
+					return redirect('users:dashboard')
+				messages.error(request,'Unauthorized access')
+				return render(request,'users/login.html')
 			else:
 				messages.error(request,'Invalid Credentials')
 				return redirect('users:login')

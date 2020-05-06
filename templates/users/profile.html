@@ -9,7 +9,7 @@
 
 
 
-    <div class="col-md-12">
+    <div class="col-md-12 container">
         <form action="{% url "users:profile" user.id %}" method="POST" enctype="multipart/form-data">
 
 
@@ -38,7 +38,7 @@
             <input type="file" name="image" class="fomr-control">
         </div>
 
-        <div class="form-group">
+        <div class="form-group" style="width: fit-content;">
             <input type="submit" value="Update"  class="btn btn-dark btn-block">
         </div>
 
