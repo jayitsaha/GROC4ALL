@@ -13,6 +13,7 @@
 
 # Future Plan
 	1.Online Payment Add
+	2. Shopkeeper feature
 
 
 ## Quick Start Using Pipenv
@@ -28,15 +29,4 @@ $ pipenv install
 $ python manage.py collectstatic
 
 ```
-
-# Admin
-	username = mahmudul
-    password = 123456
-
-Author
-----
-Mahmudul Hassan
-
-License
-----
-MIT
+*currently you need to go to admin and add your image*
