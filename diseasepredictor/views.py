@@ -5,7 +5,7 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.neighbors import KNeighborsClassifier
 
 
-def heart(request):
+def covid1(request):
     df = pd.read_csv('static/covid11.csv')
     data = df.values
     X = data[:, :-1]
@@ -45,11 +45,11 @@ def heart(request):
             value = "don\'t have covid-19"
 
     return render(request,
-                  'diseasepredictor/heart.html',
+                  'diseasepredictor/covid1.html',
                   {
                       'context': value
                   })
-def breast(request):
+def covid2(request):
     df = pd.read_csv('static/covid22.csv')
     data = df.values
     X = data[:, :-1]
@@ -86,7 +86,7 @@ def breast(request):
             value = "don\'t have covid-19"
 
     return render(request,
-                  'diseasepredictor/breast.html',
+                  'diseasepredictor/covid2.html',
                   {
                       'context': value
                   })

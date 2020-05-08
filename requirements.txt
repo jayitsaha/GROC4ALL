@@ -33,4 +33,6 @@ urllib3==1.25.9
 watson-developer-cloud==2.0.1
 websocket-client==0.47.0
 websockets==8.1
+cmake
+
 

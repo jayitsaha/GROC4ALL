@@ -23,7 +23,7 @@ from django.conf import settings
 app_name = 'diseasepredictor'
 
 urlpatterns = [
-    path('RandomForest/', views.heart, name="heart"),
-    path('a', views.breast, name="breast"),
+    path('RandomForest/', views.covid1, name="covid1"),
+    path('a', views.covid2, name="covid2"),
     path('', views.home, name="home"),
-] 
+]

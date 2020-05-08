@@ -28,14 +28,23 @@
     </button>
 
 
-    
+
 
     <div class="collapse navbar-collapse" id="ftco-nav">
       <ul class="navbar-nav ml-auto">
 
             <li class="nav-item active"><a class="nav-link" href="/shop">SHOP</a></li>
 
-            
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">WE CARE FOR YOU</a>
+          <div class="dropdown-menu" aria-labelledby="dropdown04">
+            <a class="dropdown-item" href="{% url "diseasepredictor:home"%}">CORONA PREDICTOR</a>
+            <a class="dropdown-item" href="{% url "pages:about" %}">ABOUT US</a>
+
+          </div>
+        </li>
+
+
             {% comment %} <li class="nav-item"><a href="#" class="nav-link">Blog</a></li> {% endcomment %}
         {% comment %} <li class="nav-item active"><a href="{% url 'home' %}" class="nav-link">Home</a></li> {% endcomment %}
         {% comment %} <li class="nav-item dropdown"> {% endcomment %}
@@ -43,16 +52,16 @@
           <!-- <div class="dropdown-menu" aria-labelledby="dropdown04"> -->
             {% comment %} <a class="nav-item" href="{% url 'shop' %}">Shop</a> {% endcomment %}
 
-
+{% comment %}
             <li class="nav-item "><a href="{% url "pages:about" %}" class="nav-link">ABOUT</a></li>
-            <li class="nav-item "><a class="nav-link" href="{% url "diseasepredictor:home"%}">CORONA PREDICTOR</a></li>
+            <li class="nav-item "><a class="nav-link" href="{% url "diseasepredictor:home"%}">CORONA PREDICTOR</a></li> {% endcomment %}
 
 
                   {% if user.is_authenticated %}
 
                   <li class="nav-item "><a class="nav-link" href="{% url "users:dashboard"%}">DashBoard</a></li>
- 
-       
+
+
                   <li class="nav-item "><a class="nav-link" href="{% url "wishlists:my_wishlists"%}">Wishlist</a></li>
 
                   <li class="nav-item "><a class="nav-link" href="{% url "users:profile" user.id %}">PROFILE</a></li>
@@ -70,6 +79,11 @@
                               <input type="hidden">
                           </form>
                   </li>
+
+                  <li class="nav-item "><a href="{% url "cart:cart_detail" %}" class="nav-link">
+          <i class="fa fa-cart-plus" style="font-size:14px" aria-hidden="true"></i>
+          ({{request.session.cart | length}}) Item
+        </a></li>
 
 
                   {% else %}
@@ -91,10 +105,7 @@
         {% comment %} </li> {% endcomment %}
 
         {% comment %} <!-- <li class="nav-item"><a href="{% url 'contact' %}" class="nav-link">Contact</a></li> --> {% endcomment %}
-        <li class="nav-item "><a href="{% url "cart:cart_detail" %}" class="nav-link">
-          <i class="fa fa-cart-plus" style="font-size:14px" aria-hidden="true"></i>
-          ({{request.session.cart | length}}) Item
-        </a></li>
+
 
       </ul>
     </div>
