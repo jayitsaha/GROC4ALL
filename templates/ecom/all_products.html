@@ -1,0 +1,191 @@
+
+
+
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <div class="hero-wrap hero-bread" style="background-image: url({% static 'images/bg_1.jpg' %});">
+      <div class="container">
+        <div class="row no-gutters slider-text align-items-center justify-content-center">
+          <div class="col-md-9 ftco-animate text-center">
+          	<p class="breadcrumbs"><span class="mr-2"><a href="#">Home</a></span> <span>Products</span></p>
+            <h1 class="mb-0 bread">Products</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <section class="ftco-section">
+    	<div class="container">
+    		<div class="row justify-content-center">
+    			<div class="col-md-10 mb-5 text-center">
+    				<ul class="product-category">
+    					<li><a href="#" class="active">All</a></li>
+              {% for ctg in categories %}
+    					<li><a href="{% url "pages:category_by_slug" ctg.slug %}">{{ ctg.title }}</a></li>
+              {% endfor %}
+    				</ul>
+    			</div>
+    		</div>
+    		<div class="row">
+          {% if products %}
+          {% for product in products %}
+    			<div class="col-md-6 col-lg-3 ftco-animate">
+    				<div class="product">
+    					<a href="{% url "pages:product_by_slug" product.slug %}" class="img-prod">
+						<img class="img-fluid" src="{{ product.photo.url }}" alt="Colorlib Template">
+    						<div class="overlay"></div>
+    					</a>
+    					<div class="text py-3 pb-4 px-3 text-center">
+    						<h3>
+							<a >{{ product.title }}</a></h3>
+    						<div class="d-flex">
+    							<div class="pricing">
+		    						<p class="price"><span>${{ product.price }}.00</span></p>
+		    					</div>
+	    					</div>
+    						<div class="bottom-area d-flex px-3">
+	    						<div class="m-auto d-flex">
+	    							<a href="{% url "pages:product_by_slug" product.slug %}" class="add-to-cart d-flex justify-content-center align-items-center text-center">
+	    								<span><i class="ion-ios-menu"></i></span>
+	    							</a>
+	    							<a href="#" class="buy-now d-flex justify-content-center align-items-center mx-1">
+	    								<span><i class="ion-ios-cart"></i></span>
+	    							</a>
+	    							<a href="{% url "wishlists:add_wishlist" product.id %}"	 class="heart d-flex justify-content-center align-items-center ">
+	    								<span><i class="ion-ios-heart"></i></span>
+	    							</a>
+    							</div>
+    						</div>
+    					</div>
+    				</div>
+    			</div>
+          {% endfor %}
+          {% else %}
+          <p>There is No Product Here!</p>
+          {% endif %}
+    		</div>
+    		<div class="row mt-5">
+          <div class="col text-center">
+            <div class="block-27">
+              <ul>
+                <li><a href="#">&lt;</a></li>
+                <li class="active"><span>1</span></li>
+                <li><a href="#">2</a></li>
+                <li><a href="#">3</a></li>
+                <li><a href="#">4</a></li>
+                <li><a href="#">5</a></li>
+                <li><a href="#">&gt;</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+    	</div>
+    </section>
+
+		<section class="ftco-section ftco-no-pt ftco-no-pb py-5 bg-light">
+      <div class="container py-4">
+        <div class="row d-flex justify-content-center py-5">
+          <div class="col-md-6">
+          	<h2 style="font-size: 22px;" class="mb-0">Subcribe to our Newsletter</h2>
+          	<span>Get e-mail updates about our latest shops and special offers</span>
+          </div>
+          <div class="col-md-6 d-flex align-items-center">
+            <form action="#" class="subscribe-form">
+              <div class="form-group d-flex">
+                <input type="text" class="form-control" placeholder="Enter email address">
+                <input type="submit" value="Subscribe" class="submit px-3">
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+{% endblock %}
+{% comment %} {% extends "base.html" %}
+
+{% block title %}
+    {{title}}
+{% endblock title %}
+
+
+
+{% block content %}
+
+  <div class="col-md-4">
+	<ul class="list-group">
+		<li class="list-group-item"><a href="{% url "pages:all_products" %}">All Products</a></li>
+		{% for cat in categories %}
+			<li class="list-group-item"><a href="{% url "pages:category_by_slug" cat.slug %}">{{cat.title}}</a></li>
+		{% endfor %}
+
+
+	</ul>
+  </div>
+
+
+
+
+	 <div class="col-md-8">
+	 	<div class="row">
+			{% for p in products %}
+	  <div class="col-md-6 mt-1">
+		<div class="card-deck-wrapper">
+			<div class="card-deck">
+				<div class="card">
+					<img class="card-img-top" height="350px" src="{{p.photo.url}}" alt="Card image cap">
+					<div class="card-block">
+						<h4 class="card-title text-center text-secondary">{{p.title}}</h4>
+            <p class="card-text text-center lead">
+            {{p.summary}}<br>
+            <strong>Category: </strong><a href="{% url "pages:category_by_slug" p.category.slug %}">{{p.category.title}}</a><br>
+            <a href="{% url "wishlists:add_wishlist" p.id %}">Add To Wish List</a>
+            </p>
+						<p class="card-text"><small class="text-info font-weight-bold">Posted At :{{p.published_at}}</small>
+						<a href="{% url "pages:product_by_slug" p.slug %}" class="float-right">Read More</a>
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	  </div>
+  {% endfor %}
+	 	</div>
+	 </div>
+
+
+
+
+	 <div class="container" style="z-index: 100;">
+		<div class="widget">
+		   <div class="chat_header">
+			  <!--Add the name of the bot here -->
+			  <span style="color:white;margin-left: 5px;">Moodbot 😃</span>
+			  <span style="color:white;margin-right: 5px;float:right;margin-top: 5px;" id="close">
+			  <i class="material-icons">close</i>
+			  </span>
+		   </div>
+		   <!--Chatbot contents goes here -->
+		   <div class="chats" id="chats">
+			  <div class="clearfix"></div>
+		   </div>
+		   <!--user typing indicator -->
+		   <div class="keypad" >
+			  <input type="text" id="keypad" class="usrInput browser-default" placeholder="Type a message..." autocomplete="off">
+		   </div>
+		</div>
+		<!--bot widget -->
+		<div class="profile_div" id="profile_div">
+		   <img class="imgProfile" src="{% static 'img/botAvatar.png' %}"/>
+		</div>
+	  </div>
+
+
+
+
+
+
+{% endblock content %}
+
+ {% endcomment %}

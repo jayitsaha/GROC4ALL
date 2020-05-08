@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block title %}
+    {{title}}
+{% endblock title %}
+
+
+
+{% block content %}
+
+  <div class="col-md-4">
+	<ul class="list-group">
+		<li class="list-group-item"><a href="{% url "pages:all_products" %}">All Products</a></li>
+		{% for cat in categories %}
+			<li class="list-group-item"><a href="{% url "pages:category_by_slug" cat.slug %}">{{cat.title}}</a></li>
+		{% endfor %}
+
+
+	</ul>
+  </div>
+  <div class="col-md-8 mt-3">
+  		<a href="{% url "wishlists:clear_wishlists" %}" class="btn btn-danger btn-block">Clear wishlists</a><br>
+		{% for value in wishlists %}
+			        <div class="card card-block text-{1:center|right} mt-3">
+			        	<img align="center" src="{{value.photo.url}}" width="150px" alt="">
+						<h4 class="card-title text-center">{{value.title}}</h4>
+						<p class="card-text lead">{{value.summary}}</p>
+
+					</div>
+					<div class="clearfix">
+						<a href="{% url "pages:product_by_slug" value.slug %}" class="btn btn-primary btn-xs float-left">Read More</a>
+
+					<a href="{% url "wishlists:delete_wishlist" value.id %}" class="btn btn-primary btn-xs float-right">Delete</a><br>
+					</div>
+		{% endfor %}
+
+
+  </div>
+
+
+
+
+{% endblock content %}
+
+

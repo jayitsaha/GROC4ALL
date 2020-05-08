@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block title %}
+    {{title|upper}}
+{% endblock title %}
+
+
+
+{% block content %}
+
+  <div class="col-md-12 mt-5">
+  	<h1 class="text-center">Order List For {{user.username|upper}}</h1>
+	 <table class="table table-hover table-inverse">
+	 	<thead>
+	 		<tr>
+	 			<th>Item Name</th>
+	 			<th>Quantity</th>
+	 			<th>Price</th>
+	 			<th>Total</th>
+	 			<th>Order Status</th>
+	 		</tr>
+	 	</thead>
+	 	<tbody>
+	 		{% for order in orders %}
+				<tr>
+					<td>{{order.item}}</td>
+					<td>{{order.quantity}}</td>
+					<td>{{order.price}}</td>
+					<td>{{order.total}}</td>
+					{% if order.delivery  %}
+						<td>Delivered</td>
+					{% else %}
+					   <td>Please Wait Some Time</td>
+					{% endif %}
+				</tr>
+	 		{% endfor %}
+	 	</tbody>
+	 </table>
+  </div>
+
+
+
+
+{% endblock content %}
