@@ -12,7 +12,7 @@ def cart_add(request, slug):
 	cart = Cart(request)
 	product = Product.objects.get(slug=slug)
 	cart.add(product=product)
-	return redirect('/')
+	return redirect('/shop/')
 
 @login_required(login_url="/users/login")
 def cart_detail(request):

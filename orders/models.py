@@ -1,5 +1,5 @@
 from django.db import models
-from datetime import datetime
+from django.utils import timezone
 from django.contrib.auth.models import User
 # Create your models here.
 
@@ -12,7 +12,7 @@ class Order(models.Model):
 	phone = models.CharField(max_length=200)
 	email = models.CharField(max_length=200)
 	address = models.TextField()
-	order_date = models.DateTimeField(default=datetime.now() , blank=True)
+	order_date = models.DateTimeField(default=timezone.now() , blank=True)
 	user_id = models.IntegerField(blank=True)
 	delivery = models.BooleanField(default=False)
 

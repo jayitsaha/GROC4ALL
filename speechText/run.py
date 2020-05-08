@@ -15,16 +15,19 @@ def transcribe_audio(path_to_audio_file):
     speech_to_text = SpeechToText(authenticator=authenticator)
     speech_to_text.set_service_url('https://api.us-east.speech-to-text.watson.cloud.ibm.com/instances/f56cac90-ea6c-4c6e-a0d2-f6a07b9ce7e9')
 
-    with open("C:\\Users\\Jayit\\Desktop\\EComm Hackathon\\Ecommerce-WebSite-With-Django2-master\\speech.wav", 'rb') as audio_file:
-        return speech_to_text.recognize(audio_file,
-            content_type='audio/wav').get_result()
+    dir_path = os.path.dirname(os.path.realpath(__file__))
+    print(dir_path)
+
+    with open(dir_path+"/speech.wav", 'rb') as audio_file:
+        return speech_to_text.recognize(audio_file, content_type='audio/wav').get_result()
 class Run():
 
 
 
 
     def main():
-        recorder = Recorder("speech.wav")
+        recorder = Recorder("speech.wav")#
+        print(recorder)
 
         print("Please say something nice into the microphone\n")
         recorder.record_to_file()

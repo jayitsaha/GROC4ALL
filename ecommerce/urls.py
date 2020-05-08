@@ -30,6 +30,7 @@ urlpatterns = [
     path('cart/',include('cart.urls')),
     path('users/',include('users.urls')),
     path('wishlists/',include('wishlists.urls')),
+    path('my-ajax-test/', views.myajaxtestview, name='myajaxtestview'),
 
 ]
 
