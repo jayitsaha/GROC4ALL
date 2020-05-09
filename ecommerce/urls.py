@@ -24,13 +24,15 @@ urlpatterns = [
     path('grappelli/', include('grappelli.urls')),
     path('admin/', admin.site.urls),
     path('',views.initial),
-    
+
     path('predict/',include('diseasepredictor.urls')),
     path('shop/',include('pages.urls')),
     path('cart/',include('cart.urls')),
     path('users/',include('users.urls')),
     path('wishlists/',include('wishlists.urls')),
     path('my-ajax-test/', views.myajaxtestview, name='myajaxtestview'),
+    path('my-ajax-test-text/', views.myajaxtestviewtext, name='myajaxtestviewtext'),
+
 
 ]
 

@@ -17,9 +17,21 @@ $('.usrInput').on('keyup keypress', function (e) {
 });
 
 
+
+
+$('.nobg').on('click' , function (e){
+	e.preventDefault();
+	console.log("click");
+	send1();
+
+	return false;
+})
+
+
 //------------------------------------- Set user response------------------------------------
 function setUserResponse(val) {
 
+	console.log(val);
 
 	var UserResponse = '<img class="userAvatar" src=' + "./static/img/userAvatar.jpg" + '><p class="userMsg">' + val + ' </p><div class="clearfix"></div>';
 	$(UserResponse).appendTo('.chats').show('slow');
@@ -35,9 +47,9 @@ function scrollToBottomOfResults() {
 }
 
 function send(message) {
-	console.log("User Message:", message)
+	console.log("User Message:", )
 	$.ajax({
-		url: 'my-ajax-test/',
+		url: 'my-ajax-test-text/',
 		type: 'POST',
 		// contentType: 'application/json',
 		// data: JSON.stringify({
@@ -46,6 +58,7 @@ function send(message) {
 		// }),
 		data : {text: message},
 		success: function (data, textStatus) {
+			console.log(data);
 			setBotResponse(data);
 			console.log("Rasa Response: ", data);
 		},
@@ -56,6 +69,33 @@ function send(message) {
 		}
 	});
 }
+
+function send1(message) {
+	// console.log("User Message:", message)
+	$.ajax({
+		url: 'my-ajax-test/',
+		type: 'POST',
+		// contentType: 'application/json',
+		// data: JSON.stringify({
+		// 	"message": message,
+		// 	"sender": "username"
+		// }),
+		data : {text: message},
+		success: function (data, textStatus) {
+			var data1 = JSON.parse(data);
+			console.log(data1['user']);
+			setUserResponse(data1['user']);
+			setBotResponse(data1['response']);
+			console.log("Rasa Response: ", data);
+		},
+		error: function (errorMessage) {
+			setBotResponse("");
+			console.log('Error' + errorMessage);
+
+		}
+	});
+}
+
 
 //------------------------------------ Set bot response -------------------------------------
 function setBotResponse(val) {
@@ -135,5 +175,5 @@ $(document).on("click", ".menu .menuChips", function () {
 	console.log("button payload: ",this.getAttribute('data-payload'))
 	setUserResponse(text);
 	send(payload);
-	$('.suggestions').remove(); //delete the suggestions 
+	$('.suggestions').remove(); //delete the suggestions
 });
