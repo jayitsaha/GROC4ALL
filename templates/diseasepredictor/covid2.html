@@ -1,4 +1,4 @@
-{% load static %} 
+{% load static %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -170,8 +170,8 @@ body {
     background-image: url(https://wallpaperplay.com/walls/full/1/2/9/13978.jpg);
     background-repeat: no-repeat;
     {% comment %} overflow:hidden; {% endcomment %}
-    
-    
+
+
     background-size: 2000px 1500px;
 
     {% comment %} background-size: cover;
@@ -432,20 +432,16 @@ li.init:after {
       {% if context %}
       <h2 class="text-center">
       {% comment %} <div class="display-4 my-2 text-center"> {% endcomment %}
-        You {{ context }} 
+        You {{ context }}
       {% comment %} </div> {% endcomment %}
       </h2>
       {% endif %}
       </div>
       <div>
 
-      <!-- 
-      19:46:19 09 Oct, 2019 by Arjun Adhikari
-      Form Here 
-      -->
       <div class="main">
       <div class="container" style="background-color: rgba(255, 255, 255, .0);">
-        <form  method="POST" class="appointment-form"  action="{% url 'diseasepredictor:breast' %}">
+        <form  method="POST" class="appointment-form"  action="{% url 'diseasepredictor:covid2' %}">
           {% csrf_token %}
           <div class="form-group-1">
 
@@ -509,9 +505,9 @@ li.init:after {
                 name="smoothness"
                 placeholder="DIFFICULTY IN BREATHING ?"
               />
-            </div> 
+            </div>
           </div>
-        
+
         <input type="submit" name="submit" id="submit" class="submit" value="Get Checked"  />
 
 

@@ -3,7 +3,7 @@
     <head>
 <link href="https://fonts.googleapis.com/css?family=Anton&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="static/HomePage.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">     
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
@@ -20,9 +20,9 @@
   transition: all .6s cubic-bezier(.5, .2, .2, 1.1);
   -webkit-transition: all .6s cubic-bezier(.5, .2, .2, 1.1);
   -moz-transition: all .6s cubic-bezier(.5, .2, .2, 1.1);
-  -o-transition: all .6s cubic-bezier(.5, .2, .2, 1.1);  
+  -o-transition: all .6s cubic-bezier(.5, .2, .2, 1.1);
   color: #fff;
-  overflow: hidden; 
+  overflow: hidden;
 }
 
 * {
@@ -58,14 +58,14 @@
   transition-delay: .4s !important;
 }
 
-#t2:target #p1, 
+#t2:target #p1,
 #t3:target #p1,
 #t4:target #p1,
 #t5:target #p1{
   background: black;
 }
 
-#t2:target #p1 .icon, 
+#t2:target #p1 .icon,
 #t3:target #p1 .icon,
 #t4:target #p1 .icon,
 #t5:target #p1 .icon {
@@ -222,7 +222,7 @@ a {
 }
 
 
-   </style> 
+   </style>
 
 
 
@@ -292,7 +292,7 @@ a {
       }
 
 
- 
+
 
       /* Hover Effects on Card */
 
@@ -307,12 +307,12 @@ a {
         }
 
 
-        
+
       }
     </style>
-    
-    
-    </head>   
+
+
+    </head>
 <body>
 <div class="ct" id="t1">
   <div class="ct" id="t2">
@@ -346,8 +346,8 @@ a {
 
 <section class="icon fa fa-medkit" style="align-content: center;margin-bottom:550px;"><span style="font-size: 50px" class="title">MEDICOS</span><span class="hint">Remote Covid Care</span>
 
-         
-         
+
+
          </section>   {% comment %} <span style="font-size: 50px" class="title">MEDICOS</span><span class="hint">Remote Covid Care</span> {% endcomment %}
         </div>
 
@@ -362,10 +362,10 @@ a {
 
                 <hr />
                 <p class="card-p" style="color: #6c757d!important;">
-                  Random Forest algorithm is a supervised classification algorithm. We can see it from its name, which is to create a forest by some way and make it random. There is a direct relationship between the number of trees in the forest and the results it can get: the larger the number of trees, the more accurate the result. 
+                  Random Forest algorithm is a supervised classification algorithm. We can see it from its name, which is to create a forest by some way and make it random. There is a direct relationship between the number of trees in the forest and the results it can get: the larger the number of trees, the more accurate the result.
                 </p>
                 <a
-                  href="{% url 'diseasepredictor:heart' %}"
+                  href="{% url 'diseasepredictor:covid1' %}"
                   class="btn btn-block btn-danger text-uppercase"
                   >Check your Probability</a
                 >
@@ -376,15 +376,15 @@ a {
             <div class="card">
               <div class="card-body">
                 <h5 class="card-title text-muted text-uppercase text-center" style="color:#0b0b14!important;" >
-                  Covid-19 prediction using KNN-algorithm 
+                  Covid-19 prediction using KNN-algorithm
                 </h5>
 
                 <hr />
                 <p class="card-p" style="color: #6c757d!important;">
-                  K-nearest neighbors (KNN) algorithm is a type of supervised ML algorithm which can be used for both classification as well as regression predictive problems. However, it is mainly used for classification predictive problems in industry. 
+                  K-nearest neighbors (KNN) algorithm is a type of supervised ML algorithm which can be used for both classification as well as regression predictive problems. However, it is mainly used for classification predictive problems in industry.
                 </p>
                 <a
-                  href="a"
+                  href="{% url 'diseasepredictor:covid2' %}"
                   class="btn btn-block btn-primary text-uppercase"
                   >Check your Probability</a
                 >
@@ -399,10 +399,10 @@ a {
             <section class="icon fa fa-info-circle"><span class="title">About Us</span>
                 <span class ="hint"> $__TROUBLESHOOTERS__$</span>
               </section>
-          </div>  
+          </div>
           <div class="page" id="p3">
             <section class="icon fa fa-question"><span class="title">How it works?</span><span class="hint">We provide a personal health care suit that assists both doctor as well as patient in early diagnosis and treatment of heart problems. With Aorta, you can self diagnose your heart using our ML Prediction Models. Because your health matters to us :)</span></section>
-              
+
           </div>
           <div class="page" id="p4">
             <section class="icon fa fa-credit-card-alt">
@@ -436,180 +436,3 @@ a {
 
 
 
-
-{% comment %} <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, shrink-to-fit=no"
-    />
-
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
-      crossorigin="anonymous"
-    />
-
-    <title>COVID-19 Predictor</title>
-
-    <style>
-      section.pricing {
-        background: #007bff;
-        background: linear-gradient(to right, #0062e6, #33aeff);
-      }
-
-      .pricing .card {
-        border: none;
-        border-radius: 1rem;
-        transition: all 0.2s;
-        box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.1);
-      }
-
-      .pricing hr {
-        margin: 1.5rem 0;
-      }
-
-      .pricing .card-title {
-        margin: 0.5rem 0;
-        font-size: 0.9rem;
-        letter-spacing: 0.1rem;
-        font-weight: bold;
-      }
-
-      .pricing .card-price {
-        font-size: 3rem;
-        margin: 0;
-      }
-
-      .pricing .card-price .period {
-        font-size: 0.8rem;
-      }
-
-      .pricing ul li {
-        margin-bottom: 1rem;
-      }
-
-      .pricing .text-muted {
-        opacity: 0.7;
-      }
-
-      .pricing .btn {
-        font-size: 80%;
-        border-radius: 5rem;
-        letter-spacing: 0.1rem;
-        font-weight: bold;
-        padding: 1rem;
-        opacity: 0.7;
-        transition: all 0.2s;
-      }
-
-      /* Hover Effects on Card */
-
-      @media (min-width: 992px) {
-        .pricing .card:hover {
-          margin-top: -0.25rem;
-          margin-bottom: 0.25rem;
-          box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.3);
-        }
-        .pricing .card:hover .btn {
-          opacity: 1;
-        }
-      }
-    </style>
-  </head>
-  <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <a class="navbar-brand" href="{% url 'home' %}">Covid-19 Predictor</a>
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-toggle="collapse"
-        data-target="#navbarNavAltMarkup"
-        aria-controls="navbarNavAltMarkup"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse " id="navbarNavAltMarkup">
-        <div class="navbar-nav ml-auto">
-          <a class="nav-item nav-link mr-3 " href="{% url 'heart' %}"
-            >Random forest algorithm
-        </a>
-          <a class="nav-item nav-link " href="{% url 'diseasepredictor:breast' %}"
-            >KNN-Algorithm</a
-          >
-        </div>
-      </div>
-    </nav>
-    <section class="pricing py-5">
-      <div class="container">
-        <div class="row">
-          <!-- Free Tier -->
-          <div class="col-lg-4">
-            <div class="card mb-5 mb-lg-0">
-              <div class="card-body">
-                <h5 class="card-title text-muted text-uppercase text-center">
-                  Covid-19 prediction using Randomforest algorithm
-                </h5>
-
-                <hr />
-                <p class="">
-                  Random Forest algorithm is a supervised classification algorithm. We can see it from its name, which is to create a forest by some way and make it random. There is a direct relationship between the number of trees in the forest and the results it can get: the larger the number of trees, the more accurate the result. 
-                </p>
-                <a
-                  href="{% url 'heart' %}"
-                  class="btn btn-block btn-danger text-uppercase"
-                  >Check your Probability</a
-                >
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-4">
-            <div class="card">
-              <div class="card-body">
-                <h5 class="card-title text-muted text-uppercase text-center">
-                  Covid-19 prediction using KNN-algorithm 
-                </h5>
-
-                <hr />
-                <p class="">
-                  K-nearest neighbors (KNN) algorithm is a type of supervised ML algorithm which can be used for both classification as well as regression predictive problems. However, it is mainly used for classification predictive problems in industry. 
-                </p>
-                <a
-                  href="a"
-                  class="btn btn-block btn-primary text-uppercase"
-                  >Check your Probability</a
-                >
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-
-
-
-
-    
-    <script
-      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-      crossorigin="anonymous"
-    ></script>
-  </body>
-</html> {% endcomment %}
