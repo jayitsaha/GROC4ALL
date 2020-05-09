@@ -29,8 +29,8 @@
           <div class="col-sm-12 ftco-animate text-center">
             <h1 class="mb-2">100% Fresh &amp; Organic Foods</h1>
             <h2 class="subheading mb-4">We deliver organic vegetables &amp; fruits</h2>
-            
-            
+
+
             <p><a href="#" class="btn btn-primary">View Details</a></p>
 
           </div>
@@ -56,8 +56,12 @@
         <div class="clearfix"></div>
      </div>
      <!--user typing indicator -->
-     <div class="keypad" >
-        <input type="text" id="keypad" class="usrInput browser-default" placeholder="Type a message..." autocomplete="off">
+     <div class="" style="display:flex;">
+        <input type="text" id="keypad" style="display:flex" class="usrInput browser-default" placeholder="Type a message..." autocomplete="off">
+         {% comment %} <form action='#' class="nobgform" style="display:flex" > {% endcomment %}
+          {% comment %} {%csrf_token%} {% endcomment %}
+          <input type="submit" class="nobg browser-default"  name="mybtn" autocomplete="off">
+        {% comment %} </form> {% endcomment %}
      </div>
   </div>
   <!--bot widget -->
@@ -68,13 +72,13 @@
 <br><br><br><br>
 
 
-        <div class="col-sm-12 ftco-animate text-center">
+        {% comment %} <div class="col-sm-12 ftco-animate text-center">
 
         <form action='#' method='GET'>
 
           <input type="submit" class="btn btn-primary" value="RECORD NOW" name="mybtn">
         </form>
-        </div>
+        </div> {% endcomment %}
 
 
 <section class="ftco-section">
@@ -84,7 +88,7 @@
         <div class="media block-6 services mb-md-0 mb-4">
           <div class="icon bg-color-1 active d-flex justify-content-center align-items-center mb-2">
 
-          
+
             <span class="flaticon-shipped"></span>
           </div>
           <div class="media-body">
