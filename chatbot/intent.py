@@ -10,10 +10,9 @@ intents as it needed.
 @author: yaric
 """
 
-from chatbot.command import GreetCommand, AddItemCommand, ShowItemsCommand, ClearListCommand, ShowStatsCommand
-
+from chatbot.command import GreetCommand, AddItemCommand, ShowItemsCommand, ClearListCommand, ShowStatsCommand,WishBackCommand,SuggestCorona
 class Intent(object):
-    
+
     def __init__(self, bot, intent_name, context):
         """
         Creates new intent for specified chatbot with given name
@@ -27,7 +26,7 @@ class Intent(object):
         self.context = context
         self.commands = []
         self.initCommands()
-        
+
     def execute(self, nlu_data):
         """
         Executes given intent by applying appropriate command to the given
@@ -41,20 +40,20 @@ class Intent(object):
             print(val)
             print("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$")
             return val
-    
+
     def initCommands(self):
         """
         The method to init specific to particular intent.
         """
         pass
-    
+
 class AddItemsIntent(Intent):
-    
+
     def initCommands(self):
         self.commands.append(AddItemCommand())
         val = self.commands.append(ShowItemsCommand())
         return val
-    
+
     def execute(self, data):
         confidence = data['intent']['confidence']
         confidence_threshold = self.context['confidence_threshold']
@@ -62,14 +61,14 @@ class AddItemsIntent(Intent):
             s = 'I\'m sorry! Could you please paraphrase!'
             print(s)
             return s
-        
+
         # add all intent entities
         for entity in data['entities']:
             self.commands[0].do(self.chatbot, entity['value'])
-        
+
         # show items list
         self.commands[1].do(self.chatbot, None)
-        
+
 class HelloIntent(Intent):
     def initCommands(self):
         val = self.commands.append(GreetCommand())
@@ -77,7 +76,15 @@ class HelloIntent(Intent):
         # print(val)
         # print("##########################################")
         return val
-    
+
+class WishBackIntent(Intent):
+    def initCommands(self):
+        val = self.commands.append(WishBackCommand())
+        # print("##########################################")
+        # print(val)
+        # print("##########################################")
+        return val
+
 class ShowItemsIntent(Intent):
     def initCommands(self):
         val = self.commands.append(ShowItemsCommand())
@@ -85,17 +92,46 @@ class ShowItemsIntent(Intent):
         # print(val)
         # print("##########################################")
         return val
-        
+
 class ClearListIntent(Intent):
     def initCommands(self):
         self.commands.append(ClearListCommand())
         val = self.commands.append(ShowItemsCommand())
         return val
-        
+
 class ShowStatsIntent(Intent):
      def initCommands(self):
         val = self.commands.append(ShowStatsCommand())
         return val
 
-        
-    
+
+
+class GetCoronaUpdate(Intent):
+
+    def initCommands(self):
+        val = self.commands.append(SuggestCorona())
+        # print(val)
+        # print("This is GetLocation ")
+        # val = self.commands.append(ShowItemsCommand())
+        return val
+
+    def execute(self, data):
+        confidence = data['intent']['confidence']
+        # print(data)
+        confidence_threshold = self.context['confidence_threshold']
+        if confidence < confidence_threshold:
+            s = 'I\'m sorry! Could you please paraphrase!'
+            print(s)
+            return s
+
+        # add all intent entities
+        s = ""
+        for entity in data['entities']:
+            s = s + self.commands[0].do(self.chatbot, entity['value'])
+
+        return s
+
+        # show items list
+        # self.commands[1].do(self.chatbot, None)
+
+

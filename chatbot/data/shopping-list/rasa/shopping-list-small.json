@@ -32,6 +32,32 @@
         "entities": []
       },
       {
+        "text": "how are you",
+        "intent": "wishback",
+        "entities": []
+      },
+      {
+        "text": "how you doin",
+        "intent": "wishback",
+        "entities": []
+      },
+      {
+        "text": "what up?",
+        "intent": "wishback",
+        "entities": []
+      },
+      {
+        "text": "wassup?",
+        "intent": "wishback",
+        "entities": []
+      },
+      {
+        "text": "all good?",
+        "intent": "wishback",
+        "entities": []
+      },
+
+      {
         "text": "add eggs",
         "intent": "add_item",
         "entities": [
@@ -235,6 +261,169 @@
             "end": 8,
             "value": "milk",
             "entity": "shopping_item"
+          }
+        ]
+      },
+
+
+
+
+      {
+        "text": "What's the corona status today?",
+        "intent": "inform",
+        "entities": []
+      },
+      {
+        "text": "What's the corona status in London today?",
+        "intent": "inform",
+        "entities": [
+          {
+            "start": 28,
+            "end": 34,
+            "value": "London",
+            "entity": "location"
+          }
+        ]
+      },
+      {
+        "text": "Show me what's the corona status in Paris",
+        "intent": "inform",
+        "entities": [
+          {
+            "start": 36,
+            "end": 41,
+            "value": "Paris",
+            "entity": "location"
+          }
+        ]
+      },
+      {
+        "text": "I wonder what is the corona status in Vilnius right now?",
+        "intent": "inform",
+        "entities": [
+          {
+            "start": 38,
+            "end": 45,
+            "value": "Vilnius",
+            "entity": "location"
+          }
+        ]
+      },
+      {
+        "text": "what is the corona status?",
+        "intent": "inform",
+        "entities": []
+      },
+      {
+        "text": "Tell me the corona status",
+        "intent": "inform",
+        "entities": []
+      },
+      {
+        "text": "Is the corona status nice in Barcelona today?",
+        "intent": "inform",
+        "entities": [
+          {
+            "start": 29,
+            "end": 38,
+            "value": "Barcelona",
+            "entity": "location"
+          }
+        ]
+      },
+      {
+        "text": "I am going to London today and I wonder what is the corona status out there?",
+        "intent": "inform",
+        "entities": [
+          {
+            "start": 14,
+            "end": 20,
+            "value": "London",
+            "entity": "location"
+          }
+        ]
+      },
+      {
+        "text": "I am planning my trip to Amsterdam. What is the corona status out there?",
+        "intent": "inform",
+        "entities": [
+          {
+            "start": 25,
+            "end": 34,
+            "value": "Amsterdam",
+            "entity": "location"
+          }
+        ]
+      },
+      {
+        "text": "Show me the corona status in Dublin, please",
+        "intent": "inform",
+        "entities": [
+          {
+            "start": 29,
+            "end": 35,
+            "value": "Dublin",
+            "entity": "location"
+          }
+        ]
+      },
+      {
+        "text": "in London",
+        "intent": "inform",
+        "entities": [
+          {
+            "start": 3,
+            "end": 9,
+            "value": "London",
+            "entity": "location"
+          }
+        ]
+      },
+      {
+        "text": "Lithuania",
+        "intent": "inform",
+        "entities": [
+          {
+            "start": 0,
+            "end": 9,
+            "value": "Lithuania",
+            "entity": "location"
+          }
+        ]
+      },
+      {
+        "text": "Oh, sorry, in Italy",
+        "intent": "inform",
+        "entities": [
+          {
+            "start": 14,
+            "end": 19,
+            "value": "Italy",
+            "entity": "location"
+          }
+        ]
+      },
+      {
+        "text": "Tell me the corona status in Vilnius",
+        "intent": "inform",
+        "entities": [
+          {
+            "start": 29,
+            "end": 36,
+            "value": "Vilnius",
+            "entity": "location"
+          }
+        ]
+      },
+      {
+        "text": "The corona status condition in Italy",
+        "intent": "inform",
+        "entities": [
+          {
+            "start": 31,
+            "end": 36,
+            "value": "Italy",
+            "entity": "location"
           }
         ]
       }

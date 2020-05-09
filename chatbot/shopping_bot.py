@@ -10,7 +10,7 @@ parse user's intents and execute corresponding commands in response.
 """
 
 from rasa_nlu.training_data import load_data
-from rasa_nlu.config import RasaNLUModelConfig 
+from rasa_nlu.config import RasaNLUModelConfig
 from rasa_nlu.model import Trainer
 from rasa_nlu import config
 import os
@@ -21,16 +21,16 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
 
-from chatbot.intent import HelloIntent, AddItemsIntent, ClearListIntent, ShowItemsIntent, ShowStatsIntent
+from chatbot.intent import HelloIntent, AddItemsIntent, ClearListIntent, ShowItemsIntent, ShowStatsIntent,WishBackIntent,GetCoronaUpdate
 
 class ShoppingBot(object):
     def __init__(self, training_data_file = BASE_DIR+"/chatbot/data/shopping-list/rasa/shopping-list-small.json", config_file = BASE_DIR+"/chatbot/config/shopping-list/config_spacy.json"):
         training_data = load_data(training_data_file)
-        
+
         trainer = Trainer(config.load(config_file))
         self.interpreter = trainer.train(training_data)
         self.shopping_list = {}
-        
+
         # Create supported intents
         context = {'confidence_threshold':0.72}
         self.intents = {
@@ -38,16 +38,22 @@ class ShoppingBot(object):
                 "add_item"  : AddItemsIntent(self, "add_item", context),
                 "clear_list": ClearListIntent(self, "clear_list", context),
                 "show_items": ShowItemsIntent(self, "show_items", context),
-                "_num_items": ShowStatsIntent(self, "_num_items", context)
+                "_num_items": ShowStatsIntent(self, "_num_items", context),
+                "wishback"  : WishBackIntent(self, "wishback", context),
+                "inform"  : GetCoronaUpdate(self, "inform", context),
+
+
+
+
             }
-        
-    
+
+
     def handle(self, message):
         """
         Handles incoming message using trained NLU model and prints response to
         the system out
         Arguments:
-            message the message from user to be handled with known intents 
+            message the message from user to be handled with known intents
             (greet, add_item, clear_list, show_items, _num_items)
         """
         if message == '_num_items':
@@ -57,8 +63,7 @@ class ShoppingBot(object):
             intent = nlu_data['intent']['name']
             if self.intents[intent] is not None:
                 val = self.intents[intent].execute(nlu_data)
-        
-        return val
-        
 
-        
+        return val
+
+
