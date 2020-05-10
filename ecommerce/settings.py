@@ -33,7 +33,7 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     'wishlists.apps.WishlistsConfig',
     'orders.apps.OrdersConfig',
-    'users.apps.UsersConfig',
+    # 'users.apps.UsersConfig',
     'cart.apps.CartConfig',
     'products.apps.ProductsConfig',
     'categories.apps.CategoriesConfig',
@@ -46,6 +46,8 @@ INSTALLED_APPS = [
     'grappelli',
     'django.contrib.admin',
     'django_cleanup',
+    'users',
+    'crispy_forms',
 ]
 
 MIDDLEWARE = [
@@ -122,6 +124,11 @@ USE_L10N = True
 
 USE_TZ = True
 
+AUTH_USER_MODEL = 'users.User'
+
+LOGIN_URL = 'login'
+
+LOGOUT_URL = 'logout'
 
 GRAPPELLI_ADMIN_TITLE = 'EcomSite'
 

@@ -6,7 +6,7 @@ from django.conf import settings
 from speechText.run import Run
 import json
 from django.views.decorators.csrf import csrf_exempt
-from chatbot.shopping_bot import ShoppingBot
+from chatbot1.shopping_bot import ShoppingBot
 
 sb = ShoppingBot()
 global x
@@ -67,10 +67,11 @@ def myajaxtestviewtext(request):
     # print("^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^")
     s = str(request.POST['text'])
     resp = sb.handle(s)
+    print(resp)
+
     # print("*********************************************************************")
-    if(resp == None):
-        # print("Added")
-        resp = "Done..."
+    if(resp == "None"):
+            resp = "Done..."
     else:
         print(resp)
     # print("*********************************************************************")

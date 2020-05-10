@@ -1,0 +1,3568 @@
+﻿{
+  "rasa_nlu_data": {
+    "common_examples": [
+      {
+        "text": "remove 8 eggs",
+        "intent": "remove_item",
+        "entities": [
+          {
+            "start": 7,
+            "end": 13,
+            "value": "8 eggs",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "remove 10 eggs",
+        "intent": "remove_item",
+        "entities": [
+          {
+            "start": 7,
+            "end": 14,
+            "value": "10 eggs",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "i need to remove 8 eggs",
+        "intent": "remove_item",
+        "entities": [
+          {
+            "start": 17,
+            "end": 23,
+            "value": "8 eggs",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "i want to remove 10 eggs",
+        "intent": "remove_item",
+        "entities": [
+          {
+            "start": 17,
+            "end": 24,
+            "value": "10 eggs",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "remove 8 lays",
+        "intent": "remove_item",
+        "entities": [
+          {
+            "start": 7,
+            "end": 13,
+            "value": "8 lays",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "remove 10 lays",
+        "intent": "remove_item",
+        "entities": [
+          {
+            "start": 7,
+            "end": 14,
+            "value": "10 lays",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "i need to remove 8 lays",
+        "intent": "remove_item",
+        "entities": [
+          {
+            "start": 17,
+            "end": 23,
+            "value": "8 lays",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "i want to remove 10 lays",
+        "intent": "remove_item",
+        "entities": [
+          {
+            "start": 17,
+            "end": 24,
+            "value": "10 lays",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "i need to remove 9 eggs",
+        "intent": "remove_item",
+        "entities": [
+          {
+            "start": 17,
+            "end": 23,
+            "value": "9 eggs",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "i want to remove 9 eggs",
+        "intent": "remove_item",
+        "entities": [
+          {
+            "start":17,
+            "end": 23,
+            "value": "9 eggs",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "remove 7 eggs from the list",
+        "intent": "remove_item",
+        "entities": [
+          {
+            "start": 7,
+            "end": 13,
+            "value": "7 eggs",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "remove 7 eggs",
+        "intent": "remove_item",
+        "entities": [
+          {
+            "start": 7,
+            "end": 13,
+            "value": "7 eggs",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "i need to remove 3 lays",
+        "intent": "remove_item",
+        "entities": [
+          {
+            "start": 17,
+            "end": 23,
+            "value": "3 lays",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "i want to remove 3 lays",
+        "intent": "remove_item",
+        "entities": [
+          {
+            "start":17,
+            "end": 23,
+            "value": "3 lays",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "remove 24 lays from the list",
+        "intent": "remove_item",
+        "entities": [
+          {
+            "start": 7,
+            "end": 14,
+            "value": "24 lays",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "remove 24 lays",
+        "intent": "remove_item",
+        "entities": [
+          {
+            "start": 7,
+            "end": 14,
+            "value": "24 lays",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "i need to remove 28 eggs",
+        "intent": "remove_item",
+        "entities": [
+          {
+            "start": 17,
+            "end": 24,
+            "value": "28 eggs",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "i want to remove 28 eggs",
+        "intent": "remove_item",
+        "entities": [
+          {
+            "start": 17,
+            "end": 24,
+            "value": "28 eggs",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "remove 38 eggs from the list",
+        "intent": "remove_item",
+        "entities": [
+          {
+            "start": 7,
+            "end": 14,
+            "value": "38 eggs",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "remove 38 eggs",
+        "intent": "remove_item",
+        "entities": [
+          {
+            "start": 7,
+            "end": 14,
+            "value": "38 eggs",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "i need to remove 13 lays",
+        "intent": "remove_item",
+        "entities": [
+          {
+            "start": 17,
+            "end": 24,
+            "value": "13 lays",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "i want to remove 13 lays",
+        "intent": "remove_item",
+        "entities": [
+          {
+            "start": 17,
+            "end": 24,
+            "value": "13 lays",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "remove 14 lays from the list",
+        "intent": "remove_item",
+        "entities": [
+          {
+            "start": 7,
+            "end": 14,
+            "value": "14 lays",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "remove 14 lays",
+        "intent": "remove_item",
+        "entities": [
+          {
+            "start": 7,
+            "end": 14,
+            "value": "14 lays",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "i also need to remove 5 eggs",
+        "intent": "remove_item",
+        "entities": [
+          {
+            "start": 22,
+            "end": 28,
+            "value": "5 eggs",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "i also want to remove 5 eggs",
+        "intent": "remove_item",
+        "entities": [
+          {
+            "start": 22,
+            "end": 28,
+            "value": "5 eggs",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "i also wish to remove 5 eggs",
+        "intent": "remove_item",
+        "entities": [
+          {
+            "start": 22,
+            "end": 28,
+            "value": "5 eggs",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "i also like to remove 5 eggs",
+        "intent": "remove_item",
+        "entities": [
+          {
+            "start": 22,
+            "end": 28,
+            "value": "5 eggs",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "also remove 5 eggs",
+        "intent": "remove_item",
+        "entities": [
+          {
+            "start": 12,
+            "end": 18,
+            "value": "5 eggs",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "also remove 3 eggs",
+        "intent": "remove_item",
+        "entities": [
+          {
+            "start": 12,
+            "end": 18,
+            "value": "3 eggs",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "also remove 5 lays",
+        "intent": "remove_item",
+        "entities": [
+          {
+            "start": 12,
+            "end": 18,
+            "value": "5 lays",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "also remove 15 eggs",
+        "intent": "remove_item",
+        "entities": [
+          {
+            "start": 12,
+            "end": 19,
+            "value": "15 eggs",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "also remove 25 eggs",
+        "intent": "remove_item",
+        "entities": [
+          {
+            "start": 12,
+            "end": 19,
+            "value": "25 eggs",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "need 5 eggs to remove",
+        "intent": "remove_item",
+        "entities": [
+          {
+            "start": 5,
+            "end": 11,
+            "value": "5 eggs",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "need to remove 5 eggs",
+        "intent": "remove_item",
+        "entities": [
+          {
+            "start": 15,
+            "end": 21,
+            "value": "5 eggs",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "want to remove 5 eggs",
+        "intent": "remove_item",
+        "entities": [
+          {
+            "start": 15,
+            "end": 21,
+            "value": "5 eggs",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "wish to remove 5 eggs",
+        "intent": "remove_item",
+        "entities": [
+          {
+            "start": 15,
+            "end": 21,
+            "value": "5 eggs",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "need to remove 5 lays",
+        "intent": "remove_item",
+        "entities": [
+          {
+            "start": 15,
+            "end": 21,
+            "value": "5 lays",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "want to remove 15 lays",
+        "intent": "remove_item",
+        "entities": [
+          {
+            "start": 15,
+            "end": 22,
+            "value": "15 lays",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "wish to remove 15 lays",
+        "intent": "remove_item",
+        "entities": [
+          {
+            "start": 15,
+            "end": 22,
+            "value": "15 lays",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "need to remove 25 lays",
+        "intent": "remove_item",
+        "entities": [
+          {
+            "start": 15,
+            "end": 22,
+            "value": "25 lays",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "remove 5 milk",
+        "intent": "remove_item",
+        "entities": [
+          {
+            "start": 7,
+            "end": 13,
+            "value": "5 milk",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "remove 5 lays",
+        "intent": "remove_item",
+        "entities": [
+          {
+            "start": 7,
+            "end": 13,
+            "value": "5 lays",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "remove 15 lays",
+        "intent": "remove_item",
+        "entities": [
+          {
+            "start": 7,
+            "end": 14,
+            "value": "15 lays",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "remove 25 lays",
+        "intent": "remove_item",
+        "entities": [
+          {
+            "start": 7,
+            "end": 14,
+            "value": "5 lays",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "remove 35 lays",
+        "intent": "remove_item",
+        "entities": [
+          {
+            "start": 7,
+            "end": 14,
+            "value": "35 lays",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "remove 5 butter",
+        "intent": "remove_item",
+        "entities": [
+          {
+            "start": 7,
+            "end": 15,
+            "value": "5 butter",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "need to remove some 5 milk",
+        "intent": "remove_item",
+        "entities": [
+          {
+            "start": 20,
+            "end": 26,
+            "value": "5 milk",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "need to remove some 5 lays",
+        "intent": "remove_item",
+        "entities": [
+          {
+            "start": 20,
+            "end": 26,
+            "value": "5 lays",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "need to remove some 15 milk",
+        "intent": "remove_item",
+        "entities": [
+          {
+            "start": 20,
+            "end": 27,
+            "value": "15 milk",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "remove 3 butter from the list",
+        "intent": "add_item",
+        "entities": [
+          {
+            "start": 7,
+            "end": 15,
+            "value": "3 butter",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "remove 5 butter from the list",
+        "intent": "add_item",
+        "entities": [
+          {
+            "start": 7,
+            "end": 15,
+            "value": "5 butter",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "remove 13 butter from the list",
+        "intent": "add_item",
+        "entities": [
+          {
+            "start": 7,
+            "end": 16,
+            "value": "13 butter",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "remove 33 butter from the list",
+        "intent": "add_item",
+        "entities": [
+          {
+            "start": 7,
+            "end": 16,
+            "value": "33 butter",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "remove 3 butter please",
+        "intent": "remove_item",
+        "entities": [
+          {
+            "start": 7,
+            "end": 15,
+            "value": "3 butter",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "remove 7 butter please",
+        "intent": "remove_item",
+        "entities": [
+          {
+            "start": 7,
+            "end": 15,
+            "value": "7 butter",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "remove 3 cheese please",
+        "intent": "remove_item",
+        "entities": [
+          {
+            "start": 7,
+            "end": 15,
+            "value": "3 cheese",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "remove 7 cheese please",
+        "intent": "remove_item",
+        "entities": [
+          {
+            "start": 7,
+            "end": 15,
+            "value": "7 cheese",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "remove 17 butter please",
+        "intent": "remove_item",
+        "entities": [
+          {
+            "start": 7,
+            "end": 16,
+            "value": "17 butter",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "remove 13 cheese please",
+        "intent": "remove_item",
+        "entities": [
+          {
+            "start": 7,
+            "end": 16,
+            "value": "13 cheese",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "remove 17 cheese please",
+        "intent": "remove_item",
+        "entities": [
+          {
+            "start": 7,
+            "end": 16,
+            "value": "17 cheese",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "remove more 8 eggs",
+        "intent": "remove_item",
+        "entities": [
+          {
+            "start": 12,
+            "end": 18,
+            "value": "8 eggs",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "remove more 7 eggs",
+        "intent": "remove_item",
+        "entities": [
+          {
+            "start": 12,
+            "end": 18,
+            "value": "7 eggs",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "remove more 8 lays",
+        "intent": "remove_item",
+        "entities": [
+          {
+            "start": 12,
+            "end": 18,
+            "value": "8 lays",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "remove more 18 eggs",
+        "intent": "remove_item",
+        "entities": [
+          {
+            "start": 12,
+            "end": 19,
+            "value": "18 eggs",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "remove more 28 eggs",
+        "intent": "remove_item",
+        "entities": [
+          {
+            "start": 12,
+            "end": 19,
+            "value": "28 eggs",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "remove more 6 butter",
+        "intent": "remove_item",
+        "entities": [
+          {
+            "start": 12,
+            "end": 20,
+            "value": "6 butter",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "i need to remove more 7 milk",
+        "intent": "remove_item",
+        "entities": [
+          {
+            "start": 22,
+            "end": 28,
+            "value": "7 milk",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "i want to remove more 7 milk",
+        "intent": "remove_item",
+        "entities": [
+          {
+            "start": 22,
+            "end": 28,
+            "value": "7 milk",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "i wish to remove more 7 milk",
+        "intent": "remove_item",
+        "entities": [
+          {
+            "start": 22,
+            "end": 28,
+            "value": "7 milk",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "i need to remove 5 eggs from the cart",
+        "intent": "remove_item",
+        "entities": [
+          {
+            "start": 17,
+            "end": 23,
+            "value": "5 eggs",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "i wish to remove 5 lays from the cart",
+        "intent": "remove_item",
+        "entities": [
+          {
+            "start": 17,
+            "end": 23,
+            "value": "5 lays",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "i want to remove 5 eggs from the cart",
+        "intent": "remove_item",
+        "entities": [
+          {
+            "start": 17,
+            "end": 23,
+            "value": "5 eggs",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "i like to remove 10 eggs from the cart",
+        "intent": "remove_item",
+        "entities": [
+          {
+            "start": 17,
+            "end": 24,
+            "value": "10 eggs",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "i need to remove 5 eggs from my cart",
+        "intent": "remove_item",
+        "entities": [
+          {
+            "start": 17,
+            "end": 23,
+            "value": "5 eggs",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "i wish to remove 5 lays from the basket",
+        "intent": "remove_item",
+        "entities": [
+          {
+            "start": 17,
+            "end": 23,
+            "value": "5 lays",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "i want to remove 5 eggs from the basket",
+        "intent": "remove_item",
+        "entities": [
+          {
+            "start": 17,
+            "end": 23,
+            "value": "5 eggs",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "i wish to remove 5 lays from my basket",
+        "intent": "remove_item",
+        "entities": [
+          {
+            "start": 17,
+            "end": 23,
+            "value": "5 lays",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "i want to remove 5 eggs from my basket",
+        "intent": "remove_item",
+        "entities": [
+          {
+            "start": 17,
+            "end": 23,
+            "value": "5 eggs",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "i like to remove 10 eggs from the basket",
+        "intent": "remove_item",
+        "entities": [
+          {
+            "start": 17,
+            "end": 24,
+            "value": "10 eggs",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "remove 5 cheese from the cart",
+        "intent": "remove_item",
+        "entities": [
+          {
+            "start": 7,
+            "end": 15,
+            "value": "5 cheese",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "remove 10 cheese from the cart",
+        "intent": "remove_item",
+        "entities": [
+          {
+            "start": 7,
+            "end": 16,
+            "value": "10 cheese",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "please remove 5 cheese from the cart",
+        "intent": "remove_item",
+        "entities": [
+          {
+            "start": 14,
+            "end": 22,
+            "value": "5 cheese",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "please remove 5 cheese from the list",
+        "intent": "remove_item",
+        "entities": [
+          {
+            "start": 14,
+            "end": 22,
+            "value": "5 cheese",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "please remove 5 cheese from the basket",
+        "intent": "remove_item",
+        "entities": [
+          {
+            "start": 14,
+            "end": 22,
+            "value": "5 cheese",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "can you remove 8 cheese from the cart",
+        "intent": "remove_item",
+        "entities": [
+          {
+            "start": 15,
+            "end": 23,
+            "value": "8 cheese",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "can you remove 10 cheese from the cart",
+        "intent": "remove_item",
+        "entities": [
+          {
+            "start": 15,
+            "end": 24,
+            "value": "10 cheese",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "can you please remove 5 cheese from the cart",
+        "intent": "remove_item",
+        "entities": [
+          {
+            "start": 22,
+            "end": 30,
+            "value": "5 cheese",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "could you please remove 5 cheese from the list",
+        "intent": "remove_item",
+        "entities": [
+          {
+            "start": 24,
+            "end": 32,
+            "value": "5 cheese",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "could you please remove 5 cheese from the basket",
+        "intent": "remove_item",
+        "entities": [
+          {
+            "start": 24,
+            "end": 32,
+            "value": "5 cheese",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "please remove 5 cheese",
+        "intent": "remove_item",
+        "entities": [
+          {
+            "start": 14,
+            "end": 22,
+            "value": "5 cheese",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "can you remove 5 cheese",
+        "intent": "remove_item",
+        "entities": [
+          {
+            "start": 15,
+            "end": 23,
+            "value": "5 cheese",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "can you remove 10 cheese",
+        "intent": "remove_item",
+        "entities": [
+          {
+            "start": 15,
+            "end": 24,
+            "value": "10 cheese",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "can you please remove 5 cheese",
+        "intent": "remove_item",
+        "entities": [
+          {
+            "start": 22,
+            "end": 30,
+            "value": "5 cheese",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "i need to remove 8 eggs and 4 milk",
+        "intent": "remove_item",
+        "entities": [
+          {
+            "start": 17,
+            "end": 23,
+            "value": "8 eggs",
+            "entity": "shopping_item"
+          },
+          {
+            "start": 28,
+            "end": 34,
+            "value": "4 milk",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "remove 8 eggs and 4 milk",
+        "intent": "remove_item",
+        "entities": [
+          {
+            "start": 7,
+            "end": 13,
+            "value": "8 eggs",
+            "entity": "shopping_item"
+          },
+          {
+            "start": 18,
+            "end": 24,
+            "value": "4 milk",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "remove 18 eggs and 4 milk",
+        "intent": "remove_item",
+        "entities": [
+          {
+            "start": 7,
+            "end": 14,
+            "value": "18 eggs",
+            "entity": "shopping_item"
+          },
+          {
+            "start": 19,
+            "end": 25,
+            "value": "4 milk",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "remove 18 eggs and 14 milk",
+        "intent": "remove_item",
+        "entities": [
+          {
+            "start": 7,
+            "end": 14,
+            "value": "18 eggs",
+            "entity": "shopping_item"
+          },
+          {
+            "start": 19,
+            "end": 26,
+            "value": "14 milk",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "remove 8 eggs and 14 milk",
+        "intent": "remove_item",
+        "entities": [
+          {
+            "start": 7,
+            "end": 13,
+            "value": "8 eggs",
+            "entity": "shopping_item"
+          },
+          {
+            "start": 18,
+            "end": 25,
+            "value": "14 milk",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+
+
+
+
+
+
+
+
+
+
+
+      {
+        "text": "delete 8 eggs",
+        "intent": "remove_item",
+        "entities": [
+          {
+            "start": 7,
+            "end": 13,
+            "value": "8 eggs",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "delete 10 eggs",
+        "intent": "remove_item",
+        "entities": [
+          {
+            "start": 7,
+            "end": 14,
+            "value": "10 eggs",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "i need to delete 8 eggs",
+        "intent": "remove_item",
+        "entities": [
+          {
+            "start": 17,
+            "end": 23,
+            "value": "8 eggs",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "i want to delete 10 eggs",
+        "intent": "remove_item",
+        "entities": [
+          {
+            "start": 17,
+            "end": 24,
+            "value": "10 eggs",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "delete 8 lays",
+        "intent": "remove_item",
+        "entities": [
+          {
+            "start": 7,
+            "end": 13,
+            "value": "8 lays",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "delete 10 lays",
+        "intent": "remove_item",
+        "entities": [
+          {
+            "start": 7,
+            "end": 14,
+            "value": "10 lays",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "i need to delete 8 lays",
+        "intent": "remove_item",
+        "entities": [
+          {
+            "start": 17,
+            "end": 23,
+            "value": "8 lays",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "i want to remove 10 lays",
+        "intent": "remove_item",
+        "entities": [
+          {
+            "start": 17,
+            "end": 24,
+            "value": "10 lays",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "i need to delete 9 eggs",
+        "intent": "remove_item",
+        "entities": [
+          {
+            "start": 17,
+            "end": 23,
+            "value": "9 eggs",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "i want to delete 9 eggs",
+        "intent": "remove_item",
+        "entities": [
+          {
+            "start":17,
+            "end": 23,
+            "value": "9 eggs",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "delete 7 eggs from the list",
+        "intent": "remove_item",
+        "entities": [
+          {
+            "start": 7,
+            "end": 13,
+            "value": "7 eggs",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "delete 7 eggs",
+        "intent": "remove_item",
+        "entities": [
+          {
+            "start": 7,
+            "end": 13,
+            "value": "7 eggs",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "i need to delete 3 lays",
+        "intent": "remove_item",
+        "entities": [
+          {
+            "start": 17,
+            "end": 23,
+            "value": "3 lays",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "i want to delete 3 lays",
+        "intent": "remove_item",
+        "entities": [
+          {
+            "start":17,
+            "end": 23,
+            "value": "3 lays",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "delete 24 lays from the list",
+        "intent": "remove_item",
+        "entities": [
+          {
+            "start": 7,
+            "end": 14,
+            "value": "24 lays",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "delete 24 lays",
+        "intent": "remove_item",
+        "entities": [
+          {
+            "start": 7,
+            "end": 14,
+            "value": "24 lays",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "i need to delete 28 eggs",
+        "intent": "remove_item",
+        "entities": [
+          {
+            "start": 17,
+            "end": 24,
+            "value": "28 eggs",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "i want to delete 28 eggs",
+        "intent": "remove_item",
+        "entities": [
+          {
+            "start": 17,
+            "end": 24,
+            "value": "28 eggs",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "delete 38 eggs from the list",
+        "intent": "remove_item",
+        "entities": [
+          {
+            "start": 7,
+            "end": 14,
+            "value": "38 eggs",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "delete 38 eggs",
+        "intent": "remove_item",
+        "entities": [
+          {
+            "start": 7,
+            "end": 14,
+            "value": "38 eggs",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "i need to delete 13 lays",
+        "intent": "remove_item",
+        "entities": [
+          {
+            "start": 17,
+            "end": 24,
+            "value": "13 lays",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "i want to delete 13 lays",
+        "intent": "remove_item",
+        "entities": [
+          {
+            "start": 17,
+            "end": 24,
+            "value": "13 lays",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "delete 14 lays from the list",
+        "intent": "remove_item",
+        "entities": [
+          {
+            "start": 7,
+            "end": 14,
+            "value": "14 lays",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "delete 14 lays",
+        "intent": "remove_item",
+        "entities": [
+          {
+            "start": 7,
+            "end": 14,
+            "value": "14 lays",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "i also need to delete 5 eggs",
+        "intent": "remove_item",
+        "entities": [
+          {
+            "start": 22,
+            "end": 28,
+            "value": "5 eggs",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "i also want to delete 5 eggs",
+        "intent": "remove_item",
+        "entities": [
+          {
+            "start": 22,
+            "end": 28,
+            "value": "5 eggs",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "i also wish to delete 5 eggs",
+        "intent": "remove_item",
+        "entities": [
+          {
+            "start": 22,
+            "end": 28,
+            "value": "5 eggs",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "i also like to delete 5 eggs",
+        "intent": "remove_item",
+        "entities": [
+          {
+            "start": 22,
+            "end": 28,
+            "value": "5 eggs",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "also delete 5 eggs",
+        "intent": "remove_item",
+        "entities": [
+          {
+            "start": 12,
+            "end": 18,
+            "value": "5 eggs",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "also delete 3 eggs",
+        "intent": "remove_item",
+        "entities": [
+          {
+            "start": 12,
+            "end": 18,
+            "value": "3 eggs",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "also delete 5 lays",
+        "intent": "remove_item",
+        "entities": [
+          {
+            "start": 12,
+            "end": 18,
+            "value": "5 lays",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "also delete 15 eggs",
+        "intent": "remove_item",
+        "entities": [
+          {
+            "start": 12,
+            "end": 19,
+            "value": "15 eggs",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "also delete 25 eggs",
+        "intent": "remove_item",
+        "entities": [
+          {
+            "start": 12,
+            "end": 19,
+            "value": "25 eggs",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "need 5 eggs to delete",
+        "intent": "remove_item",
+        "entities": [
+          {
+            "start": 5,
+            "end": 11,
+            "value": "5 eggs",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "need to delete 5 eggs",
+        "intent": "remove_item",
+        "entities": [
+          {
+            "start": 15,
+            "end": 21,
+            "value": "5 eggs",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "want to delete 5 eggs",
+        "intent": "remove_item",
+        "entities": [
+          {
+            "start": 15,
+            "end": 21,
+            "value": "5 eggs",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "wish to delete 5 eggs",
+        "intent": "remove_item",
+        "entities": [
+          {
+            "start": 15,
+            "end": 21,
+            "value": "5 eggs",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "need to delete 5 lays",
+        "intent": "remove_item",
+        "entities": [
+          {
+            "start": 15,
+            "end": 21,
+            "value": "5 lays",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "want to delete 15 lays",
+        "intent": "remove_item",
+        "entities": [
+          {
+            "start": 15,
+            "end": 22,
+            "value": "15 lays",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "wish to delete 15 lays",
+        "intent": "remove_item",
+        "entities": [
+          {
+            "start": 15,
+            "end": 22,
+            "value": "15 lays",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "need to delete 25 lays",
+        "intent": "remove_item",
+        "entities": [
+          {
+            "start": 15,
+            "end": 22,
+            "value": "25 lays",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "delete 5 milk",
+        "intent": "remove_item",
+        "entities": [
+          {
+            "start": 7,
+            "end": 13,
+            "value": "5 milk",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "delete 5 lays",
+        "intent": "remove_item",
+        "entities": [
+          {
+            "start": 7,
+            "end": 13,
+            "value": "5 lays",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "delete 15 lays",
+        "intent": "remove_item",
+        "entities": [
+          {
+            "start": 7,
+            "end": 14,
+            "value": "15 lays",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "delete 25 lays",
+        "intent": "remove_item",
+        "entities": [
+          {
+            "start": 7,
+            "end": 14,
+            "value": "5 lays",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "delete 35 lays",
+        "intent": "remove_item",
+        "entities": [
+          {
+            "start": 7,
+            "end": 14,
+            "value": "35 lays",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "delete 5 butter",
+        "intent": "remove_item",
+        "entities": [
+          {
+            "start": 7,
+            "end": 15,
+            "value": "5 butter",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "need to delete some 5 milk",
+        "intent": "remove_item",
+        "entities": [
+          {
+            "start": 20,
+            "end": 26,
+            "value": "5 milk",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "need to delete some 5 lays",
+        "intent": "remove_item",
+        "entities": [
+          {
+            "start": 20,
+            "end": 26,
+            "value": "5 lays",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "need to delete some 15 milk",
+        "intent": "remove_item",
+        "entities": [
+          {
+            "start": 20,
+            "end": 27,
+            "value": "15 milk",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "delete 3 butter from the list",
+        "intent": "add_item",
+        "entities": [
+          {
+            "start": 7,
+            "end": 15,
+            "value": "3 butter",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "delete 5 butter from the list",
+        "intent": "add_item",
+        "entities": [
+          {
+            "start": 7,
+            "end": 15,
+            "value": "5 butter",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "delete 13 butter from the list",
+        "intent": "add_item",
+        "entities": [
+          {
+            "start": 7,
+            "end": 16,
+            "value": "13 butter",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "delete 33 butter from the list",
+        "intent": "add_item",
+        "entities": [
+          {
+            "start": 7,
+            "end": 16,
+            "value": "33 butter",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "delete 3 butter please",
+        "intent": "remove_item",
+        "entities": [
+          {
+            "start": 7,
+            "end": 15,
+            "value": "3 butter",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "delete 7 butter please",
+        "intent": "remove_item",
+        "entities": [
+          {
+            "start": 7,
+            "end": 15,
+            "value": "7 butter",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "delete 3 cheese please",
+        "intent": "remove_item",
+        "entities": [
+          {
+            "start": 7,
+            "end": 15,
+            "value": "3 cheese",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "delete 7 cheese please",
+        "intent": "remove_item",
+        "entities": [
+          {
+            "start": 7,
+            "end": 15,
+            "value": "7 cheese",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "delete 17 butter please",
+        "intent": "remove_item",
+        "entities": [
+          {
+            "start": 7,
+            "end": 16,
+            "value": "17 butter",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "delete 13 cheese please",
+        "intent": "remove_item",
+        "entities": [
+          {
+            "start": 7,
+            "end": 16,
+            "value": "13 cheese",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "delete 17 cheese please",
+        "intent": "remove_item",
+        "entities": [
+          {
+            "start": 7,
+            "end": 16,
+            "value": "17 cheese",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "delete more 8 eggs",
+        "intent": "remove_item",
+        "entities": [
+          {
+            "start": 12,
+            "end": 18,
+            "value": "8 eggs",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "delete more 7 eggs",
+        "intent": "remove_item",
+        "entities": [
+          {
+            "start": 12,
+            "end": 18,
+            "value": "7 eggs",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "delete more 8 lays",
+        "intent": "remove_item",
+        "entities": [
+          {
+            "start": 12,
+            "end": 18,
+            "value": "8 lays",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "delete more 18 eggs",
+        "intent": "remove_item",
+        "entities": [
+          {
+            "start": 12,
+            "end": 19,
+            "value": "18 eggs",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "delete more 28 eggs",
+        "intent": "remove_item",
+        "entities": [
+          {
+            "start": 12,
+            "end": 19,
+            "value": "28 eggs",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "delete more 6 butter",
+        "intent": "remove_item",
+        "entities": [
+          {
+            "start": 12,
+            "end": 20,
+            "value": "6 butter",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "i need to delete more 7 milk",
+        "intent": "remove_item",
+        "entities": [
+          {
+            "start": 22,
+            "end": 28,
+            "value": "7 milk",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "i want to delete more 7 milk",
+        "intent": "remove_item",
+        "entities": [
+          {
+            "start": 22,
+            "end": 28,
+            "value": "7 milk",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "i wish to delete more 7 milk",
+        "intent": "remove_item",
+        "entities": [
+          {
+            "start": 22,
+            "end": 28,
+            "value": "7 milk",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "i need to delete 5 eggs from the cart",
+        "intent": "remove_item",
+        "entities": [
+          {
+            "start": 17,
+            "end": 23,
+            "value": "5 eggs",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "i wish to delete 5 lays from the cart",
+        "intent": "remove_item",
+        "entities": [
+          {
+            "start": 17,
+            "end": 23,
+            "value": "5 lays",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "i want to delete 5 eggs from the cart",
+        "intent": "remove_item",
+        "entities": [
+          {
+            "start": 17,
+            "end": 23,
+            "value": "5 eggs",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "i like to delete 10 eggs from the cart",
+        "intent": "remove_item",
+        "entities": [
+          {
+            "start": 17,
+            "end": 24,
+            "value": "10 eggs",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "i need to delete 5 eggs from my cart",
+        "intent": "remove_item",
+        "entities": [
+          {
+            "start": 17,
+            "end": 23,
+            "value": "5 eggs",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "i wish to delete 5 lays from the basket",
+        "intent": "remove_item",
+        "entities": [
+          {
+            "start": 17,
+            "end": 23,
+            "value": "5 lays",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "i want to delete 5 eggs from the basket",
+        "intent": "remove_item",
+        "entities": [
+          {
+            "start": 17,
+            "end": 23,
+            "value": "5 eggs",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "i wish to delete 5 lays from my basket",
+        "intent": "remove_item",
+        "entities": [
+          {
+            "start": 17,
+            "end": 23,
+            "value": "5 lays",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "i want to delete 5 eggs from my basket",
+        "intent": "remove_item",
+        "entities": [
+          {
+            "start": 17,
+            "end": 23,
+            "value": "5 eggs",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "i like to delete 10 eggs from the basket",
+        "intent": "remove_item",
+        "entities": [
+          {
+            "start": 17,
+            "end": 24,
+            "value": "10 eggs",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "delete 5 cheese from the cart",
+        "intent": "remove_item",
+        "entities": [
+          {
+            "start": 7,
+            "end": 15,
+            "value": "5 cheese",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "delete 10 cheese from the cart",
+        "intent": "remove_item",
+        "entities": [
+          {
+            "start": 7,
+            "end": 16,
+            "value": "10 cheese",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "please delete 5 cheese from the cart",
+        "intent": "remove_item",
+        "entities": [
+          {
+            "start": 14,
+            "end": 22,
+            "value": "5 cheese",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "please delete 5 cheese from the list",
+        "intent": "remove_item",
+        "entities": [
+          {
+            "start": 14,
+            "end": 22,
+            "value": "5 cheese",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "please delete 5 cheese from the basket",
+        "intent": "remove_item",
+        "entities": [
+          {
+            "start": 14,
+            "end": 22,
+            "value": "5 cheese",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "can you delete 8 cheese from the cart",
+        "intent": "remove_item",
+        "entities": [
+          {
+            "start": 15,
+            "end": 23,
+            "value": "8 cheese",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "can you delete 10 cheese from the cart",
+        "intent": "remove_item",
+        "entities": [
+          {
+            "start": 15,
+            "end": 24,
+            "value": "10 cheese",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "can you please delete 5 cheese from the cart",
+        "intent": "remove_item",
+        "entities": [
+          {
+            "start": 22,
+            "end": 30,
+            "value": "5 cheese",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "could you please delete 5 cheese from the list",
+        "intent": "remove_item",
+        "entities": [
+          {
+            "start": 24,
+            "end": 32,
+            "value": "5 cheese",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "could you please delete 5 cheese from the basket",
+        "intent": "remove_item",
+        "entities": [
+          {
+            "start": 24,
+            "end": 32,
+            "value": "5 cheese",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "please delete 5 cheese",
+        "intent": "remove_item",
+        "entities": [
+          {
+            "start": 14,
+            "end": 22,
+            "value": "5 cheese",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "can you delete 5 cheese",
+        "intent": "remove_item",
+        "entities": [
+          {
+            "start": 15,
+            "end": 23,
+            "value": "5 cheese",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "can you delete 10 cheese",
+        "intent": "remove_item",
+        "entities": [
+          {
+            "start": 15,
+            "end": 24,
+            "value": "10 cheese",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "can you please delete 5 cheese",
+        "intent": "remove_item",
+        "entities": [
+          {
+            "start": 22,
+            "end": 30,
+            "value": "5 cheese",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "i need to delete 8 eggs and 4 milk",
+        "intent": "remove_item",
+        "entities": [
+          {
+            "start": 17,
+            "end": 23,
+            "value": "8 eggs",
+            "entity": "shopping_item"
+          },
+          {
+            "start": 28,
+            "end": 34,
+            "value": "4 milk",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "delete 8 eggs and 4 milk",
+        "intent": "remove_item",
+        "entities": [
+          {
+            "start": 7,
+            "end": 13,
+            "value": "8 eggs",
+            "entity": "shopping_item"
+          },
+          {
+            "start": 18,
+            "end": 24,
+            "value": "4 milk",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "delete 18 eggs and 4 milk",
+        "intent": "remove_item",
+        "entities": [
+          {
+            "start": 7,
+            "end": 14,
+            "value": "18 eggs",
+            "entity": "shopping_item"
+          },
+          {
+            "start": 19,
+            "end": 25,
+            "value": "4 milk",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "delete 18 eggs and 14 milk",
+        "intent": "remove_item",
+        "entities": [
+          {
+            "start": 7,
+            "end": 14,
+            "value": "18 eggs",
+            "entity": "shopping_item"
+          },
+          {
+            "start": 19,
+            "end": 26,
+            "value": "14 milk",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "delete 8 eggs and 14 milk",
+        "intent": "remove_item",
+        "entities": [
+          {
+            "start": 7,
+            "end": 13,
+            "value": "8 eggs",
+            "entity": "shopping_item"
+          },
+          {
+            "start": 18,
+            "end": 25,
+            "value": "14 milk",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      {
+        "text": "i need 8 eggs",
+        "intent": "add_item",
+        "entities": [
+          {
+            "start": 7,
+            "end": 13,
+            "value": "8 eggs",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "i want 8 eggs",
+        "intent": "add_item",
+        "entities": [
+          {
+            "start": 7,
+            "end": 13,
+            "value": "8 eggs",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "add 8 eggs to the list",
+        "intent": "add_item",
+        "entities": [
+          {
+            "start": 4,
+            "end": 10,
+            "value": "8 eggs",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "add 8 eggs",
+        "intent": "add_item",
+        "entities": [
+          {
+            "start": 4,
+            "end": 10,
+            "value": "8 eggs",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "i need 3 lays",
+        "intent": "add_item",
+        "entities": [
+          {
+            "start": 7,
+            "end": 13,
+            "value": "3 lays",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "i want 3 lays",
+        "intent": "add_item",
+        "entities": [
+          {
+            "start": 7,
+            "end": 13,
+            "value": "3 lays",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "add 24 lays to the list",
+        "intent": "add_item",
+        "entities": [
+          {
+            "start": 4,
+            "end": 11,
+            "value": "24 lays",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "add 24 lays",
+        "intent": "add_item",
+        "entities": [
+          {
+            "start": 4,
+            "end": 11,
+            "value": "24 lays",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "i need 28 eggs",
+        "intent": "add_item",
+        "entities": [
+          {
+            "start": 7,
+            "end": 14,
+            "value": "28 eggs",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "i want 28 eggs",
+        "intent": "add_item",
+        "entities": [
+          {
+            "start": 7,
+            "end": 14,
+            "value": "28 eggs",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "add 38 eggs to the list",
+        "intent": "add_item",
+        "entities": [
+          {
+            "start": 4,
+            "end": 11,
+            "value": "38 eggs",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "add 38 eggs",
+        "intent": "add_item",
+        "entities": [
+          {
+            "start": 4,
+            "end": 11,
+            "value": "38 eggs",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "i need 13 lays",
+        "intent": "add_item",
+        "entities": [
+          {
+            "start": 7,
+            "end": 14,
+            "value": "13 lays",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "i want 13 lays",
+        "intent": "add_item",
+        "entities": [
+          {
+            "start": 7,
+            "end": 14,
+            "value": "13 lays",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "add 14 lays to the list",
+        "intent": "add_item",
+        "entities": [
+          {
+            "start": 4,
+            "end": 11,
+            "value": "14 lays",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "add 14 lays",
+        "intent": "add_item",
+        "entities": [
+          {
+            "start": 4,
+            "end": 11,
+            "value": "14 lays",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+
+      {
+        "text": "hey",
+        "intent": "greet",
+        "entities": []
+      },
+      {
+        "text": "howdy",
+        "intent": "greet",
+        "entities": []
+      },
+      {
+        "text": "hey there",
+        "intent": "greet",
+        "entities": []
+      },
+      {
+        "text": "hello",
+        "intent": "greet",
+        "entities": []
+      },
+      {
+        "text": "hi",
+        "intent": "greet",
+        "entities": []
+      },
+      {
+        "text": "hallo",
+        "intent": "greet",
+        "entities": []
+      },
+      {
+        "text": "how are you",
+        "intent": "wishback",
+        "entities": []
+      },
+      {
+        "text": "how you doin",
+        "intent": "wishback",
+        "entities": []
+      },
+      {
+        "text": "what up?",
+        "intent": "wishback",
+        "entities": []
+      },
+      {
+        "text": "wassup?",
+        "intent": "wishback",
+        "entities": []
+      },
+      {
+        "text": "all good?",
+        "intent": "wishback",
+        "entities": []
+      },
+
+      {
+        "text": "add eggs",
+        "intent": "add_item",
+        "entities": [
+          {
+            "start": 4,
+            "end": 8,
+            "value": "eggs",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "add eggs to the list",
+        "intent": "add_item",
+        "entities": [
+          {
+            "start": 4,
+            "end": 8,
+            "value": "eggs",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "i also need 5 eggs",
+        "intent": "add_item",
+        "entities": [
+          {
+            "start": 12,
+            "end": 18,
+            "value": "5 eggs",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "need 5 eggs to buy",
+        "intent": "add_item",
+        "entities": [
+          {
+            "start": 5,
+            "end": 11,
+            "value": "5 eggs",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "add 5 milk",
+        "intent": "add_item",
+        "entities": [
+          {
+            "start": 4,
+            "end": 10,
+            "value": "5 milk",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "need some 5 milk",
+        "intent": "add_item",
+        "entities": [
+          {
+            "start": 10,
+            "end": 16,
+            "value": "5 milk",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "add 3 butter to the list",
+        "intent": "add_item",
+        "entities": [
+          {
+            "start": 4,
+            "end": 12,
+            "value": "3 butter",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "and 3 butter please",
+        "intent": "add_item",
+        "entities": [
+          {
+            "start": 4,
+            "end": 12,
+            "value": "3 butter",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "clear list",
+        "intent": "clear_list",
+        "entities": []
+      },
+      {
+        "text": "clear my list",
+        "intent": "clear_list",
+        "entities": []
+      },
+      {
+        "text": "remove all items",
+        "intent": "clear_list",
+        "entities": []
+      },
+      {
+        "text": "delete all from list",
+        "intent": "clear_list",
+        "entities": []
+      },
+      {
+        "text": "i need 8 eggs and 4 milk",
+        "intent": "add_item",
+        "entities": [
+          {
+            "start": 7,
+            "end": 13,
+            "value": "8 eggs",
+            "entity": "shopping_item"
+          },
+          {
+            "start": 18,
+            "end": 24,
+            "value": "4 milk",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "i need 18 eggs and 14 milk",
+        "intent": "add_item",
+        "entities": [
+          {
+            "start": 7,
+            "end": 14,
+            "value": "18 eggs",
+            "entity": "shopping_item"
+          },
+          {
+            "start": 19,
+            "end": 26,
+            "value": "14 milk",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "i need 8 eggs and 14 milk",
+        "intent": "add_item",
+        "entities": [
+          {
+            "start": 7,
+            "end": 13,
+            "value": "8 eggs",
+            "entity": "shopping_item"
+          },
+          {
+            "start": 18,
+            "end": 25,
+            "value": "14 milk",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "add 8 eggs and 4 milk",
+        "intent": "add_item",
+        "entities": [
+          {
+            "start": 4,
+            "end": 10,
+            "value": "8 eggs",
+            "entity": "shopping_item"
+          },
+          {
+            "start": 15,
+            "end": 21,
+            "value": "4 milk",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "add 18 eggs and 14 milk",
+        "intent": "add_item",
+        "entities": [
+          {
+            "start": 4,
+            "end": 11,
+            "value": "18 eggs",
+            "entity": "shopping_item"
+          },
+          {
+            "start": 16,
+            "end": 23,
+            "value": "14 milk",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "add 8 eggs and 14 milk",
+        "intent": "add_item",
+        "entities": [
+          {
+            "start": 4,
+            "end": 10,
+            "value": "8 eggs",
+            "entity": "shopping_item"
+          },
+          {
+            "start": 15,
+            "end": 22,
+            "value": "14 milk",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "put more 8 eggs",
+        "intent": "add_item",
+        "entities": [
+          {
+            "start": 9,
+            "end": 15,
+            "value": "8 eggs",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "add more 6 eggs",
+        "intent": "add_item",
+        "entities": [
+          {
+            "start": 9,
+            "end": 15,
+            "value": "6 eggs",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "i need more 7 milk",
+        "intent": "add_item",
+        "entities": [
+          {
+            "start": 12,
+            "end": 18,
+            "value": "7 milk",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "show my list",
+        "intent": "show_items",
+        "entities": []
+      },
+      {
+        "text": "check list",
+        "intent": "show_items",
+        "entities": []
+      },
+      {
+        "text": "display list",
+        "intent": "show_items",
+        "entities": []
+      },
+      {
+        "text": "my shopping list",
+        "intent": "show_items",
+        "entities": []
+      },
+      {
+        "text": "shopping list",
+        "intent": "show_items",
+        "entities": []
+      },
+      {
+        "text": "add 4 milk to the list",
+        "intent": "add_item",
+        "entities": [
+          {
+            "start": 4,
+            "end": 10,
+            "value": "4 milk",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+
+
+
+
+      {
+        "text": "What's the corona status today?",
+        "intent": "inform",
+        "entities": []
+      },
+      {
+        "text": "What's the corona status in London today?",
+        "intent": "inform",
+        "entities": [
+          {
+            "start": 28,
+            "end": 34,
+            "value": "London",
+            "entity": "location"
+          }
+        ]
+      },
+      {
+        "text": "Show me what's the corona status in Paris",
+        "intent": "inform",
+        "entities": [
+          {
+            "start": 36,
+            "end": 41,
+            "value": "Paris",
+            "entity": "location"
+          }
+        ]
+      },
+      {
+        "text": "I wonder what is the corona status in Vilnius right now?",
+        "intent": "inform",
+        "entities": [
+          {
+            "start": 38,
+            "end": 45,
+            "value": "Vilnius",
+            "entity": "location"
+          }
+        ]
+      },
+      {
+        "text": "what is the corona status?",
+        "intent": "inform",
+        "entities": []
+      },
+      {
+        "text": "Tell me the corona status",
+        "intent": "inform",
+        "entities": []
+      },
+      {
+        "text": "Is the corona status nice in Barcelona today?",
+        "intent": "inform",
+        "entities": [
+          {
+            "start": 29,
+            "end": 38,
+            "value": "Barcelona",
+            "entity": "location"
+          }
+        ]
+      },
+      {
+        "text": "I am going to London today and I wonder what is the corona status out there?",
+        "intent": "inform",
+        "entities": [
+          {
+            "start": 14,
+            "end": 20,
+            "value": "London",
+            "entity": "location"
+          }
+        ]
+      },
+      {
+        "text": "I am planning my trip to Amsterdam. What is the corona status out there?",
+        "intent": "inform",
+        "entities": [
+          {
+            "start": 25,
+            "end": 34,
+            "value": "Amsterdam",
+            "entity": "location"
+          }
+        ]
+      },
+      {
+        "text": "Show me the corona status in Dublin, please",
+        "intent": "inform",
+        "entities": [
+          {
+            "start": 29,
+            "end": 35,
+            "value": "Dublin",
+            "entity": "location"
+          }
+        ]
+      },
+      {
+        "text": "in London",
+        "intent": "inform",
+        "entities": [
+          {
+            "start": 3,
+            "end": 9,
+            "value": "London",
+            "entity": "location"
+          }
+        ]
+      },
+      {
+        "text": "Lithuania",
+        "intent": "inform",
+        "entities": [
+          {
+            "start": 0,
+            "end": 9,
+            "value": "Lithuania",
+            "entity": "location"
+          }
+        ]
+      },
+      {
+        "text": "Oh, sorry, in Italy",
+        "intent": "inform",
+        "entities": [
+          {
+            "start": 14,
+            "end": 19,
+            "value": "Italy",
+            "entity": "location"
+          }
+        ]
+      },
+      {
+        "text": "Tell me the corona status in Vilnius",
+        "intent": "inform",
+        "entities": [
+          {
+            "start": 29,
+            "end": 36,
+            "value": "Vilnius",
+            "entity": "location"
+          }
+        ]
+      },
+      {
+        "text": "The corona status condition in Italy",
+        "intent": "inform",
+        "entities": [
+          {
+            "start": 31,
+            "end": 36,
+            "value": "Italy",
+            "entity": "location"
+          }
+        ]
+      },
+      {
+        "text": "i need to add 5 eggs to the cart",
+        "intent": "add_item",
+        "entities": [
+          {
+            "start": 14,
+            "end": 20,
+            "value": "5 eggs",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "i wish to add 5 lays to the cart",
+        "intent": "add_item",
+        "entities": [
+          {
+            "start": 14,
+            "end": 20,
+            "value": "5 lays",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "i want to add 5 eggs to the cart",
+        "intent": "add_item",
+        "entities": [
+          {
+            "start": 14,
+            "end": 20,
+            "value": "5 eggs",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "i like to add 10 eggs to the cart",
+        "intent": "add_item",
+        "entities": [
+          {
+            "start": 14,
+            "end": 21,
+            "value": "10 eggs",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "i need to add 5 eggs to my cart",
+        "intent": "add_item",
+        "entities": [
+          {
+            "start": 14,
+            "end": 20,
+            "value": "5 eggs",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "i wish to add 5 lays to the basket",
+        "intent": "add_item",
+        "entities": [
+          {
+            "start": 14,
+            "end": 20,
+            "value": "5 lays",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "i want to add 5 eggs to the basket",
+        "intent": "add_item",
+        "entities": [
+          {
+            "start": 14,
+            "end": 20,
+            "value": "5 eggs",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "i wish to add 5 lays to my basket",
+        "intent": "add_item",
+        "entities": [
+          {
+            "start": 14,
+            "end": 20,
+            "value": "5 lays",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "i want to add 5 eggs to my basket",
+        "intent": "add_item",
+        "entities": [
+          {
+            "start": 14,
+            "end": 20,
+            "value": "5 eggs",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "i like to add 10 eggs to the basket",
+        "intent": "add_item",
+        "entities": [
+          {
+            "start": 14,
+            "end": 21,
+            "value": "10 eggs",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "add 5 cheese to the cart",
+        "intent": "add_item",
+        "entities": [
+          {
+            "start": 4,
+            "end": 12,
+            "value": "5 cheese",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "add 10 cheese to the cart",
+        "intent": "add_item",
+        "entities": [
+          {
+            "start": 4,
+            "end": 13,
+            "value": "10 cheese",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "please add 5 cheese to the cart",
+        "intent": "add_item",
+        "entities": [
+          {
+            "start": 11,
+            "end": 19,
+            "value": "5 cheese",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "please add 5 cheese to the list",
+        "intent": "add_item",
+        "entities": [
+          {
+            "start": 11,
+            "end": 19,
+            "value": "5 cheese",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "please add 5 cheese to the basket",
+        "intent": "add_item",
+        "entities": [
+          {
+            "start": 11,
+            "end": 19,
+            "value": "5 cheese",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "can you add 5 cheese to the cart",
+        "intent": "add_item",
+        "entities": [
+          {
+            "start": 12,
+            "end": 20,
+            "value": "5 cheese",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "can you add 10 cheese to the cart",
+        "intent": "add_item",
+        "entities": [
+          {
+            "start": 12,
+            "end": 21,
+            "value": "10 cheese",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "can you please add 5 cheese to the cart",
+        "intent": "add_item",
+        "entities": [
+          {
+            "start": 19,
+            "end": 27,
+            "value": "5 cheese",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "could you please add 5 cheese to the list",
+        "intent": "add_item",
+        "entities": [
+          {
+            "start": 21,
+            "end": 29,
+            "value": "5 cheese",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "could you please add 5 cheese to the basket",
+        "intent": "add_item",
+        "entities": [
+          {
+            "start": 21,
+            "end": 29,
+            "value": "5 cheese",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "please add 5 cheese",
+        "intent": "add_item",
+        "entities": [
+          {
+            "start": 11,
+            "end": 19,
+            "value": "5 cheese",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "can you add 5 cheese",
+        "intent": "add_item",
+        "entities": [
+          {
+            "start": 12,
+            "end": 20,
+            "value": "5 cheese",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "can you add 10 cheese",
+        "intent": "add_item",
+        "entities": [
+          {
+            "start": 12,
+            "end": 21,
+            "value": "10 cheese",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "can you please add 5 cheese",
+        "intent": "add_item",
+        "entities": [
+          {
+            "start": 19,
+            "end": 27,
+            "value": "5 cheese",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "10 milk is required",
+        "intent": "add_item",
+        "entities": [
+          {
+            "start": 0,
+            "end": 7,
+            "value": "10 milk",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "10 milk is needed",
+        "intent": "add_item",
+        "entities": [
+          {
+            "start": 0,
+            "end": 7,
+            "value": "10 milk",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "1 butter is required",
+        "intent": "add_item",
+        "entities": [
+          {
+            "start": 0,
+            "end": 8,
+            "value": "1 butter",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "1 butter is needed",
+        "intent": "add_item",
+        "entities": [
+          {
+            "start": 0,
+            "end": 8,
+            "value": "1 butter",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "10 milk are required",
+        "intent": "add_item",
+        "entities": [
+          {
+            "start": 0,
+            "end": 7,
+            "value": "10 milk",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "10 milk are needed",
+        "intent": "add_item",
+        "entities": [
+          {
+            "start": 0,
+            "end": 7,
+            "value": "10 milk",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "5 butter are required",
+        "intent": "add_item",
+        "entities": [
+          {
+            "start": 0,
+            "end": 8,
+            "value": "1 butter",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "5 butter are needed",
+        "intent": "add_item",
+        "entities": [
+          {
+            "start": 0,
+            "end": 8,
+            "value": "1 butter",
+            "entity": "shopping_item"
+          }
+        ]
+      }
+    ]
+  }
+}

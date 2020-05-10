@@ -42,33 +42,7 @@
 </section>
 
 
-<div class="container">
-  <div class="widget">
-     <div class="chat_header">
-        <!--Add the name of the bot here -->
-        <span style="color:white;margin-left: 5px;">Moodbot 😃</span>
-        <span style="color:white;margin-right: 5px;float:right;margin-top: 5px;" id="close">
-        <i class="material-icons">close</i>
-        </span>
-     </div>
-     <!--Chatbot contents goes here -->
-     <div class="chats" id="chats">
-        <div class="clearfix"></div>
-     </div>
-     <!--user typing indicator -->
-     <div class="" style="display:flex;">
-        <input type="text" id="keypad" style="display:flex" class="usrInput browser-default" placeholder="Type a message..." autocomplete="off">
-         {% comment %} <form action='#' class="nobgform" style="display:flex" > {% endcomment %}
-          {% comment %} {%csrf_token%} {% endcomment %}
-          <input type="submit" class="nobg browser-default"  name="mybtn" autocomplete="off">
-        {% comment %} </form> {% endcomment %}
-     </div>
-  </div>
-  <!--bot widget -->
-  <div class="profile_div" id="profile_div">
-     <img class="imgProfile" src="{% static 'img/botAvatar.png' %}"/>
-  </div>
-</div>
+
 <br><br><br><br>
 
 
@@ -178,6 +152,7 @@
     </div>
   </div>
 </section>
+
 
 <!--section class="ftco-section">
   <div class="container">
@@ -337,6 +312,9 @@
   </div>
 </section>
 
+
+
+
 <hr>
 
 <section class="ftco-section ftco-partner">
@@ -380,4 +358,32 @@
     </div>
   </div>
 </section>
+
+<div class="container">
+  <div class="widget">
+     <div class="chat_header">
+        <!--Add the name of the bot here -->
+        <span style="color:white;margin-left: 5px;">Moodbot 😃</span>
+        <span style="color:white;margin-right: 5px;float:right;margin-top: 5px;" id="close">
+        <i class="material-icons">close</i>
+        </span>
+     </div>
+     <!--Chatbot contents goes here -->
+     <div class="chats" id="chats">
+        <div class="clearfix"></div>
+     </div>
+     <!--user typing indicator -->
+     <div class="" style="display:flex;">
+        <input type="text" id="keypad" style="display:flex" class="usrInput browser-default" placeholder="Type a message..." autocomplete="off">
+         {% comment %} <form action='#' class="nobgform" style="display:flex" > {% endcomment %}
+          {% comment %} {%csrf_token%} {% endcomment %}
+          <input type="submit" class="nobg browser-default"  name="mybtn" autocomplete="off">
+        {% comment %} </form> {% endcomment %}
+     </div>
+  </div>
+  <!--bot widget -->
+  <div class="profile_div" id="profile_div">
+     <img class="imgProfile" src="{% static 'img/botAvatar.png' %}"/>
+  </div>
+</div>
 {% endblock %}

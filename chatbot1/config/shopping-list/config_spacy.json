@@ -1,0 +1,6 @@
+{
+  "pipeline": "spacy_sklearn",
+  // "path" : "./projects",
+  "path":"./models/nlu",
+  "data" : "C:\\Users\\Jayit\\Desktop\\EComm Hackathon\\django-ecommerce-master\\chatbot\\data\\shopping-list\\rasa\\shopping-list-small.json"
+}
