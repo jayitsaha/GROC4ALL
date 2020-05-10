@@ -1,4 +1,4 @@
-﻿{
+{
   "rasa_nlu_data": {
     "common_examples": [
       {
@@ -2907,6 +2907,140 @@
           }
         ]
       },
+
+
+      {
+        "text": "add 12 cheese and 7 butter",
+        "intent": "add_item",
+        "entities": [
+          {
+            "start": 4,
+            "end": 13,
+            "value": "12 cheese",
+            "entity": "shopping_item"
+          },
+          {
+            "start": 18,
+            "end": 26,
+            "value": "7 butter",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "add 2 butter and 6 cheese",
+        "intent": "add_item",
+        "entities": [
+          {
+            "start": 4,
+            "end": 12,
+            "value": "2 butter",
+            "entity": "shopping_item"
+          },
+          {
+            "start": 17,
+            "end": 25,
+            "value": "6 cheese",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+
+      {
+        "text": "add 12 maggii and 5 mazza",
+        "intent": "add_item",
+        "entities": [
+          {
+            "start": 4,
+            "end": 13,
+            "value": "12 maggii",
+            "entity": "shopping_item"
+          },
+          {
+            "start": 18,
+            "end": 25,
+            "value": "5 mazza",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "add 5 mazza and 8 pasta",
+        "intent": "add_item",
+        "entities": [
+          {
+            "start": 4,
+            "end": 11,
+            "value": "5 mazza",
+            "entity": "shopping_item"
+          },
+          {
+            "start": 16,
+            "end": 23,
+            "value": "8 pasta",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "add 3 maggii and 12 eggs",
+        "intent": "add_item",
+        "entities": [
+          {
+            "start": 4,
+            "end": 12,
+            "value": "3 maggii",
+            "entity": "shopping_item"
+          },
+          {
+            "start": 17,
+            "end": 24,
+            "value": "12 eggs",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+      {
+        "text": "add 5 milk and 14 cheese",
+        "intent": "add_item",
+        "entities": [
+          {
+            "start": 4,
+            "end": 10,
+            "value": "5 milk",
+            "entity": "shopping_item"
+          },
+          {
+            "start": 15,
+            "end": 24,
+            "value": "14 cheese",
+            "entity": "shopping_item"
+          }
+        ]
+      },
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
       {
         "text": "add 18 eggs and 14 milk",
         "intent": "add_item",
