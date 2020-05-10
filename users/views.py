@@ -10,6 +10,19 @@ from django.contrib.auth.decorators import login_required
 import users.face_detect as face_detect
 from users.models import Profile
 from orders.models import Order
+from django.conf import settings
+from django.views.generic import TemplateView
+from django.views.decorators.csrf import csrf_exempt
+import base64
+from PIL import Image
+from io import BytesIO
+import cv2
+import numpy as np
+from django.core.files import File
+from django.core.files.base import ContentFile
+import requests
+import os
+from urllib.parse import urlparse
 
 def register(request):
 	if request.user.is_authenticated == False:
@@ -18,7 +31,10 @@ def register(request):
 			email = request.POST['email']
 			password = request.POST['password']
 			password2 = request.POST['password2']
-
+			img_encoded = request.POST['mydata']
+			img_decode = base64.b64decode(img_encoded)
+					
+			
 			if password == password2:
 				if User.objects.filter(username=username).exists():
 						messages.error(request , 'User Name Already Taken')
@@ -29,7 +45,15 @@ def register(request):
 						return redirect('users:register')
 					else:
 						user = User.objects.create_user(username=username,password=password,email=email)
+						
+						Profile.objects.update_or_create(
+							user=user,
+							
+						)
 						user.save()
+						profile = Profile.objects.get(user=user)
+						profile.image = ContentFile(img_decode, 'profile.jpg')
+						profile.save()
 						messages.success(request,'You Are Now Registered')
 						return redirect('users:login')
 			else:
@@ -111,3 +135,22 @@ def logout(request):
 		auth.logout(request)
 		messages.success(request,'You Are Now Logged Out')
 		return redirect('pages:home')
+
+# class SaveImage(TemplateView):
+
+# 	@csrf_exempt
+# 	def dispatch(self, *args, **kwargs):
+# 		self.filename = self.kwargs['cedula']+'.jpg'
+# 		return super(SaveImage, self).dispatch(*args, **kwargs)
+
+# 	def post(self, request, *args, **kwargs):
+		
+# 		# save it somewhere
+# 		f = open(settings.MEDIA_ROOT + '/webcamimages/'+ self.filename, 'wb')
+# 		f.write(request.body)
+# 		f.close()
+# 		# return the URL
+# 		return HttpResponse("/media/webcamimages/" + self.filename)
+
+# 	def get(self, request, *args, **kwargs):
+# 		return HttpResponse('No esta pasando el POST')

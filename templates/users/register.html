@@ -12,7 +12,7 @@
         	{% csrf_token %}
         	<div class="form-group">
         		<label>UserName</label>
-        		<input type="text" name="username" class="form-control" required="">
+        		<input type="text" name="username" id='uname' value="" class="form-control" required="">
         	</div>
         	<div class="form-group">
         		<label>Email</label>
@@ -28,27 +28,94 @@
         		<label>Confirm Password</label>
         		<input type="Password" name="password2" class="form-control" required="">
 			</div>
-			<script src="/static/js/webcam.min.js"></script>
+			<div class="form-group">
+				<label>Upload Profile Picture</label>
+				<!-- <div id="camBox" style="width:100%;height:100%;display: none;">
+					<div class="revdivshowimg" style="top:20%;text-align:center;margin:0 auto;">
 
-	<div id="my_camera" style="width:320px; height:240px;"></div>
-	<div id="my_result"></div>
+						<div id="camera" style="height:auto;text-align:center;margin:0 auto;">
+						</div>
 
-	<script language="JavaScript">
-		Webcam.attach( '#my_camera' );
+						<p>
+							<input type="button" value="Ok" id="btAddPicture" class="btn1 btn-success"
+								onclick="takeSnapshot(this)" /> 
+							<input type="button" value="Cancel"  class=" btn-danger"
+								onclick="document.getElementById('camBox').style.display = 'none';" />
+						</p>
+					</div>
+				</div> -->
+				<input id="mydata" type="hidden" name="mydata" value=""/>
+			</div>
+			<div id="pic1"></div><p></p>
+			<button type="button" class="btn btn-primary" data-toggle="modal" onclick="openCam()" data-target="#exampleModalCenter">
+				Open Camera
+			  </button><br>
+			  
+			  <div class="modal fade" id="exampleModalCenter" tabindex="-1" style="width: fit-content; height: 730px;" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+				<div class="modal-dialog ">
+				  <div class="modal-content">
+					<div class="modal-header">
+					  <h5 class="modal-title" id="exampleModalCenterTitle">Camera</h5>
+					  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					  </button>
+					</div>
+					<div class="modal-body">
+						<div id="camera" style="height:300px; width:300px;text-align:center;margin:0 auto;">
+							
+						</div>
+					</div>
+					<div class="modal-footer">
+					  <button type="button" class="btn btn-secondary" data-dismiss="modal" >Close</button>
+					  <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="takeSnapshot(this)">Done</button>
+					</div>
+				  </div>
+				</div>
+				
+			  </div><br>
+					
+					
+					<!-- <input type="button" value="Open Camera" class="btn btn-primary"
+							onclick="openCam()" /> -->
+							
+				
+							
 		
-		function take_snapshot() {
-			Webcam.snap( function(data_uri) {
-				document.getElementById('my_result').innerHTML = '<img src="'+data_uri+'"/>';
-			} );
-		}
-	</script>
-
-	<a href="javascript:void(take_snapshot())">Take Snapshot</a>
+		
         	<div class="form-group">
         		<input type="submit" value="Register" class="btn btn-dark btn-block">
 			</div>
 			
-        </form>
+		</form>
+		<script>
+			function openCam(){
+				// document.getElementById('camBox').style.display = 'block';
+				Webcam.set({
+				width: 400,
+				height: 380,
+				image_format: 'jpeg',
+				jpeg_quality: 100
+			});
+			Webcam.attach('#camera');
+			
+			}
+
+			takeSnapshot = function () {
+		
+				Webcam.snap(function (data_uri) {
+					document.getElementById('pic1').innerHTML = 
+					
+						'<img src="' + data_uri + '" id="" width="150px" height="100px" />';
+						
+					var raw_image_data = data_uri.replace(/^data\:image\/\w+\;base64\,/, '');
+					document.getElementById('mydata').value = raw_image_data;
+					console.log(raw_image_data)
+
+				});
+				// Webcam.reset()	
+				document.getElementById('camBox').style.display = 'none';       // HIDE THE POPUP DIALOG BOX.
+			}
+		</script>
    </div>
 
 {% endblock content %}
