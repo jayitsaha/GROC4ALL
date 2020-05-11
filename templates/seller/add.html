@@ -1,0 +1,66 @@
+
+ {% extends "base.html" %}
+
+
+{% block title %}
+    Profile
+{% endblock title %}
+
+{% block content %}
+ <div class="col-md-12 container">
+        <form action="{% url "users:add"%}" method="POST" enctype="multipart/form-data">
+
+
+                {% csrf_token %}
+
+
+        <div class="col-md-6 float-left">
+
+           <div class="form-group">
+                <label>Title</label>
+                {% comment %} value="{{user.username}} {% endcomment %}
+                <input type="text" name="title" class="form-control" " >
+            </div>
+
+            <div class="form-group">
+                <label>price</label>
+                <input type="text" name="price" class="form-control" >
+            </div>
+            <div class="form-group">
+                <label>description</label>
+                <input type="text" name="description" class="form-control" >
+            </div>
+<div class="form-group">
+                <label>quantity</label>
+                <input type="text" name="quantity" class="form-control" >
+            </div>
+            <div class="form-group">
+                <label>category</label>
+                <input type="text" name="category" class="form-control" >
+            </div>
+            <div class="form-group" >
+                <label>published at</label>
+                <input id="date" type="datetime-local"  name="description" class="form-control" >
+
+
+        </div>
+
+        <div class="col-md-6 float-right">
+            {% comment %} <div>
+                <img src="{{user.profile.image.url}}" class="img-thumbnail" alt="">
+            </div> {% endcomment %}
+            <label>ADD PRODUCT PICTURE</label>
+            <input type="file" name="image" class="fomr-control">
+        </div>
+
+        <div class="form-group" style="width: fit-content;">
+            <input type="submit" value="Update"  class="btn btn-dark btn-block">
+        </div>
+
+        </form>
+    </div>
+
+    <script>
+   document.getElementById('date').value = (new Date()).format("m/dd/yy");
+</script>
+    {% endblock content %}

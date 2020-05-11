@@ -3,7 +3,7 @@ from django.shortcuts import render,redirect,get_object_or_404
 from django.http import HttpResponse
 from django.contrib import messages,auth
 # from django.contrib.auth.models import User
-
+from products.models import Product
 from django.contrib.auth.decorators import login_required
 from django.utils.datastructures import MultiValueDictKeyError
 from django.core.paginator import Paginator
@@ -35,8 +35,8 @@ def register_customer(request):
 			email = request.POST['email']
 			password = request.POST['password']
 			password2 = request.POST['password2']
-			img_encoded = request.POST['mydata']
-			img_decode = base64.b64decode(img_encoded)
+			# img_encoded = request.POST['mydata']
+			# img_decode = base64.b64decode(img_encoded)
 
 
 			if password == password2:
@@ -56,7 +56,7 @@ def register_customer(request):
 						)
 						user.save()
 						profile = Profile.objects.get(user=user)
-						profile.image = ContentFile(img_decode, 'profile.jpg')
+						# profile.image = ContentFile(img_decode, 'profile.jpg')
 						profile.save()
 						messages.success(request,'You Are Now Registered')
 						return redirect('users:login')
@@ -77,12 +77,21 @@ def login_customer(request):
 			password = request.POST['password']
 
 			user = auth.authenticate(username=username , password=password)
-			is_customer = User.objects.filter(username = username).values("is_customer")[0]["is_customer"]
-			is_seller = User.objects.filter(username = username).values("is_seller")[0]["is_seller"]
+
+			if(User.objects.filter(username = username)):
+				if(User.objects.filter(username = username).values("is_customer")):
+					if(User.objects.filter(username = username).values("is_customer")[0]):
+						is_customer = User.objects.filter(username = username).values("is_customer")[0]["is_customer"]
+			if(User.objects.filter(username = username)):
+				if(User.objects.filter(username = username).values("is_seller")):
+					if(User.objects.filter(username = username).values("is_seller")[0]):
+						is_seller = User.objects.filter(username = username).values("is_seller")[0]["is_seller"]
+			# is_seller = User.objects.filter(username = username).values("is_seller")[0]["is_seller"]
 
 			if user is not None and is_customer:
-				res = face_detect.check(user)
-# 				res = True
+				# res = face_detect.check(user)
+				print("CUSTOMER PRINTING")
+				res = True
 				if res:
 					auth.login(request,user)
 					messages.success(request,'You Are Now LoggedIn')
@@ -95,9 +104,10 @@ def login_customer(request):
 				# res = face_detect.check(user)
 				res = True
 				if res:
+					print("SELLER PRINTING")
 					auth.login(request,user)
 					messages.success(request,'You Are Now LoggedIn')
-					return redirect('users:products')
+					return redirect('users:home')
 				messages.error(request,'Unauthorized access')
 				return render(request,'users/login.html')
 			else:
@@ -122,6 +132,9 @@ def dashboard_customer(request):
 		'orders': orders
 	}
 	return render(request,'users/dashboard.html',context)
+
+
+
 
 @login_required(login_url="/users/login")
 def profile_customer(request,user_id):
@@ -173,6 +186,7 @@ class SellerSignUpView(CreateView):
         login(self.request, user)
         return redirect('/shop')
 
+
 # class StudentSignUpView(CreateView):
 #     model = User
 #     form_class = StudentSignUpForm
@@ -188,5 +202,73 @@ class SellerSignUpView(CreateView):
 #         return redirect('/shop')
 
 
+def seller_product(request):
+	if(request.user):
+		if(request.user.is_seller):
+			user_id = request.user.id
 
+			products = Product.objects.filter(user =user_id)
+			print(products)
+			context = {
 
+				# 'title':request.user.name,
+				'products':products
+			}
+			return render(request ,'seller/home.html' , context)
+		else:
+			return render(request,'users/login.html')
+
+def seller_product_add(request):
+	if(request.user):
+		if(request.user.is_seller):
+			user_id = request.user.id
+			if request.method == 'POST':
+				try:
+					image = request.FILES['image']
+				except MultiValueDictKeyError:
+					image = False
+				title = request.POST['title']
+				price = request.POST['price']
+				description = request.POST['description']
+				quantity = request.POST['quantity']
+				category = request.POST['category']
+				# quantity = request.POST['quantity']
+				# published_at = request.POST['date']
+				prod = Product()
+				if image ==True:
+					prod.user = user_id
+					prod.title = title
+					prod.slug = title
+					prod.price = price
+					prod.quantity = quantity
+					prod.description = description
+					prod.photo = image
+					prod.category = category
+					# Product.published_at = published_at
+					prod.save()
+					messages.success(request , 'PRODUCT ADDED')
+					return redirect('users:home')
+			# products = Product.objects.filter(user =user_id)
+			# print(products)
+			context = {
+
+				# 'title':request.user.name,
+				# 'products':"products"
+			}
+			return render(request ,'seller/add.html' , context)
+		else:
+			return render(request,'users/login.html')
+
+# def seller_product_add(request):
+# 	form = ProductAddForm()
+# 	if request.method =='POST':
+# 		form = ProductAddForm(request.POST)
+# 		if form.is_valid():
+# 			form_hold = form.save(commit=False)
+# 			form_hold.user = request.user.id
+# 			form_hold.save()
+# 			return redirect('users:home')
+# 	context = {
+#         'form': form
+#     }
+# 	return render(request , 'seller/add' , context)

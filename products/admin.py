@@ -2,9 +2,9 @@ from django.contrib import admin
 from .models import Product
 
 class ProductAdmin(admin.ModelAdmin):
-	list_display = ('id' , 'title' , 'slug')
+	list_display = ('product_id' , 'title' , 'slug')
 	prepopulated_fields = {"slug": ("title",)}
-	list_display_links = ('id' , 'title')
+	list_display_links = ('product_id' , 'title')
 	list_filter = ('title',)
 	list_editable = ('slug',)
 	search_fields = ('title','slug')

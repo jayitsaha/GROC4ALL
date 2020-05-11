@@ -1,11 +1,13 @@
 from django.db import models
 from datetime import datetime
-
+from users.models import User
 from categories.models import Category
 # Create your models here.
 
 
 class Product(models.Model):
+	user =models.ForeignKey(User, on_delete=models.CASCADE)
+	product_id = models.AutoField(primary_key = True)
 	title = models.CharField(max_length=200)
 	slug = models.SlugField(max_length=40,unique=True)
 	price = models.CharField(max_length=200)
