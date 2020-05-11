@@ -30,6 +30,10 @@ class ShoppingBot(object):
         trainer = Trainer(config.load(config_file))
         self.interpreter = trainer.train(training_data)
         self.shopping_list = {}
+        self.temp = 0
+        self.other = {}
+        self.phone = 0
+        self.address = ""
 
         # Create supported intents
         context = {'confidence_threshold':0.72}

@@ -121,18 +121,19 @@ class ShowItemsCommand(Command):
     def do(self, bot, entity):
         if len(bot.shopping_list) == 0:
             s = "Your shopping list is empty!"
-            print(s)
+            # print(s)
             return s
         s = "Shopping list items:"
+        l = bot.shopping_list.items()
 
         for k, v in bot.shopping_list.items():
             t = "%s - quantity: %d" % (k, v)
             print(t)
             s = s + "\n" + t
-        print("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
-        print(s)
-        print("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
-        return s
+        # print("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
+        # print(s)
+        # print("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
+        return (s,l)
 
 class ClearListCommand(Command):
     """
