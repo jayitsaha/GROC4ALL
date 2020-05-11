@@ -15,7 +15,7 @@ class Product(models.Model):
 	description = models.TextField()
 	photo = models.ImageField(upload_to='products/')
 	category = models.ForeignKey(Category, on_delete=models.CASCADE, related_name='category')
-	published_at = models.DateTimeField(default=datetime.now , blank=True)
+	published_at = models.DateTimeField(default=datetime.now , blank=True )
 
 	def summary(self):
 		return self.description[:100] + '.....'

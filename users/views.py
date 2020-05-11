@@ -15,7 +15,7 @@ from users.models import Profile,User
 from orders.models import Order
 from django.views.generic import (CreateView, DeleteView, DetailView, ListView,
                                   UpdateView)
-
+from categories.models import Category
 from django.shortcuts import get_object_or_404, redirect, render
 from users.forms import SellerSignUpForm
 import base64
@@ -222,6 +222,9 @@ def seller_product_add(request):
 	if(request.user):
 		if(request.user.is_seller):
 			user_id = request.user.id
+			categories = Category.objects.all()
+			categories1 = categories[0]
+
 			if request.method == 'POST':
 				try:
 					image = request.FILES['image']
@@ -234,18 +237,23 @@ def seller_product_add(request):
 				category = request.POST['category']
 				# quantity = request.POST['quantity']
 				# published_at = request.POST['date']
-				prod = Product()
-				if image ==True:
-					prod.user = user_id
-					prod.title = title
-					prod.slug = title
-					prod.price = price
-					prod.quantity = quantity
-					prod.description = description
-					prod.photo = image
-					prod.category = category
-					# Product.published_at = published_at
+				# print(prod)
+				if True:
+					prod = Product.objects.create(user=request.user , title = title ,slug = title , price = price , quantity = quantity , description=description , photo = image , category = categories1 )
+					# prod.id
+					print(prod)
+					# prod.user = user_id
+					# prod.title = title
+					# prod.slug = title
+					# prod.price = price
+					# prod.quantity = quantity
+					# prod.description = description
+					# prod.photo = image
+					# prod.category = category
+					# # Product.published_at = published_at
 					prod.save()
+					print("WOOPS")
+					print(prod)
 					messages.success(request , 'PRODUCT ADDED')
 					return redirect('users:home')
 			# products = Product.objects.filter(user =user_id)
