@@ -13,4 +13,4 @@ class WishList(models.Model):
 
 
 	def __str__(self):
-		return str(self.product.id)
+		return str(self.product.productid)

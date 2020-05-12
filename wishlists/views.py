@@ -11,8 +11,8 @@ from categories.models import Category
 from wishlists.models import WishList
 
 @login_required(login_url="/users/login")
-def add_wishlist(request,product_id):
-	product = get_object_or_404(Product,pk=product_id)
+def add_wishlist(request,product_productid):
+	product = get_object_or_404(Product,pk=product_productid)
 	user_id = request.user.id
 	wl = WishList(user_id=user_id,product=product)
 	wl.save()
@@ -47,8 +47,8 @@ def clear_wishlists(request):
 	return render(request,'wishlists/all_wishlists.html',context)
 
 @login_required(login_url="/users/login")
-def delete_wishlist(request,product_id):
-	wl = WishList.objects.get(product=product_id)
+def delete_wishlist(request,product_productid):
+	wl = WishList.objects.get(product=product_productid)
 	wl.delete()
 	return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/'))
 

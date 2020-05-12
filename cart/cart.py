@@ -22,9 +22,9 @@ class Cart(object):
         """
         slug = product.slug
         newItem = True
-        if str(product.id) not in self.cart.keys():
+        if str(product.productid) not in self.cart.keys():
             print(self.cart)
-            self.cart[product.id]={
+            self.cart[product.productid]={
                     'userid':self.request.user.id,
                     'title':slug,
                     'quantity': 1,
@@ -35,7 +35,7 @@ class Cart(object):
             newItem = True
             print('okk')
             for key,value in self.cart.items():
-                if key == str(product.id):
+                if key == str(product.productid):
                     print('okkk')
                     value['quantity'] = value['quantity'] + 1
                     newItem = False
@@ -43,7 +43,7 @@ class Cart(object):
                     break
             if newItem == True:
                 print('okkkk')
-                self.cart[product.id]={
+                self.cart[product.productid]={
                     'userid': self.request,
                     'title':slug,
                     'quantity': 1,

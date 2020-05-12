@@ -30,7 +30,7 @@
 					<div class="clearfix">
 						<a href="{% url "pages:product_by_slug" value.slug %}" class="btn btn-primary btn-xs float-left">Read More</a>
 
-					<a href="{% url "wishlists:delete_wishlist" value.id %}" class="btn btn-primary btn-xs float-right">Delete</a><br>
+					<a href="{% url "wishlists:delete_wishlist" value.productid %}" class="btn btn-primary btn-xs float-right">Delete</a><br>
 					</div>
 		{% endfor %}
 
