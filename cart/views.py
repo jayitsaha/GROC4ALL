@@ -8,9 +8,9 @@ from .cart import Cart
 from orders.models import Order
 
 @login_required(login_url="/users/login")
-def cart_add(request, slug):
+def cart_add(request, product_productid):
 	cart = Cart(request)
-	product = Product.objects.get(slug=slug)
+	product = Product.objects.get(productid=product_productid)
 	cart.add(product=product)
 	return redirect('/shop/')
 
@@ -32,23 +32,23 @@ def cart_detail(request):
 	return render(request,'cart/cart_detail.html',context)
 
 @login_required(login_url="/users/login")
-def item_clear(request,slug):
+def item_clear(request,product_productid):
 	cart = Cart(request)
-	product = Product.objects.get(slug=slug)
+	product = Product.objects.get(productid=product_productid)
 	cart.remove(product)
 	return redirect('cart:cart_detail')
 
 @login_required(login_url="/users/login")
-def item_increment(request,slug):
+def item_increment(request,product_productid):
 	cart = Cart(request)
-	product = Product.objects.get(slug=slug)
+	product = Product.objects.get(productid=product_productid)
 	cart.add(product=product)
 	return redirect('cart:cart_detail')
 
 @login_required(login_url="/users/login")
-def item_decrement(request,slug):
+def item_decrement(request,product_productid):
 	cart = Cart(request)
-	product = Product.objects.get(slug=slug)
+	product = Product.objects.get(productid=product_productid)
 	cart.decrement(product=product)
 	return redirect('cart:cart_detail')
 
@@ -91,10 +91,12 @@ def confrm_checkout(request):
 			if name and phone and email and address:
 				for key,value in request.session['cart'].items():
 					item = value['title']
+					product_id = value['productid']
+					product_object = Product.objects.filter(productid = product_id)[0]
 					quantity = value['quantity']
 					price = value['price']
 					total = (float(quantity) * float(price))
-					order = Order(item=item,quantity=quantity,price=price,total=total,name=name,phone=phone,email=email,address=address,user_id=user_id)
+					order = Order(item=item,productid=product_object , quantity=quantity,price=price,total=total,name=name,phone=phone,email=email,address=address,user_id=user_id)
 					order.save()
 				cart_clear(request)
 				messages.success(request,'Order Created SuccessFully')

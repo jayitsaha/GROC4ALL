@@ -1,0 +1,18 @@
+{% comment %} {%for orders in order_seller%} {% endcomment %}
+{% comment %} {{x}} {% endcomment %}
+
+{% for ord in order %}
+    {%for orders in ord%}
+        {% comment %} {%for i in orders%}
+    {{i.id}}
+    {%endfor%} {% endcomment %}
+    ID :{{orders.id}}
+    <br>
+    ITEM: {{orders.item}}
+
+    <br>
+
+{%endfor%}
+{%endfor%}
+
+{% comment %} {%endfor%} {% endcomment %}

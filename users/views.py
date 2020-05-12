@@ -127,13 +127,40 @@ def login_customer(request):
 def dashboard_customer(request):
 	print("DASHBOARD PRINTING")
 	orders = Order.objects.filter(user_id=request.user.id)
+	print(orders)
 	context = {
 		'title': request.user.username + ' Shopping Details',
 		'orders': orders
 	}
 	return render(request,'users/dashboard.html',context)
 
+def dashboard_seller(request):
+	order_seller = []
+	for i in range(100):
+		if(Order.objects.filter(productid = i)):
+			if(Product.objects.filter(productid =i).values()[0]['user_id'] == request.user.id):
+				print("HIIII")
+				order = Order.objects.filter(productid = i).values()
+				print(order)
+				order_seller.append(order)
+				x = order_seller[0]
+				print(x[0])
+				print(x)
+				context={
 
+					'order':order_seller,
+					'jayit':x,
+				}
+	return render(request,'seller/sellerorder.html',context)
+		# 	else:
+		# 		return redirect('users:home')
+		# else:
+		# 	return redirect('users:home')
+
+	# if(None):
+	# 	return redirect('users:home')
+
+	# product_object = Product.objects.filter(productid ="1").values()[0]['user_id']
 
 
 @login_required(login_url="/users/login")

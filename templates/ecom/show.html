@@ -78,12 +78,12 @@
 	          		<p style="color: #000;">{{product.quantity}} LEFT IN STOCK</p>
 	          	</div>
           	</div>
-          	<p><a href="{% url "cart:cart_add" product.slug %}" class="btn btn-black py-10 px-5">Add to Cart</a></p>
+          	<p><a href="{% url "cart:cart_add" product.productid %}" class="btn btn-black py-10 px-5">Add to Cart</a></p>
     			</div>
     		</div>
     	</div>
 	</section>
-	
+
 
 	<div class="container" style="z-index: 100;">
 		<div class="widget">

@@ -34,9 +34,9 @@
 		        <td>${{value.price}}</td>
 		        <td>{{value.quantity}}</td>
 		        <td>
-		            <a href="{% url "cart:item_increment" value.title %}">+</a>&nbsp;
-		            <a href="{% url "cart:item_decrement" value.title %}">-</a>&nbsp;
-		            <a href="{% url "cart:item_clear" value.title %}">Clear</a>&nbsp;
+		            <a href="{% url "cart:item_increment" key %}">+</a>&nbsp;
+		            <a href="{% url "cart:item_decrement" key%}">-</a>&nbsp;
+		            <a href="{% url "cart:item_clear" key %}">Clear</a>&nbsp;
 		        </td>
 
 					<td>$ {{sub}} </td>

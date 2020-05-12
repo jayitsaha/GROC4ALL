@@ -2,7 +2,7 @@ from django.contrib import admin
 from .models import Order
 
 class OrderAdmin(admin.ModelAdmin):
-	list_display = ('id' ,'item' ,'quantity','price','total','name','phone','email','address')
+	list_display = ('id' ,'productid' , 'item' ,'quantity','price','total','name','phone','email','address')
 	list_display_links = ('id' , 'item')
 	list_filter = ('item',)
 	#list_editable = ('item',)

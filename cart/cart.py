@@ -29,7 +29,8 @@ class Cart(object):
                     'title':slug,
                     'quantity': 1,
                     'price': str(product.price),
-                    'photo' : product.photo.url
+                    'photo' : product.photo.url,
+                    'productid':product.productid
                     }
         else:
             newItem = True
@@ -48,7 +49,9 @@ class Cart(object):
                     'title':slug,
                     'quantity': 1,
                     'price': str(product.price),
-                    'photo' : product.photo.url
+                    'photo' : product.photo.url,
+                    'productid':product.productid
+
                     }
 
 
@@ -65,14 +68,14 @@ class Cart(object):
         """
         Remove a product from the cart.
         """
-        product_id = str(product.id)
+        product_id = str(product.productid)
         if product_id in self.cart:
             del self.cart[product_id]
             self.save()
 
     def decrement(self,product):
         for key,value in self.cart.items():
-            if key == str(product.id):
+            if key == str(product.productid):
                 print('okkk')
                 value['quantity'] = value['quantity'] - 1
                 if(value['quantity'] < 1):

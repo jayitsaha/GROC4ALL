@@ -2,9 +2,10 @@ from django.db import models
 from django.utils import timezone
 from django.contrib.auth.models import User
 # Create your models here.
-
+from products.models import Product
 class Order(models.Model):
 	item = models.CharField(max_length=200)
+	productid = models.ForeignKey(Product , on_delete = models.CASCADE)
 	quantity = models.IntegerField()
 	price = models.CharField(max_length=100)
 	total = models.CharField(max_length=100)
