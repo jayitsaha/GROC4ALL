@@ -34,15 +34,19 @@ def all_products(request):
 	paginator = Paginator(products, 9)
 	page = request.GET.get('page')
 	products = paginator.get_page(page)
+	categoriess = Category.objects.all()
+
 	context = {
 		'title' : 'All Products',
-		'products': products
+		'products': products,
+		'categories': categoriess,
+
 	}
 	return render(request,'ecom/all_products.html',context)
 
 
-def product_by_slug(request,slug):
-	product = Product.objects.get(slug=slug)
+def product_by_slug(request,product_productid):
+	product = Product.objects.get(productid=product_productid)
 	if product.quantity >= 1:
 		context = {
 			'title' : product.title,

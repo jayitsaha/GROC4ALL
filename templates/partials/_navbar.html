@@ -32,9 +32,8 @@
 
     <div class="collapse navbar-collapse" id="ftco-nav">
       <ul class="navbar-nav ml-auto">
-
+  {%if user.is_authenticated and user.is_customer%}
             <li class="nav-item active"><a class="nav-link" href="/shop">SHOP</a></li>
-
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">WE CARE FOR YOU</a>
           <div class="dropdown-menu" aria-labelledby="dropdown04">
@@ -44,6 +43,7 @@
           </div>
         </li>
 
+{%endif%}
 
             {% comment %} <li class="nav-item"><a href="#" class="nav-link">Blog</a></li> {% endcomment %}
         {% comment %} <li class="nav-item active"><a href="{% url 'home' %}" class="nav-link">Home</a></li> {% endcomment %}
@@ -55,11 +55,39 @@
 {% comment %}
             <li class="nav-item "><a href="{% url "pages:about" %}" class="nav-link">ABOUT</a></li>
             <li class="nav-item "><a class="nav-link" href="{% url "diseasepredictor:home"%}">CORONA PREDICTOR</a></li> {% endcomment %}
+                  {% comment %} {% if user.is_authenticated and user.is_seller%} {% endcomment %}
 
 
-                  {% if user.is_authenticated %}
 
-                  <li class="nav-item "><a class="nav-link" href="{% url "users:dashboard"%}">DashBoard</a></li>
+                  {% comment %} {%endif%} {% endcomment %}
+                  {% if user.is_authenticated and user.is_seller%}
+
+                  <li class="nav-item "><a class="nav-link" href="{% url "users:home"%}">YOUR PRODUCTS</a></li>
+
+
+                  <li class="nav-item "><a class="nav-link" href="{% url "users:order"%}">ORDERS</a></li>
+
+
+                  <li class="nav-item "><a class="nav-link" href="{% url "users:add"%}">ADD PRODUCTS</a></li>
+
+
+
+
+                   <li class="nav-item ">
+                          <a class="nav-link" href="javascript:{document.getElementById('logout').submit()}">
+                          <i class="fas fa-sign-out-alt"></i> Logout
+                          </a>
+
+                          <form  method="post" id="logout" action="{% url "users:logout" %}">
+                              {% csrf_token %}
+                              <input type="hidden">
+                          </form>
+                  </li>
+
+
+
+        {%elif user.is_authenticated and user.is_customer%}
+        <li class="nav-item "><a class="nav-link" href="{% url "users:dashboard"%}">DashBoard</a></li>
 
 
                   <li class="nav-item "><a class="nav-link" href="{% url "wishlists:my_wishlists"%}">Wishlist</a></li>

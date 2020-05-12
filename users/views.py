@@ -250,7 +250,7 @@ def seller_product_add(request):
 		if(request.user.is_seller):
 			user_id = request.user.id
 			categories = Category.objects.all()
-			categories1 = categories[0]
+			# categories1 = categories[0]
 
 			if request.method == 'POST':
 				try:
@@ -262,11 +262,13 @@ def seller_product_add(request):
 				description = request.POST['description']
 				quantity = request.POST['quantity']
 				category = request.POST['category']
+				category1 = Category.objects.filter(title=category)[0]
 				# quantity = request.POST['quantity']
 				# published_at = request.POST['date']
 				# print(prod)
+
 				if True:
-					prod = Product.objects.create(user=request.user , title = title ,slug = title , price = price , quantity = quantity , description=description , photo = image , category = categories1 )
+					prod = Product.objects.create(user=request.user , title = title ,slug = title , price = price , quantity = quantity , description=description , photo = image , category = category1 )
 					# prod.id
 					print(prod)
 					# prod.user = user_id
@@ -286,7 +288,7 @@ def seller_product_add(request):
 			# products = Product.objects.filter(user =user_id)
 			# print(products)
 			context = {
-
+				'category':categories,
 				# 'title':request.user.name,
 				# 'products':"products"
 			}

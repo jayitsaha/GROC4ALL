@@ -9,7 +9,7 @@ class Product(models.Model):
 	user =models.ForeignKey(User, on_delete=models.CASCADE)
 	productid = models.AutoField(primary_key = True)
 	title = models.CharField(max_length=200)
-	slug = models.SlugField(max_length=40,unique=True)
+	slug = models.SlugField(max_length=40)
 	price = models.CharField(max_length=200)
 	quantity = models.IntegerField()
 	description = models.TextField()
