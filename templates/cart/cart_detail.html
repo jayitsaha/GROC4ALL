@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load index %}
 
 {% block title %}
     {{title}}
@@ -12,18 +13,18 @@
   <div class="col-md-12">
 
 	<table class="table table-inverse mt-3">
-		<thead>
-			<tr>
-				<th>Image</th>
-				<th>Title</th>
-				<th>Price</th>
-				<th>Quantity</th>
-				<th></th>
-				<th>SubTotal</th>
+		<thead >
+			<tr >
+				<th style="text-align: center;" >Image</th>
+				<th style="text-align: center;">Title</th>
+				<th style="text-align: center;">Price</th>
+				<th style="text-align: center;">Quantity</th>
+				<th style="text-align: center;">SubTotal</th>
+				<th style="text-align: center;">Update Order</th>
 			</tr>
 		</thead>
 		<tbody>
-
+{% comment %} {% for j in i %} {% endcomment %}
 		    {% for key,value in request.session.cart.items %}
 
 
@@ -31,22 +32,25 @@
 		    <tr>
 		        <td><img class="cpi" width="100px" src="{{value.photo}}" alt=""></td>
 		        <td>{{value.title}}</td>
-		        <td>${{value.price}}</td>
+		        <td>&#8377;{{value.price}}</td>
 		        <td>{{value.quantity}}</td>
-		        <td>
-		            <a href="{% url "cart:item_increment" key %}">+</a>&nbsp;
-		            <a href="{% url "cart:item_decrement" key%}">-</a>&nbsp;
-		            <a href="{% url "cart:item_clear" key %}">Clear</a>&nbsp;
+				<td>
+					&#8377; {{sub|index:forloop.counter0}}
+				</td>
+				<td>
+		            <a class="btn btn-secondary" href="{% url "cart:item_increment" key %}">+</a>&nbsp;
+		            <a class="btn btn-secondary" href="{% url "cart:item_decrement" key%}">-</a>&nbsp;
+		            <a class="btn btn-danger" href="{% url "cart:item_clear" key %}">Clear</a>&nbsp;
 		        </td>
 
-					<td>$ {{sub}} </td>
 
 
 		    </tr>
+			{% comment %} {% endfor %} {% endcomment %}
 
 		    {% endfor %}
 		    <tr>
-		        <td colspan="6" align="right"><b>Total: </b>$ {{total}}</td>
+		        <td colspan="6" align="right"><b>Total: </b>&#8377; {{total}}</td>
 		    </tr>
 		    <tr>
 		        <td colspan="5" align="right">
@@ -65,5 +69,3 @@
 
 
 {% endblock content %}
-
-

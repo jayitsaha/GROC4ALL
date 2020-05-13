@@ -12,7 +12,7 @@
 {% block content %}
 
   <div class="col-md-12 mt-5">
-  	<h1 class="text-center">Order List For {{user.username|upper}}</h1>
+  	<h1 class="text-center">My Orders</h1>
 	 <table class="table table-hover table-inverse">
 	 	<thead>
 	 		<tr>
@@ -30,7 +30,7 @@
 	 		</tr>
 	 	</thead>
 	 	<tbody>
-	 		{% for ord in order %}
+	 		{% for ord in Order %}
                 {%for orders in ord%}
 				<tr>
 					<td>{{orders.id}}</td>
@@ -45,7 +45,8 @@
 					{% if orders.delivery  %}
 						<td>Delivered</td>
 					{% else %}
-					   <td>Delivery Pending</td>
+					   <td>Delivery Pending<br>
+					    <a type="button" class="btn btn-info" href="{% url 'users:order_deliver' orders.id %}">Done</a></td>
 					{% endif %}
 				</tr>
                 {%endfor%}

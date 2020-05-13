@@ -2193,7 +2193,7 @@ fieldset:disabled a.btn {
       -webkit-box-shadow: 0 0 0 0.2rem rgba(222, 170, 12, 0.5);
       box-shadow: 0 0 0 0.2rem rgba(222, 170, 12, 0.5); }
 
-.btn-danger {
+/* .btn-danger {
   color: #fff;
   background-color: #dc3545;
   border-color: #dc3545; }
@@ -2216,7 +2216,7 @@ fieldset:disabled a.btn {
     .btn-danger:not(:disabled):not(.disabled):active:focus, .btn-danger:not(:disabled):not(.disabled).active:focus,
     .show > .btn-danger.dropdown-toggle:focus {
       -webkit-box-shadow: 0 0 0 0.2rem rgba(225, 83, 97, 0.5);
-      box-shadow: 0 0 0 0.2rem rgba(225, 83, 97, 0.5); }
+      box-shadow: 0 0 0 0.2rem rgba(225, 83, 97, 0.5); } */
 
 .btn-light {
   color: #212529;

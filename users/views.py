@@ -35,8 +35,8 @@ def register_customer(request):
 			email = request.POST['email']
 			password = request.POST['password']
 			password2 = request.POST['password2']
-			# img_encoded = request.POST['mydata']
-			# img_decode = base64.b64decode(img_encoded)
+			img_encoded = request.POST['mydata']
+			img_decode = base64.b64decode(img_encoded)
 
 
 			if password == password2:
@@ -56,7 +56,7 @@ def register_customer(request):
 						)
 						user.save()
 						profile = Profile.objects.get(user=user)
-						# profile.image = ContentFile(img_decode, 'profile.jpg')
+						profile.image = ContentFile(img_decode, 'profile.jpg')
 						profile.save()
 						messages.success(request,'You Are Now Registered')
 						return redirect('users:login')
@@ -89,9 +89,8 @@ def login_customer(request):
 			# is_seller = User.objects.filter(username = username).values("is_seller")[0]["is_seller"]
 
 			if user is not None and is_customer:
-				# res = face_detect.check(user)
-				print("CUSTOMER PRINTING")
-				res = True
+				res = face_detect.check(user)
+				# res = True
 				if res:
 					auth.login(request,user)
 					messages.success(request,'You Are Now LoggedIn')
@@ -104,7 +103,6 @@ def login_customer(request):
 				# res = face_detect.check(user)
 				res = True
 				if res:
-					print("SELLER PRINTING")
 					auth.login(request,user)
 					messages.success(request,'You Are Now LoggedIn')
 					return redirect('users:home')
@@ -136,20 +134,20 @@ def dashboard_customer(request):
 
 def dashboard_seller(request):
 	order_seller = []
+	context={
+		'Orders':'',
+		'Seller':'',
+	}
 	for i in range(100):
 		if(Order.objects.filter(productid = i)):
 			if(Product.objects.filter(productid =i).values()[0]['user_id'] == request.user.id):
-				print("HIIII")
 				order = Order.objects.filter(productid = i).values()
-				print(order)
 				order_seller.append(order)
 				x = order_seller[0]
-				print(x[0])
-				print(x)
 				context={
 
-					'order':order_seller,
-					'jayit':x,
+					'Order':order_seller,
+					'Seller':x,
 				}
 	return render(request,'seller/sellerorder.html',context)
 		# 	else:
@@ -213,45 +211,37 @@ class SellerSignUpView(CreateView):
         login(self.request, user)
         return redirect('/shop')
 
-
-# class StudentSignUpView(CreateView):
-#     model = User
-#     form_class = StudentSignUpForm
-#     template_name = 'registration/signup_form.html'
-
-#     def get_context_data(self, **kwargs):
-#         kwargs['user_type'] = 'student'
-#         return super().get_context_data(**kwargs)
-
-#     def form_valid(self, form):
-#         user = form.save()
-#         login(self.request, user)
-#         return redirect('/shop')
-
-
+@login_required(login_url="/users/login")
 def seller_product(request):
 	if(request.user):
 		if(request.user.is_seller):
 			user_id = request.user.id
-
+			categories = Category.objects.all()
 			products = Product.objects.filter(user =user_id)
-			print(products)
+			
 			context = {
 
 				# 'title':request.user.name,
-				'products':products
+				'products':products,
+				'category':categories,
 			}
 			return render(request ,'seller/home.html' , context)
 		else:
 			return render(request,'users/login.html')
 
+@login_required(login_url="/users/login")
 def seller_product_add(request):
 	if(request.user):
 		if(request.user.is_seller):
 			user_id = request.user.id
-			categories = Category.objects.all()
+			
 			# categories1 = categories[0]
-
+			categories = Category.objects.all()
+			context = {
+				'category':categories,
+				# 'title':request.user.name,
+				# 'products':"products"
+			}
 			if request.method == 'POST':
 				try:
 					image = request.FILES['image']
@@ -261,51 +251,71 @@ def seller_product_add(request):
 				price = request.POST['price']
 				description = request.POST['description']
 				quantity = request.POST['quantity']
-				category = request.POST['category']
-				category1 = Category.objects.filter(title=category)[0]
-				# quantity = request.POST['quantity']
-				# published_at = request.POST['date']
-				# print(prod)
+				category = request.POST.get('category1')
+				if category == '--Select Category--':
+					message.error(request,"Select Category!")
+					return render(request ,'seller/add.html' , context)
+				elif category is None:
+					category = request.POST['category'].upper()
+				else:
+					category = category.upper()
+				try:
 
+					catg = Category.objects.get(title=category)
+				except Category.DoesNotExist:
+					cat = Category.objects.create(
+						title=category,
+						slug=category
+					)
+					cat.save()
+				catg = Category.objects.get(title=category)
 				if True:
-					prod = Product.objects.create(user=request.user , title = title ,slug = title , price = price , quantity = quantity , description=description , photo = image , category = category1 )
-					# prod.id
-					print(prod)
-					# prod.user = user_id
-					# prod.title = title
-					# prod.slug = title
-					# prod.price = price
-					# prod.quantity = quantity
-					# prod.description = description
-					# prod.photo = image
-					# prod.category = category
-					# # Product.published_at = published_at
+					prod = Product.objects.create(user=request.user , 
+							title = title ,
+							slug = title, 
+							price = price , 
+							quantity = quantity , 
+							description=description , 
+							photo = image , 
+							category = catg
+						)
 					prod.save()
-					print("WOOPS")
-					print(prod)
 					messages.success(request , 'PRODUCT ADDED')
 					return redirect('users:home')
 			# products = Product.objects.filter(user =user_id)
 			# print(products)
-			context = {
-				'category':categories,
-				# 'title':request.user.name,
-				# 'products':"products"
-			}
+			
 			return render(request ,'seller/add.html' , context)
 		else:
 			return render(request,'users/login.html')
 
-# def seller_product_add(request):
-# 	form = ProductAddForm()
-# 	if request.method =='POST':
-# 		form = ProductAddForm(request.POST)
-# 		if form.is_valid():
-# 			form_hold = form.save(commit=False)
-# 			form_hold.user = request.user.id
-# 			form_hold.save()
-# 			return redirect('users:home')
-# 	context = {
-#         'form': form
-#     }
-# 	return render(request , 'seller/add' , context)
+@login_required(login_url="/users/login")
+def seller_product_detail(request,product_id):
+	product = get_object_or_404(Product,productid=product_id)
+	if request.method == 'POST':
+		price = request.POST['price']
+		description = request.POST['description']
+		quantity = request.POST['quantity']
+		# product = get_object_or_404(Product,pk=product_id)
+		if product is not None:
+			product.price = price
+			product.description = description
+			product.quantity = quantity
+			product.save()
+			messages.success(request,'Product Updated Successfully')
+			return redirect('users:home')
+		else:
+			messages.error(request,'Product Not Found')
+			return redirect('users:product_detail', product_id = product_id)
+	else:
+		return render(request,'seller/product_detail.html', {'product':product})
+
+def deliver_order(request, order_id):
+	try:
+		order = Order.objects.get(pk=order_id)
+	except:
+		messages.info(request, "Order Not Found")
+		return redirect('users:order')
+	order.delivery = True
+	order.save()
+	return redirect('users:order')

@@ -13,6 +13,8 @@
       </div>
 	</div>
 
+	
+
 
 
 
@@ -22,47 +24,45 @@
     		<div class="row justify-content-center">
     			<div class="col-md-10 mb-5 text-center">
     				<ul class="product-category">
-    					<li><a href="#" class="active">All</a></li>
-              {% for ctg in categories %}
-    					<li><a href="{% url "pages:category_by_slug" ctg.slug %}">{{ ctg.title }}</a></li>
-              {% endfor %}
+    					<li><a href="{% url "users:home" %}" class="active">All</a></li>
     				</ul>
     			</div>
     		</div>
     		<div class="row">
           {% if products %}
-          {% for product in products %}
-    			<div class="col-md-6 col-lg-3 ftco-animate">
-    				<div class="product">
-    					<a href="{% url "pages:product_by_slug" product.productid %}" class="img-prod">
-						<img class="img-fluid" src="{{ product.photo.url }}" alt="Colorlib Template">
-    						<div class="overlay"></div>
-    					</a>
-    					<div class="text py-3 pb-4 px-3 text-center">
-    						<h3>
-							<a >{{ product.title }}</a></h3>
-    						<div class="d-flex">
-    							<div class="pricing">
-		    						<p class="price"><span>${{ product.price }}.00</span></p>
-		    					</div>
-	    					</div>
-    						<div class="bottom-area d-flex px-3">
-	    						<div class="m-auto d-flex">
-	    							<a href="{% url "pages:product_by_slug" product.productid %}" class="add-to-cart d-flex justify-content-center align-items-center text-center">
-	    								<span><i class="ion-ios-menu"></i></span>
-	    							</a>
-	    							<a href="#" class="buy-now d-flex justify-content-center align-items-center mx-1">
-	    								<span><i class="ion-ios-cart"></i></span>
-	    							</a>
-	    							<a href="{% url "wishlists:add_wishlist" product.productid %}"	 class="heart d-flex justify-content-center align-items-center ">
-	    								<span><i class="ion-ios-heart"></i></span>
-	    							</a>
-    							</div>
-    						</div>
-    					</div>
-    				</div>
-    			</div>
-          {% endfor %}
+    			
+				<div class="container">
+					<div class="col-md-12 mt-5">
+						<h2 class="text-center">My Products</h2>
+						<table class="table table-hover table-inverse">
+							<thead>
+								<tr>
+									<th>Product Name</th>
+									<th>Quantity</th>
+									<th>Price</th>
+									<th>Image</th>
+									<th>Category</th>
+									<th>View</th>
+				
+								</tr>
+							</thead>
+							<tbody>
+								{%for product in products %}
+									<tr>
+										<td>{{product.title}}</td>
+										<td>{{product.quantity}}</td>
+										<td>&#x20B9; {{product.price}}</td>
+										<td><img src="{{product.photo.url}}" class="img-thumbnail" height="100px" width="100px" alt=""></td>
+										<td>{{product.category}}</td>
+										<td><a href="{% url 'users:product_detail' product.productid%}" class="btn btn-primary">Details</a</td>
+										
+									</tr>
+								{% endfor %}
+							</tbody>
+						</table>
+					</div>
+				
+				</div>
           {% else %}
           <p>There is No Product Here!</p>
           {% endif %}
@@ -109,7 +109,7 @@
 		</div>
 	  </div> {% endcomment %}
 
-		<section class="ftco-section ftco-no-pt ftco-no-pb py-5 bg-light">
+		<!-- <section class="ftco-section ftco-no-pt ftco-no-pb py-5 bg-light">
       <div class="container py-4">
         <div class="row d-flex justify-content-center py-5">
           <div class="col-md-6">
@@ -126,7 +126,7 @@
           </div>
         </div>
       </div>
-    </section>
+    </section> -->
 {% endblock %}
 {% comment %} {% extends "base.html" %}
 

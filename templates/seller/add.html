@@ -1,9 +1,9 @@
 
-{% extends 'base_add.html' %}
+{% extends 'base.html' %}
 
 
 {% block title %}
-    Profile
+    Add Products
 {% endblock title %}
 
 {% block content %}
@@ -14,7 +14,7 @@
                 {% csrf_token %}
 
 
-        <div class="col-md-6 float-left">
+        <div class="col-md-6">
 
            <div class="form-group">
                 <label>Title</label>
@@ -30,7 +30,7 @@
                 <label>description</label>
                 <input type="text" name="description" class="form-control" >
             </div>
-<div class="form-group">
+            <div class="form-group">
                 <label>quantity</label>
                 <input type="text" name="quantity" class="form-control" >
             </div>
@@ -38,56 +38,48 @@
                 <label>category</label>
                 <input type="text" name="category" class="form-control" >
             </div> {% endcomment %}
-            {% comment %} <div class="form-group" >
+            <!-- {% comment %} <div class="form-group" >
                 <label>published at</label>
                 <input id="date" type="datetime-local"  name="description" class="form-control" >
 
 
-        </div> {% endcomment %}
+            </div> {% endcomment %} -->
 
+            <div class="form-group" id="cat1">
+                {% if category %}
+            <label for="sel1">Select category:</label>
+            <select  name="category1" class="form-control" onchange='javascript:{document.getElementById("category").value=document.getElementById("sel1").options[document.getElementById("sel1").selectedIndex].value;}' id="sel1">
+                <option disabled selected>--Select Category--</option>
+                {%for cat in category%}
+                    <option value="{{cat}}">{{cat}}</option>
+                {%endfor%}
+            </select>
+            <input type="hidden" name="category" id="category">
+            {% endif %}
+            </div>
+            <button type="button" class="btn btn-primary" id="addbtn" onclick="addCat()" >Add Category</button>
+            <div class="form-group" id="cat2" style="display: None;">
+                <label>Add Category</label>
+                <input type="text" name="category" class="form-control" >
+            </div> 
+            <div class="form-group" >
+                <label>ADD PRODUCT PICTURE</label>
+                <input type="file" name="image" class="form-control">
+            </div>
 
-
-  {% comment %} <div class="form-group dropdown">
-          <input type="dropdown" class="form-group dropdown" href="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">WE CARE FOR YOU</a>
-          <div class="dropdown-menu" aria-labelledby="dropdown04">
-            <li class="dropdown-item">CORONA PREDICTOR</a>
-            <li class="dropdown-item">ABOUT US</a>
-
-          </div>
-        </div> {% endcomment %}
-
-<div class="form-group">
-  <label for="sel1">Select list:</label>
-  <select  name="category" class="form-control" id="sel1">
-    {% comment %} <option>1</option>
-    <option>2</option>
-    <option>3</option>
-    <option>4</option> {% endcomment %}
-
-    {%for cat in category%}
-        <option>{{cat}}</option>
-{%endfor%}
-  </select>
-</div>
-
-
-
-        <div class="form-group" >
-            {% comment %} <div>
-                <img src="{{user.profile.image.url}}" class="img-thumbnail" alt="">
-            </div> {% endcomment %}
-            <label>ADD PRODUCT PICTURE</label>
-            <input type="file" name="image" class="form-control">
-        </div>
-
-        <div class="form-group" style="width: fit-content;">
-            <input type="submit" value="Update"  class="btn btn-dark btn-block">
-        </div>
-
+            <div class="form-group" style="width: fit-content;">
+                <input type="submit" value="ADD PRODUCT"  class="btn btn-dark btn-block">
+            </div>
+    </div>
         </form>
     </div>
 
     <script>
    document.getElementById('date').value = (new Date()).format("m/dd/yy");
+   function addCat(){
+       document.getElementById('addbtn').style.display='None';
+       document.getElementById('cat1').style.display='None';
+       document.getElementById('cat2').style.display='Block';
+   }
 </script>
     {% endblock content %}

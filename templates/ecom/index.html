@@ -26,7 +26,7 @@
     			<div class="col-md-10 mb-5 text-center">
     				<ul class="product-category">
     					<li><a href="#" class="active">All</a></li>
-              {% for ctg in categories %}
+              {% for ctg in category %}
     					<li><a href="{% url "pages:category_by_slug" ctg.slug %}">{{ ctg.title }}</a></li>
               {% endfor %}
     				</ul>
@@ -37,26 +37,26 @@
           {% for product in products %}
     			<div class="col-md-6 col-lg-3 ftco-animate">
     				<div class="product">
-    					<a href="{% url "pages:product_by_slug" product.productid %}" class="img-prod">
+    					<a href="{% url "pages:prod_detail" product.title %}" class="img-prod">
 						<img class="img-fluid" src="{{ product.photo.url }}" alt="Colorlib Template">
     						<div class="overlay"></div>
     					</a>
     					<div class="text py-3 pb-4 px-3 text-center">
     						<h3>
 							<a >{{ product.title }}</a></h3>
-    						<div class="d-flex">
+    						<!-- <div class="d-flex">
     							<div class="pricing">
-		    						<p class="price"><span>${{ product.price }}.00</span></p>
+		    						<p class="price"><span>&#x20B9; {{ product.price }}.00</span></p>
 		    					</div>
-	    					</div>
+	    					</div> -->
     						<div class="bottom-area d-flex px-3">
 	    						<div class="m-auto d-flex">
-	    							<a href="{% url "pages:product_by_slug" product.productid %}" class="add-to-cart d-flex justify-content-center align-items-center text-center">
+	    							<a href="{% url "pages:prod_detail" product.title%}" class="add-to-cart d-flex justify-content-center align-items-center text-center">
 	    								<span><i class="ion-ios-menu"></i></span>
 	    							</a>
-	    							<a href="#" class="buy-now d-flex justify-content-center align-items-center mx-1">
+	    							<!-- <a href="#" class="buy-now d-flex justify-content-center align-items-center mx-1">
 	    								<span><i class="ion-ios-cart"></i></span>
-	    							</a>
+									</a> -->
 	    							<a href="{% url "wishlists:add_wishlist" product.productid %}"	 class="heart d-flex justify-content-center align-items-center ">
 	    								<span><i class="ion-ios-heart"></i></span>
 	    							</a>

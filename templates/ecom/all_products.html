@@ -22,9 +22,9 @@
     			<div class="col-md-10 mb-5 text-center">
     				<ul class="product-category">
     					<li><a href="#" class="active">All</a></li>
-              {% for ctg in categories %}
+              <!-- {% for ctg in categories %}
     					<li><a href="{% url "pages:category_by_slug" ctg.slug %}">{{ ctg.title }}</a></li>
-              {% endfor %}
+              {% endfor %} -->
     				</ul>
     			</div>
     		</div>
@@ -42,7 +42,7 @@
 							<a >{{ product.title }}</a></h3>
     						<div class="d-flex">
     							<div class="pricing">
-		    						<p class="price"><span>${{ product.price }}.00</span></p>
+		    						<p class="price"><span>&#8377;{{ product.price }}.00</span></p>
 		    					</div>
 	    					</div>
     						<div class="bottom-area d-flex px-3">
@@ -84,7 +84,7 @@
     	</div>
     </section>
 
-		<section class="ftco-section ftco-no-pt ftco-no-pb py-5 bg-light">
+		<!-- <section class="ftco-section ftco-no-pt ftco-no-pb py-5 bg-light">
       <div class="container py-4">
         <div class="row d-flex justify-content-center py-5">
           <div class="col-md-6">
@@ -101,7 +101,7 @@
           </div>
         </div>
       </div>
-    </section>
+    </section> -->
 {% endblock %}
 {% comment %} {% extends "base.html" %}
 

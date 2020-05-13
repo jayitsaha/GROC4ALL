@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+
+
+{% block title %}
+    Update Products
+{% endblock title %}
+
+{% block content %}
+ <div class="col-md-6 container">
+        <form action="{% url "users:product_detail" product.productid%}" method="POST" enctype="multipart/form-data">
+
+                {% csrf_token %}
+
+
+        <div class="col-md-6 float-left" >
+
+           <div class="form-group">
+                <label>Product Name</label>
+                <input type="text" name="title" value="{{ product.title }}" class="form-control-plaintext" readonly >
+            </div>
+
+            <div class="form-group">
+                <label>Price</label>
+                <input type="number" name="price" value="{{product.price}}" class="form-control" >
+            </div>
+            <div class="form-group">
+                <label>Description</label>
+                <input type="text" name="description" value="{{product.description}}" class="form-control" >
+            </div>
+            <div class="form-group">
+                <label>Quantity</label>
+                <input type="number" name="quantity" value="{{ product.quantity }}" class="form-control" >
+            </div>
+            <div class="form-group">
+                <label>Category</label>
+                <input type="text" name="category" class="form-control-plaintext" value="{{ product.category }}"  readonly >
+            </div>
+            <!-- <div class="form-group" >
+                <label>Published at</label>
+                <input id="date" type="datetime-local"  name="description" value="{{ product.published_at }}"  class="form-control" readonly>
+            </div> -->
+            <!-- <div class="form-group" >
+                <label>ADD PRODUCT PICTURE</label>
+                <input type="file" name="image" class="fomr-control">
+            </div> -->
+
+        </div>
+
+        <div class="col-md-6 float-right">
+             <div>
+                <img src="{{product.photo.url}}" class="img-thumbnail" alt="">
+            </div> 
+            
+        </div>
+
+        <div class="form-group" style="width: fit-content;">
+            <input type="submit" value="UPDATE PRODUCT"  class="btn btn-dark btn-block">
+        </div>
+
+        </form>
+    </div>
+
+    <script>
+   document.getElementById('date').value = (new Date()).format("m/dd/yy");
+</script>
+    {% endblock content %}

@@ -27,7 +27,7 @@ class Cart(object):
             self.cart[product.productid]={
                     'userid':self.request.user.id,
                     'title':slug,
-                    'quantity': 1,
+                    'quantity': quantity,
                     'price': str(product.price),
                     'photo' : product.photo.url,
                     'productid':product.productid
@@ -38,7 +38,7 @@ class Cart(object):
             for key,value in self.cart.items():
                 if key == str(product.productid):
                     print('okkk')
-                    value['quantity'] = value['quantity'] + 1
+                    value['quantity'] = value['quantity'] + quantity
                     newItem = False
                     self.save()
                     break
@@ -47,7 +47,7 @@ class Cart(object):
                 self.cart[product.productid]={
                     'userid': self.request,
                     'title':slug,
-                    'quantity': 1,
+                    'quantity': quantity,
                     'price': str(product.price),
                     'photo' : product.photo.url,
                     'productid':product.productid
@@ -57,6 +57,47 @@ class Cart(object):
 
 
         self.save()
+    # def add(self,product, quantity=1, action=None):
+    #     """
+    #     Add a product to the cart or update its quantity.
+    #     """
+    #     slug = product.slug
+    #     newItem = True
+    #     if str(product.productid) not in self.cart.keys():
+    #         print(self.cart)
+    #         self.cart[product.productid]={
+    #                 'userid':self.request.user.id,
+    #                 'title':slug,
+    #                 'quantity': 1,
+    #                 'price': str(product.price),
+    #                 'photo' : product.photo.url,
+    #                 'productid':product.productid
+    #                 }
+    #     else:
+    #         newItem = True
+    #         print('okk')
+    #         for key,value in self.cart.items():
+    #             if key == str(product.productid):
+    #                 print('okkk')
+    #                 value['quantity'] = value['quantity'] + 1
+    #                 newItem = False
+    #                 self.save()
+    #                 break
+    #         if newItem == True:
+    #             print('okkkk')
+    #             self.cart[product.productid]={
+    #                 'userid': self.request,
+    #                 'title':slug,
+    #                 'quantity': 1,
+    #                 'price': str(product.price),
+    #                 'photo' : product.photo.url,
+    #                 'productid':product.productid
+
+    #                 }
+
+
+
+    #     self.save()
 
     def save(self):
         # update the session cart

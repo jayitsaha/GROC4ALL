@@ -1,40 +1,71 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse
 from products.models import Product
+from users.models import User
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages,auth
 from django.views.decorators.http import require_POST
 from .cart import Cart
 from orders.models import Order
+from django.core.mail import send_mail
+from django.conf import settings
 
 @login_required(login_url="/users/login")
 def cart_add(request, product_productid):
 	cart = Cart(request)
 	product = Product.objects.get(productid=product_productid)
+	qty = product.quantity
+	product.quantity = qty-1
+	product.save()
 	cart.add(product=product)
 	return redirect('/shop/')
 
+# @login_required(login_url="/users/login")
+# def cart_detail(request):
+# 	sub = []
+# 	qty = []
+# 	total = 0
+# 	for key,value in request.session['cart'].items():
+# 		sub.append(float(value['price']) * float(value['quantity']))
+# 		qty.append(int(value['quantity']))
+# 	for s in sub:
+# 		total = total + s
+# 	context = {
+#     	'title' : 'My Cart',
+#     	'sub' : sub,
+#     	'total' : total
+#     }
+# 	return render(request,'cart/cart_detail.html',context)
 @login_required(login_url="/users/login")
 def cart_detail(request):
 	sub = []
 	qty = []
 	total = 0
-	for key,value in request.session['cart'].items():
-		sub.append(float(value['price']) * float(value['quantity']))
-		qty.append(int(value['quantity']))
-	for s in sub:
-		total = total + s
-	context = {
-    	'title' : 'My Cart',
-    	'sub' : sub,
-    	'total' : total
-    }
-	return render(request,'cart/cart_detail.html',context)
+	if('cart' in request.session):
+		for key,value in request.session['cart'].items():
+			sub.append(float(value['price']) * float(value['quantity']))
+			qty.append(int(value['quantity']))
+		for s in sub:
+			total = total + s
+		context = {
+			'title' : 'My Cart',
+			'sub' : sub,
+			'total' : total
+		}
+		return render(request,'cart/cart_detail.html',context)
+	else:
+		return redirect('/shop')
 
 @login_required(login_url="/users/login")
 def item_clear(request,product_productid):
 	cart = Cart(request)
 	product = Product.objects.get(productid=product_productid)
+	qty = product.quantity
+	for key,value in request.session['cart'].items():
+		if value['productid']==product_productid:
+			product.quantity = qty+value['quantity']
+			break
+	product.save() 
 	cart.remove(product)
 	return redirect('cart:cart_detail')
 
@@ -42,19 +73,47 @@ def item_clear(request,product_productid):
 def item_increment(request,product_productid):
 	cart = Cart(request)
 	product = Product.objects.get(productid=product_productid)
-	cart.add(product=product)
-	return redirect('cart:cart_detail')
+	qty = product.quantity
+	if qty>0:
+		
+		for key,value in request.session['cart'].items():
+			if value['productid']==product_productid:
+				product.quantity = qty-1
+				break
+		product.save() 
+		cart.add(product=product)
+		return redirect('cart:cart_detail')
+	else:
+		messages.info(request,"No more product in the stock!")
+		return redirect('cart:cart_detail')
+
 
 @login_required(login_url="/users/login")
 def item_decrement(request,product_productid):
 	cart = Cart(request)
 	product = Product.objects.get(productid=product_productid)
+	qty = product.quantity
+	for key,value in request.session['cart'].items():
+		if value['productid']==product_productid:
+			product.quantity = qty+1
+			break
 	cart.decrement(product=product)
+	product.save() 
 	return redirect('cart:cart_detail')
 
 @login_required(login_url="/users/login")
 def cart_clear(request):
 	cart = Cart(request)
+	qty=[]
+	pid = []
+	for key,value in request.session['cart'].items():
+		qty.append(value['quantity'])
+		pid.append(value['productid'])
+	for i in range(len(pid)):
+		product = Product.objects.get(productid=pid[i])
+		q = product.quantity
+		product.quantity = q+qty[i]
+		product.save()
 	cart.clear()
 	return redirect('cart:cart_detail')
 
@@ -96,9 +155,27 @@ def confrm_checkout(request):
 					quantity = value['quantity']
 					price = value['price']
 					total = (float(quantity) * float(price))
-					order = Order(item=item,productid=product_object , quantity=quantity,price=price,total=total,name=name,phone=phone,email=email,address=address,user_id=user_id)
+					order = Order(item=item,
+					productid=product_object ,
+					quantity=quantity,
+					price=price,
+					total=total,
+					name=name,
+					phone=phone,
+					email=email,
+					address=address,
+					user_id=user_id
+					)
 					order.save()
-				cart_clear(request)
+
+				content='Hi '+request.user.username+'\n\nYour recent order with order id: '+str(order.id)+' has been successfully placed.\
+				Kindly, wait for the Seller to respond to your order.\n'
+				send_mail("Order INVOICE", content, settings.SENDER_EMAIL, [request.user.email], fail_silently=False)
+				content='Hi '+product_object.user.username+'\n\nCurrently an order with order id: '+str(order.id)+' has been successfully placed at your account.\
+				Kindly, check the order and respond favourably to the customer.\n'
+				send_mail("Order Alert!!", content, settings.SENDER_EMAIL, [product_object.user.email], fail_silently=False)
+				cart = Cart(request)
+				cart.clear()
 				messages.success(request,'Order Created SuccessFully')
 				return redirect('users:dashboard')
 			else:

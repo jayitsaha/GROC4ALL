@@ -1,0 +1,97 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <div class="hero-wrap hero-bread" style="background-image: url({% static 'images/bg_1.jpg' %});">
+      <div class="container">
+        <div class="row no-gutters slider-text align-items-center justify-content-center">
+          <div class="col-md-9 ftco-animate text-center">
+          	<p class="breadcrumbs"><span class="mr-2"><a href="#">Home</a></span> <span>Products</span></p>
+            <h1 class="mb-0 bread">Products</h1>
+          </div>
+        </div>
+      </div>
+	</div>
+
+
+
+
+
+    <section class="ftco-section">
+    	<div class="container">
+    		<div class="row justify-content-center">
+    			<div class="col-md-10 mb-5 text-center">
+    				<ul class="product-category">
+    					<li><a href="#" class="active">All</a></li>
+                            {% for ctg in category %}
+    					<li><a href="{% url "pages:category_by_slug" ctg.slug %}">{{ ctg.title }}</a></li>
+                            {% endfor %}
+    				</ul>
+    			</div>
+            </div>
+            <div class="col-md-4 ">
+                <img class="img-fluid" src="{{image}}" alt="Colorlib Template">
+            </div>
+            <div class="col-md-4">
+                <h3>{{title}}</h3>
+            </div><br>
+    		<div class="row">
+          {% if products %}
+    			
+                <div>
+					<div class="col-md-12  mt-5">
+						<table class="table table-hover table-inverse">
+							<thead>
+								<tr>
+									<th>S.No</th>
+									<th>Seller Name</th>
+									<th>Price</th>
+									<th>Quantity</th>
+									<th>Category</th>
+									<th>Detail</th>
+				
+								</tr>
+							</thead>
+							<tbody>
+								{%for product in products %}
+									<tr>
+										<td>{{forloop.counter}}</td>
+										<td>{{product.user.username}}</td>
+										<td>&#x20B9; {{product.price}}</td>
+                                        <!-- <td><img src="{{product.photo.url}}" class="img-thumbnail" height="100px" width="100px" alt=""></td> -->
+                                        {% if product.quantity == 0 %}
+                                        <td>Out of Stock</td>
+                                        <td>{{product.category}}</td>
+                                        <td><a href="{% url 'pages:product_by_slug' product.productid%}" class="btn btn-primary" disabled>View</a</td>
+                                        {%else%}
+                                        <td>{{product.quantity}}</td>                                   
+                                        <td>{{product.category}}</td>
+										<td><a href="{% url 'pages:product_by_slug' product.productid%}" class="btn btn-primary">View</a</td>
+                                            {% endif %}
+									</tr>
+								{% endfor %}
+							</tbody>
+						</table>
+					</div>
+				
+				</div>
+          {% endif %}
+    		</div>
+    		<div class="row mt-5">
+          <div class="col text-center">
+            <div class="block-27">
+              <ul>
+                <li><a href="#">&lt;</a></li>
+                <li class="active"><span>1</span></li>
+                <li><a href="#">2</a></li>
+                <li><a href="#">3</a></li>
+                <li><a href="#">4</a></li>
+                <li><a href="#">5</a></li>
+                <li><a href="#">&gt;</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+    	</div>
+    </section>
+    {% endblock %}
