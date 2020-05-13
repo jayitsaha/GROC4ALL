@@ -32,6 +32,7 @@ urlpatterns = [
     path('wishlists/',include('wishlists.urls')),
     path('my-ajax-test/', views.myajaxtestview, name='myajaxtestview'),
     path('my-ajax-test-text/', views.myajaxtestviewtext, name='myajaxtestviewtext'),
+    path('search/' , views.search_titles ,name = 'search' )
 
 
 ]

@@ -1,6 +1,6 @@
 from django.urls import path
 from . import views
-
+from ecommerce.views import search_titles
 
 
 app_name = 'pages'
@@ -12,5 +12,9 @@ urlpatterns = [
     path('all_products/', views.all_products , name='all_products'),
     path('<int:product_productid>/',views.product_by_slug , name='product_by_slug'),
     path('category/<slug:slug>/',views.category_by_slug , name='category_by_slug'),
+    path('search/' , search_titles ,name = 'search' ),
+
+
+
 
 ]

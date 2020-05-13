@@ -1,0 +1,16 @@
+{% if articles.count > 0%}
+
+
+
+{%for article in articles%}
+<a class="dropdown-item" href="/shop/{{article.productid}}/">{{article.title}}</a>
+
+
+
+
+
+
+{% endfor %}
+{%else%}
+<li>!  Nothing Found  !</li>
+{%endif%}

@@ -11,6 +11,8 @@ import json
 from django.views.decorators.csrf import csrf_exempt
 from chatbot1.shopping_bot import ShoppingBot
 from cart.cart import Cart
+from django.shortcuts import render_to_response
+
 sb = ShoppingBot()
 global x
 
@@ -236,7 +238,7 @@ def myajaxtestviewtext(request):
                 qty = p.quantity
                 if quantity>qty:
                     resp = "Number of Items exceeded the stock..\nPlease Clear the list and try again."
-                    return HttpResponse(resp)            
+                    return HttpResponse(resp)
                 p.quantity = qty-quantity
                 p.save()
                 cart.add(product = p , quantity = quantity)
@@ -291,6 +293,19 @@ def ordering():
         sb.temp = 0
     # print(other)
     return HttpResponse(resp)
+
+@csrf_exempt
+def search_titles(request):
+    if request.method == "POST":
+        search_text = request.POST['search_text']
+    else:
+        search_text = ''
+    articles = Product.objects.filter(title__contains = search_text , title__isnull = False)
+
+
+
+
+    return render_to_response('ecom/search.html',{"articles":articles})
 
 
 
