@@ -1,3 +1,4 @@
+import stripe 
 from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse
 from products.models import Product
@@ -9,6 +10,7 @@ from .cart import Cart
 from orders.models import Order
 from django.core.mail import send_mail
 from django.conf import settings
+stripe.api_key = settings.STRIPE_SECRET_KEY
 
 @login_required(login_url="/users/login")
 def cart_add(request, product_productid):
@@ -147,6 +149,8 @@ def confrm_checkout(request):
 			email = request.POST['email']
 			address = request.POST['address']
 			user_id = request.user.id
+			orders=[]
+			tot_price=0
 			if name and phone and email and address:
 				for key,value in request.session['cart'].items():
 					item = value['title']
@@ -167,6 +171,8 @@ def confrm_checkout(request):
 					user_id=user_id
 					)
 					order.save()
+					orders.append(order)
+					tot_price += order.total
 
 				content='Hi '+request.user.username+'\n\nYour recent order with order id: '+str(order.id)+' has been successfully placed.\
 				Kindly, wait for the Seller to respond to your order.\n'
@@ -174,10 +180,16 @@ def confrm_checkout(request):
 				content='Hi '+product_object.user.username+'\n\nCurrently an order with order id: '+str(order.id)+' has been successfully placed at your account.\
 				Kindly, check the order and respond favourably to the customer.\n'
 				send_mail("Order Alert!!", content, settings.SENDER_EMAIL, [product_object.user.email], fail_silently=False)
-				cart = Cart(request)
-				cart.clear()
-				messages.success(request,'Order Created SuccessFully')
-				return redirect('users:dashboard')
+				# cart = Cart(request)
+				# cart.clear()
+				context ={
+					'key': settings.STRIPE_PUBLISHABLE_KEY,
+        			'orders': orders,
+        			'price':int(tot_price)*100,
+					'price2':tot_price
+				}
+				# messages.success(request,'Order Created SuccessFully')
+				return render(request, 'payments/home.html', context)
 			else:
 				messages.info(request,'Filled All The Field')
 				return redirect('cart:checkout')

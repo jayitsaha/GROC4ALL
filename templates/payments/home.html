@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% load index %}
+
+{% block title %}
+    {{title}}
+{% endblock title %}
+
+
+
+{% block content %}
+<div class="container">
+    <table class="table">
+        <thead class="thead-dark">
+          <tr>
+            <!-- <th scope="col" style="text-align: center;">#</th> -->
+            <th scope="col" style="text-align: center;">Order ID</th>
+            <th scope="col" style="text-align: center;">Order Date</th>
+            <th scope="col" style="text-align: center;">Bill Amount</th>
+          </tr>
+        </thead>
+        <tbody>
+            {% for order in orders %}
+            <tr>
+            <!-- <th>1</th> -->
+            
+            <td>{{order.id}}</td>
+            <td>{{order.order_date}}</td>
+            <td>&#8377; {{order.price}}</td>
+          </tr>
+          {% endfor %}
+          <tr class="table-dark">
+            <td colspan="2" style="text-align:start; color: black; font-size: 22px;">Total Bill Amount</td>
+            <td style="color: black; font-size: 22px;">{{price2}}</td>
+          </tr>
+        </tbody>
+      </table>
+<h6>Pay your Bill using Stripe Payment Gateway.</h6><br>
+<form action="{% url 'payments:charge' %}" method="">
+    {% csrf_token %}
+    <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+            data-key="{{ key }}"
+            data-description="Groc4All Payment"
+            data-currency="inr"
+            data-amount="{{price}}"
+            data-locale="auto"></script>
+  </form>
+</div>
+{% endblock %}

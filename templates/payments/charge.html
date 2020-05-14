@@ -1,0 +1,19 @@
+
+{% extends "base.html" %}
+{% load index %}
+
+{% block title %}
+    {{title}}
+{% endblock title %}
+
+
+
+{% block content %}
+<div class="card">
+    <div class="card-body">
+      <h5 class="card-title">Payment Successfull </h5>
+      <p class="card-text">Thank You, for paying amount <strong>&#8377; 100</strong></p>
+      <a href="{% url 'users:dashboard' %}" class="btn btn-primary">View Order</a>
+    </div>
+  </div>
+{% endblock %}
