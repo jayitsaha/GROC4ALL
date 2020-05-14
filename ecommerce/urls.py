@@ -19,6 +19,7 @@ from ecommerce import views
 
 from django.conf.urls.static import static
 from django.conf import settings
+from polls.views import results
 
 urlpatterns = [
     path('grappelli/', include('grappelli.urls')),
@@ -33,7 +34,10 @@ urlpatterns = [
     path('my-ajax-test/', views.myajaxtestview, name='myajaxtestview'),
     path('my-ajax-test-text/', views.myajaxtestviewtext, name='myajaxtestviewtext'),
     path('payments/', include('payments.urls')),
-    path('search/' , views.search_titles ,name = 'search' )
+    path('search/' , views.search_titles ,name = 'search' ),
+    path('updates/', include('processdata.urls')),
+    path('updates/', include('app.urls')),  # add this
+    path('updates/daily/',results,name='home'),
 
 
 ]

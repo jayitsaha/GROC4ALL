@@ -49,6 +49,10 @@ INSTALLED_APPS = [
     'django_cleanup',
     'users',
     'crispy_forms',
+    'app',
+    'processdata',
+    'django.contrib.humanize',
+    'polls',
 ]
 
 MIDDLEWARE = [
