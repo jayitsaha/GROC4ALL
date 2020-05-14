@@ -1,32 +1,41 @@
-# Ecommerce WebSite With Django2
+# Groc4All - An E-Commerce Website
 
-# Features
-	1. Full Authentication
+## Features
+	1. Full Authentication via face-recognition
 	2. Category Add
 	3. Product Add
 	4. Shopping Cart
 	5. Checkout Page
-	6. WIshlists Create
+	6. Wishlists Create
 	7. Wishlish Delete
-	8. Profile Crete
+	8. Profile Create
 	9. Profile Update
+	10.Shopkeeper user
+	11.Speech to Text Chatbot
+	12.Stripe Payment
+	13.Corona Prediction
+	14.COVID-19 Charts
 
-# Future Plan
-	1.Online Payment Add
-	2. Shopkeeper feature
+## Quick Start Guide
 
-
-## Quick Start Using Pipenv
+Clone the project repository
 
 ``` bash
-# Activate venv
-$ pipenv shell
+# change directory
+$ cd IBM_HACK
 
-# Install dependencies
-$ pipenv install
+# Setup Virtual Environment(LINUX)
+$ virtualenv venv
+$ source venv/bin/activate
 
-# For Static Folder
-$ python manage.py collectstatic
+# Install requirements
+$ pip install -r requirements.txt
+
+# Migrate db File
+$ python manage.py makemigrations
+$ python manage.py migrate
+
+# Launch server
+$ python manage.py runserver
 
 ```
-*currently you need to go to admin and add your image*

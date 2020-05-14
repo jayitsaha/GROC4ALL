@@ -7,7 +7,11 @@ __pycache__/
 *$py.class
 *.pyc
 *.log
-
+*/migrations/*
+!*/migrations/__init__.py
+db.sqlite3
+local_settings.py
+filename.jpg
 
 
 .vscode
