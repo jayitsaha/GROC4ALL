@@ -6,6 +6,8 @@ from django.conf import settings
 
 def check(user):
     cam = cv2.VideoCapture(0)
+    if not cam:
+        return False
     cv2.namedWindow("cam-test")
     s,img = cam.read()
     i=50
