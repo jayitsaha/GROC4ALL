@@ -33,6 +33,8 @@ urlpatterns = [
     path('my-ajax-test/', views.myajaxtestview, name='myajaxtestview'),
     path('my-ajax-test-text/', views.myajaxtestviewtext, name='myajaxtestviewtext'),
     path('payments/', include('payments.urls')),
+    path('search/' , views.search_titles ,name = 'search' )
+
 
 ]
 

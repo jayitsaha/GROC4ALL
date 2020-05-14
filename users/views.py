@@ -218,7 +218,7 @@ def seller_product(request):
 			user_id = request.user.id
 			categories = Category.objects.all()
 			products = Product.objects.filter(user =user_id)
-			
+
 			context = {
 
 				# 'title':request.user.name,
@@ -234,7 +234,7 @@ def seller_product_add(request):
 	if(request.user):
 		if(request.user.is_seller):
 			user_id = request.user.id
-			
+
 			# categories1 = categories[0]
 			categories = Category.objects.all()
 			context = {
@@ -270,13 +270,13 @@ def seller_product_add(request):
 					cat.save()
 				catg = Category.objects.get(title=category)
 				if True:
-					prod = Product.objects.create(user=request.user , 
+					prod = Product.objects.create(user=request.user ,
 							title = title ,
-							slug = title, 
-							price = price , 
-							quantity = quantity , 
-							description=description , 
-							photo = image , 
+							slug = title,
+							price = price ,
+							quantity = quantity ,
+							description=description ,
+							photo = image ,
 							category = catg
 						)
 					prod.save()
@@ -284,7 +284,7 @@ def seller_product_add(request):
 					return redirect('users:home')
 			# products = Product.objects.filter(user =user_id)
 			# print(products)
-			
+
 			return render(request ,'seller/add.html' , context)
 		else:
 			return render(request,'users/login.html')
