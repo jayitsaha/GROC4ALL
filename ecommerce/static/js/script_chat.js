@@ -141,6 +141,7 @@ function setBotResponse(val) {
 
 // ------------------------------------------ Toggle chatbot -----------------------------------------------
 var counter = 0;
+var counter1 = 0;
 $('#profile_div').click(function () {
 	counter = counter +1;
 	console.log(counter);
@@ -165,6 +166,9 @@ $('#profile_div').click(function () {
 	}
 });
 
+// var hasFocus = $('#idOfTheInputElement').is(':focus');
+
+
 
 $('#close').click(function () {
 	counter = counter +1;
@@ -185,7 +189,15 @@ $('#close').click(function () {
 
 });
 function loader(){
-if(counter%2 != 0){
+	var hasFocus = $('#search').is(':focus');
+	if(hasFocus){
+		counter1 = 1;
+	}
+	else{
+		counter1 = 0;
+	}
+
+if(counter%2 != 0 && counter1==0){
 	console.log("FOCUSING");
 	$("#keypad").show().focus();
 }
