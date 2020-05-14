@@ -29,17 +29,15 @@
 
 <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
  {%if user.is_authenticated and user.is_customer%}
+ <div class="container-fluid">
 {%else%}
   <div class="container">
   {%endif%}
     <a class="navbar-brand" href="/">Groc4All</a>
 
  <div class="nav-item dropdown">
-          {% comment %} <a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">WE CARE FOR YOU</a> {% endcomment %}
           <input type="text" class="jayit_placeholder" id="search" name="search" data-toggle="dropdown"  aria-haspopup="true" aria-expanded="false" placeholder="Search..."/>
           <div class="dropdown-menu" aria-labelledby="search" id="search-results">
-
-
           </div>
         </div>
 
@@ -65,22 +63,6 @@
         </li>
 
 {%endif%}
-
-            {% comment %} <li class="nav-item"><a href="#" class="nav-link">Blog</a></li> {% endcomment %}
-        {% comment %} <li class="nav-item active"><a href="{% url 'home' %}" class="nav-link">Home</a></li> {% endcomment %}
-        {% comment %} <li class="nav-item dropdown"> {% endcomment %}
-          {% comment %} <a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Shop</a> {% endcomment %}
-          <!-- <div class="dropdown-menu" aria-labelledby="dropdown04"> -->
-            {% comment %} <a class="nav-item" href="{% url 'shop' %}">Shop</a> {% endcomment %}
-
-{% comment %}
-            <li class="nav-item "><a href="{% url "pages:about" %}" class="nav-link">ABOUT</a></li>
-            <li class="nav-item "><a class="nav-link" href="{% url "diseasepredictor:home"%}">CORONA PREDICTOR</a></li> {% endcomment %}
-                  {% comment %} {% if user.is_authenticated and user.is_seller%} {% endcomment %}
-
-
-
-                  {% comment %} {%endif%} {% endcomment %}
                   {% if user.is_authenticated and user.is_seller%}
 
                   <li class="nav-item "><a class="nav-link" href="{% url "users:home"%}">YOUR PRODUCTS</a></li>

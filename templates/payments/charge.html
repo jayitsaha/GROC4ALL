@@ -1,5 +1,5 @@
 
-{% extends "base.html" %}
+{% extends "base_add.html" %}
 {% load index %}
 
 {% block title %}
@@ -12,7 +12,7 @@
 <div class="card">
     <div class="card-body">
       <h5 class="card-title">Payment Successfull </h5>
-      <p class="card-text">Thank You, for paying amount <strong>&#8377; 100</strong></p>
+      <p class="card-text">Thank You, for doing transaction with us...</p>
       <a href="{% url 'users:dashboard' %}" class="btn btn-primary">View Order</a>
     </div>
   </div>

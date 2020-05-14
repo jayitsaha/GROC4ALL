@@ -11,7 +11,7 @@ import json
 from django.views.decorators.csrf import csrf_exempt
 from chatbot1.shopping_bot import ShoppingBot
 from cart.cart import Cart
-from django.shortcuts import render_to_response
+# from django.shortcuts import render_to_response
 
 sb = ShoppingBot()
 global x
@@ -305,7 +305,7 @@ def search_titles(request):
 
 
 
-    return render_to_response('ecom/search.html',{"articles":articles})
+    return render(None,'ecom/search.html',{"articles":articles})
 
 
 
