@@ -135,5 +135,5 @@ $(document).on("click", ".menu .menuChips", function () {
 	console.log("button payload: ",this.getAttribute('data-payload'))
 	setUserResponse(text);
 	send(payload);
-	$('.suggestions').remove(); //delete the suggestions 
+	$('.suggestions').remove(); //delete the suggestions
 });

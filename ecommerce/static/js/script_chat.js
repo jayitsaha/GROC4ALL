@@ -140,17 +140,62 @@ function setBotResponse(val) {
 
 
 // ------------------------------------------ Toggle chatbot -----------------------------------------------
+var counter = 0;
 $('#profile_div').click(function () {
+	counter = counter +1;
+	console.log(counter);
+
 	$('.profile_div').toggle();
 	$('.widget').toggle();
+	console.log("YO MAMA");
+
+
 	scrollToBottomOfResults();
+
+	if(counter%2 == 0){
+		console.log("FOCUSING");
+		$("#keypad").show().focus();
+
+	}
+	else{
+		console.log("LOLOL")
+		$("#keypad").show().focus();
+
+
+	}
 });
+
 
 $('#close').click(function () {
+	counter = counter +1;
+	console.log("YO MAMA");
+	console.log(counter);
 	$('.profile_div').toggle();
 	$('.widget').toggle();
-});
+	if(counter%2 == 0){
+		console.log("FOCUSING");
+	}
+	else{
+		console.log("LMAOOOO")
+		$("#keypad").show().focus();
 
+
+
+	}
+
+});
+function loader(){
+if(counter%2 != 0){
+	console.log("FOCUSING");
+	$("#keypad").show().focus();
+}
+}
+window.setInterval(function(){
+
+		loader();
+
+  }, 1000);
+window.onload = loader();
 
 // ------------------------------------------ Suggestions -----------------------------------------------
 
