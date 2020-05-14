@@ -1,6 +1,6 @@
 from django.urls import path
 from . import views
-from ecommerce.views import search_titles
+from ecommerce.views import search_titles ,myajaxtestview,myajaxtestviewtext
 
 
 app_name = 'pages'
@@ -13,6 +13,8 @@ urlpatterns = [
     path('<int:product_productid>/',views.product_by_slug , name='product_by_slug'),
     path('category/<slug:slug>/',views.category_by_slug , name='category_by_slug'),
     path('search/' , search_titles ,name = 'search' ),
+    path('my-ajax-test/', myajaxtestview, name='myajaxtestview'),
+    path('my-ajax-test-text/', myajaxtestviewtext, name='myajaxtestviewtext'),
 
 
 

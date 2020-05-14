@@ -130,68 +130,33 @@
         </div>
       </div>
     </section>
-{% endblock %}
-{% comment %} {% extends "base.html" %}
 
-{% block title %}
-    {{title}}
-{% endblock title %}
-
-
-
-{% block content %}
-
-  <div class="col-md-4">
-	<ul class="list-group">
-		<li class="list-group-item"><a href="{% url "pages:all_products" %}">All Products</a></li>
-		{% for cat in categories %}
-			<li class="list-group-item"><a href="{% url "pages:category_by_slug" cat.slug %}">{{cat.title}}</a></li>
-		{% endfor %}
-
-
-	</ul>
+<div class="container">
+  <div class="widget">
+     <div class="chat_header">
+        <!--Add the name of the bot here -->
+        <span style="color:white;margin-left: 5px;">Moodbot 😃</span>
+        <span style="color:white;margin-right: 5px;float:right;margin-top: 5px;" id="close">
+        <i class="material-icons">close</i>
+        </span>
+     </div>
+     <!--Chatbot contents goes here -->
+     <div class="chats" id="chats">
+        <div class="clearfix"></div>
+     </div>
+     <!--user typing indicator -->
+     <div class="" style="display:flex;">
+        <input type="text" id="keypad" style="display:flex" class="usrInput browser-default" placeholder="Type a message..." autocomplete="off" autofocus>
+         {% comment %} <form action='#' class="nobgform" style="display:flex" > {% endcomment %}
+          {% comment %} {%csrf_token%} {% endcomment %}
+          <input type="submit" class="nobg browser-default"  name="mybtn" autocomplete="off">
+        {% comment %} </form> {% endcomment %}
+     </div>
   </div>
+  <!--bot widget -->
+  <div class="profile_div" id="profile_div">
+     <img class="imgProfile" src="/static/img/botAvatar.png"/>
+  </div>
+</div>
 
-
-
-
-	 <div class="col-md-8">
-	 	<div class="row">
-			{% for p in products %}
-	  <div class="col-md-6 mt-1">
-		<div class="card-deck-wrapper">
-			<div class="card-deck">
-				<div class="card">
-					<img class="card-img-top" height="350px" src="{{p.photo.url}}" alt="Card image cap">
-					<div class="card-block">
-						<h4 class="card-title text-center text-secondary">{{p.title}}</h4>
-            <p class="card-text text-center lead">
-            {{p.summary}}<br>
-            <strong>Category: </strong><a href="{% url "pages:category_by_slug" p.category.slug %}">{{p.category.title}}</a><br>
-            <a href="{% url "wishlists:add_wishlist" p.id %}">Add To Wish List</a>
-            </p>
-						<p class="card-text"><small class="text-info font-weight-bold">Posted At :{{p.published_at}}</small>
-						<a href="{% url "pages:product_by_slug" p.slug %}" class="float-right">Read More</a>
-						</p>
-					</div>
-				</div>
-			</div>
-		</div>
-	  </div>
-  {% endfor %}
-	 	</div>
-	 </div>
-
-
-
-
-
-
-
-
-
-
-
-{% endblock content %}
-
- {% endcomment %}
+{% endblock %}
