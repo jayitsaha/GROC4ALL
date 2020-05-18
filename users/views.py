@@ -270,9 +270,10 @@ def seller_product_add(request):
 					cat.save()
 				catg = Category.objects.get(title=category)
 				if True:
+					slug = title.lower()
 					prod = Product.objects.create(user=request.user ,
 							title = title ,
-							slug = title,
+							slug = slug,
 							price = price ,
 							quantity = quantity ,
 							description=description ,
