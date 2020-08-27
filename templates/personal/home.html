@@ -1,0 +1,118 @@
+{% extends "personal/index.html" %}
+
+{% block content %}
+
+        <form id="myform" novalidate="novalidate">
+            <div class="container">
+  <div class="row">
+              <div class="control-group col-11">
+                <div class="form-group floating-label-form-group controls mb-0 pb-2">
+                  <label>Text Input</label>
+                  <textarea class="form-control" name="Text" id="Text" rows="5" placeholder="Text input" required="required" data-validation-required-message="Please enter a message."></textarea>
+                  <p class="help-block text-danger"></p>
+                </div>
+              </div>
+
+              <div class="form-group  col-1">
+              <br>
+            <div style="padding-left : 30px;">
+                <h6 class="text-center text-uppercase text-secondary mb-0">Result
+                  {% if prediction == None %}
+                      <span class="btn btn-light btn-lg" id="prediction" style="color:#808080;background: rgba(0, 0, 0, 0);border-color: rgba(0, 0, 0, 0);">0 %</span>
+                  {% else %}
+                      <span class="btn btn-light btn-lg" id="prediction" >{{ prediction }}</span>
+                  {% endif %}
+                </h6>
+              </div>
+              <div>
+                  <button class="btn btn-md btn-outline-primary btn-block" id="load" style="width: 140px"><i class="fa fa-paper-plane-o mr-2"></i> Load Sample </button>
+                  <button class="btn btn-md btn-outline-primary btn-block" id="clear" style="width: 140px"> <i class="fa fa-trash-o mr-2"></i>Clear </button>
+              </div>
+              </div>
+            </div>
+            </div>
+            </form>
+
+    <script>
+        var inputElem = document.createElement('input');
+var x = document.getElementById("Text");
+inputElem.type = 'hidden';
+inputElem.name = 'csrfmiddlewaretoken';
+inputElem.value = '{{ csrf_token }}';
+// Clear Text
+document.getElementById('clear').addEventListener('click', function (e) {
+    e.preventDefault();
+    $("#Text").val('');
+    $('#prediction').html('0 %');
+    $('#prediction').css('color', '#808080');
+}
+);
+sample = "I bought two pairs of wipers just over a year ago, expecting I'd have the second pair as backup. I haven't needed the second pair - the first pair are still just like new - they don't squeak, chatter, or smear and are great for visibility. "
+//Load Sample
+document.getElementById('load').addEventListener('click', function (e) {
+    e.preventDefault();
+    $("#Text").val(sample);
+    $('#prediction').html('82 %');
+    $('#prediction').css('color', "#00FA9A");
+}
+);
+function getCookie(c_name)
+{
+    if (document.cookie.length > 0)
+    {
+        c_start = document.cookie.indexOf(c_name + "=");
+        if (c_start != -1)
+        {
+            c_start = c_start + c_name.length + 1;
+            c_end = document.cookie.indexOf(";", c_start);
+            if (c_end == -1) c_end = document.cookie.length;
+            return unescape(document.cookie.substring(c_start,c_end));
+        }
+    }
+    return "";
+ }
+
+
+$("#Text").keyup(function(e){
+    {% comment %} if (e.keyCode == "32") { {% endcomment %}
+            if (e.keyCode == "32") {
+
+        // information to be sent to the server
+    var Text = $("#Text").val();
+
+    $.ajax({
+        headers: { "X-CSRFToken": getCookie("csrftoken") },
+        type: "POST",
+        url: '/review/prediction/',
+        data: {Text: Text},
+        success: function (data) {
+        classe = "btn btn-primary btn-xl";
+        color = "#00FA9A"
+            var result = $('<div />').append(data).find('#prediction').html();
+            $('#prediction').html(parseInt(result)+' %');
+            if (parseInt(result) < 50) {
+            //classe = "btn btn-danger btn-xl";
+            color = "Red"
+
+        }
+        if (parseInt(result) >= 50) {
+            //classe = "btn btn-primary btn-xl";
+            color = "#00FA9A"
+        }
+      //  $('#prediction').attr('class', classe);
+            $('#prediction').css('color', color);
+        },
+        error: function (xhr, status) {
+ //           $('#prediction').html('50 %');
+
+        }
+    });
+
+
+   }
+
+
+});
+
+</script>
+{% endblock %}
