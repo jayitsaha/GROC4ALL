@@ -1,4 +1,4 @@
-import stripe 
+import stripe
 from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse
 from products.models import Product
@@ -67,7 +67,7 @@ def item_clear(request,product_productid):
 		if value['productid']==product_productid:
 			product.quantity = qty+value['quantity']
 			break
-	product.save() 
+	product.save()
 	cart.remove(product)
 	return redirect('cart:cart_detail')
 
@@ -77,12 +77,12 @@ def item_increment(request,product_productid):
 	product = Product.objects.get(productid=product_productid)
 	qty = product.quantity
 	if qty>0:
-		
+
 		for key,value in request.session['cart'].items():
 			if value['productid']==product_productid:
 				product.quantity = qty-1
 				break
-		product.save() 
+		product.save()
 		cart.add(product=product)
 		return redirect('cart:cart_detail')
 	else:
@@ -100,7 +100,7 @@ def item_decrement(request,product_productid):
 			product.quantity = qty+1
 			break
 	cart.decrement(product=product)
-	product.save() 
+	product.save()
 	return redirect('cart:cart_detail')
 
 @login_required(login_url="/users/login")
@@ -176,10 +176,10 @@ def confrm_checkout(request):
 
 				content='Hi '+request.user.username+'\n\nYour recent order with order id: '+str(order.id)+' has been successfully placed.\
 				Kindly, wait for the Seller to respond to your order.\n'
-				send_mail("Order INVOICE", content, settings.SENDER_EMAIL, [request.user.email], fail_silently=False)
+				send_mail("Order INVOICE", content, settings.SENDER_EMAIL, [request.user.email], fail_silently=True)
 				content='Hi '+product_object.user.username+'\n\nCurrently an order with order id: '+str(order.id)+' has been successfully placed at your account.\
 				Kindly, check the order and respond favourably to the customer.\n'
-				send_mail("Order Alert!!", content, settings.SENDER_EMAIL, [product_object.user.email], fail_silently=False)
+				send_mail("Order Alert!!", content, settings.SENDER_EMAIL, [product_object.user.email], fail_silently=True)
 				# cart = Cart(request)
 				# cart.clear()
 				context ={

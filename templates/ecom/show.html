@@ -2,6 +2,7 @@
 {% load static %}
 
 {% block content %}
+
     <div class="hero-wrap hero-bread" style="background-image: url({% static 'images/bg_1.jpg' %});">
       <div class="container">
         <div class="row no-gutters slider-text align-items-center justify-content-center">
@@ -78,11 +79,48 @@
 	          		<p style="color: #000;">{{product.quantity}} LEFT IN STOCK</p>
 	          	</div>
           	</div>
-          	<p><a href="{% url "cart:cart_add" product.productid %}" class="btn btn-black py-10 px-5">Add to Cart</a></p>
+          	<p><a href="{% url 'cart:cart_add' product.productid %}" class="btn btn-black py-10 px-5">Add to Cart</a></p>
     			</div>
     		</div>
     	</div>
 	</section>
+
+
+ <form id="myform" novalidate="novalidate">
+            <div class="container">
+  <div class="row">
+              <div class="control-group col-11">
+                <div class="form-group floating-label-form-group controls mb-0 pb-2">
+                  <label>Text Input</label>
+                  <textarea class="form-control" name="Text" id="Text" rows="5" placeholder="Text input" required="required" data-validation-required-message="Please enter a message."></textarea>
+                  <p class="help-block text-danger"></p>
+                </div>
+              </div>
+
+              <div class="form-group  col-1">
+              <br>
+            <div style="padding-left : 30px;">
+                <h6 class="text-center text-uppercase text-secondary mb-0">Result
+                  {% if prediction == None %}
+				  <br />
+				  <br />
+                      <span class="" id="prediction" style="color:#808080;background: rgba(0, 0, 0, 0);border-color: rgba(0, 0, 0, 0);">0 %</span>
+                  {% else %}
+				  <br />
+				  <br />
+                      <span class="" style="min-width:100px!important" id="prediction" >{{ prediction }}</span>
+                  {% endif %}
+                </h6>
+              </div>
+              <div>
+                  <button class="btn btn-md btn-outline-primary btn-block" id="load" style="width: 140px;display:none"><i class="fa fa-paper-plane-o mr-2"></i> Load Sample </button>
+                  <button class="btn btn-md btn-outline-primary btn-block" id="clear" style="width: 140px;display:none"> <i class="fa fa-trash-o mr-2"></i>Clear </button>
+              </div>
+              </div>
+            </div>
+            </div>
+            </form>
+
 
 
 	<div class="container" style="z-index: 100;">
@@ -155,7 +193,11 @@
     		</div>
     	</div>
     </section>
+<script>
 
+    {% comment %} TextId = $("#TextId").val(); {% endcomment %}
+	TextId = {{product.productid}}
+</script>
 		<!-- <section class="ftco-section ftco-no-pt ftco-no-pb py-5 bg-light">
       <div class="container py-4">
         <div class="row d-flex justify-content-center py-5">
@@ -174,42 +216,7 @@
         </div>
       </div>
     </section> -->
-    <script>
-      $(document).ready(function(){
 
-      var quantitiy=0;
-         $('.quantity-right-plus').click(function(e){
-
-              // Stop acting like a button
-              e.preventDefault();
-              // Get the field name
-              var quantity = parseInt($('#quantity').val());
-
-              // If is not undefined
-
-                  $('#quantity').val(quantity + 1);
-
-
-                  // Increment
-
-          });
-
-           $('.quantity-left-minus').click(function(e){
-              // Stop acting like a button
-              e.preventDefault();
-              // Get the field name
-              var quantity = parseInt($('#quantity').val());
-
-              // If is not undefined
-
-                  // Increment
-                  if(quantity>0){
-                  $('#quantity').val(quantity - 1);
-                  }
-          });
-
-      });
-    </script>
 {% endblock %}
 
 
@@ -237,7 +244,6 @@
     <p>{{product.description}}</p>
     <p>Price : ${{product.price}}</p>
     <p>Avaiable : {{product.quantity}}</p>
-    <p><a href="{% url "cart:cart_add" product.slug %}">Add to cart</a></p>
 
   </div>
 

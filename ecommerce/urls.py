@@ -16,10 +16,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path,include
 from ecommerce import views
+from django.conf.urls import url
 
 from django.conf.urls.static import static
 from django.conf import settings
 from polls.views import results
+from personal.views import prediction
 
 urlpatterns = [
     path('grappelli/', include('grappelli.urls')),
@@ -38,6 +40,8 @@ urlpatterns = [
     path('updates/', include('processdata.urls')),
     path('updates/', include('app.urls')),  # add this
     path('updates/daily/',results,name='home'),
+    url(r'^review/', include('personal.urls')),
+    url(r'^predictions/',prediction,name='predection')
 
 
 ]

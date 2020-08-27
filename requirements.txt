@@ -35,4 +35,5 @@ websocket-client==0.47.0
 websockets==8.1
 django-crispy-forms
 plotly==4.7.1
+fasttext
 
