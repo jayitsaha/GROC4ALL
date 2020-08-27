@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/2.1/ref/settings/
 """
 
 import os
-
+import fasttext
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -145,6 +145,8 @@ CART_SESSION_ID ='cart'
 STATIC_ROOT = os.path.join(BASE_DIR , 'static')
 STATIC_URL = '/static/'
 STATICFILES_DIRS=[(os.path.join(BASE_DIR,'ecommerce/static'))]
+
+model1 = fasttext.load_model("amazon_reviews.bin")
 
 
 # Media Folder Settings
