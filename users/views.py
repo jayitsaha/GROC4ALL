@@ -35,6 +35,11 @@ def register_customer(request):
 			email = request.POST['email']
 			password = request.POST['password']
 			password2 = request.POST['password2']
+			latitude = request.POST['latitude']
+			longitude = request.POST['longitude']
+			location = request.POST['location']
+			house = request.POST['house']
+
 			img_encoded = request.POST['mydata']
 			img_decode = base64.b64decode(img_encoded)
 
@@ -48,7 +53,14 @@ def register_customer(request):
 						messages.error(request , 'Email Already Exits ')
 						return redirect('users:register')
 					else:
-						user = User.objects.create_user(username=username,password=password,email=email,is_customer=True)
+						user = User.objects.create_user(username=username,
+														password=password,
+														email=email,
+														is_customer=True,
+														latitude=latitude,
+														longitude =longitude,
+														location =location,
+														office_name =house )
 
 						Profile.objects.update_or_create(
 							user=user,

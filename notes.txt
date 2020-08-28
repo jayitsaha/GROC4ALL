@@ -1,0 +1,33 @@
+(('__label__1,(0.99))) --negative
+(('__label__2,(0.99))) --positive
+
+
+prediction on negtive gives accuracy outta 100
+prediction on positive also  gives accuracy outta 100
+when i negative ---100 - my negative accuracy ==
+62%
+100-62
+100% neg accuracy -->100-100 ie 0% pos acc
+
+if [0][0]==__label__1 --> negative
+100 - [1][0]*100
+else
+[1][0]*100
+
+
+NEXT JOB -->
+
+
+review --> save it to review table with user id and prod id and also with accuracy and label and star rating as well as comment
+
+make star rating as fk
+
+use that fk in product table as a total star rating
+
+update the star rating of the product also with every new review
+
+X a b c ....productid
+1 0 1 1
+2 1 0 1
+3 1 1 0
+...userid

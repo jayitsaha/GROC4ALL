@@ -91,10 +91,16 @@ WSGI_APPLICATION = 'ecommerce.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'groc4all',
+        'USER':'postgres',
+        'PASSWORD':'admin',
+        'HOST':'localhost',
+        'PORT':'5432',
+
     }
 }
+
 
 
 # Password validation
@@ -147,7 +153,7 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS=[(os.path.join(BASE_DIR,'ecommerce/static'))]
 
 model1 = fasttext.load_model("amazon_reviews.bin")
-
+# model1 = 'amazon'
 
 # Media Folder Settings
 MEDIA_ROOT = os.path.join(BASE_DIR,'media')
