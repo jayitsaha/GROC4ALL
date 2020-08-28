@@ -64,3 +64,58 @@ $("#id_latitude").change(function(e){
           });
 
     }
+
+
+    function onSuccessGeoForward(loc){
+
+        console.log("FWDING");
+        // getReverseGeocodingData(latitude,longitude);
+
+
+
+        var xhr = new XMLHttpRequest();
+
+        $( document ).ready(function() {
+            let endpoint = 'https://api.opencagedata.com/geocode/v1/json?q='+loc+'&key=add439a2f90b4b15836d85155ffb848e';
+
+
+            var request = new XMLHttpRequest();
+
+            request.open('GET', endpoint, true);
+
+            request.onload = function ()
+            {
+                if (this.status >= 200 && this.status < 500)
+                {
+                    // Success!
+                    var data = JSON.parse(this.response);
+                    console.log(data);
+                    // document.getElementById("id_location").value = data.results[0].formatted;
+                    document.getElementById("id_latitude").value = data.results[0].geometry.lat;
+                    document.getElementById("id_longitude").value = data.results[0].geometry.lng;
+
+                }
+                else
+                {
+                    // We reached our target server, but it returned an error.
+                    console.log("Error status not between 200 and 400.");
+                }
+            };
+
+            request.onerror = function (e)
+            {
+                // There was a connection error of some sort.
+                console.log(e);
+            };
+            request.send();
+
+
+          });
+
+    }
+
+    $("#id_location").change(function(e){
+        console.log("NIGGAAA WIGGAA");
+        onSuccessGeoForward(document.getElementById("id_location").value);
+
+        });
