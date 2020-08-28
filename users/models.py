@@ -8,6 +8,11 @@ from django.contrib.auth.models import AbstractUser
 class User(AbstractUser):
     is_customer = models.BooleanField(default=False)
     is_seller = models.BooleanField(default=False)
+    latitude = models.FloatField(default=0)
+    longitude = models.FloatField(default=0)
+    location = models.CharField(max_length=200,default='')
+    office_name = models.CharField(max_length=200,default='')
+
 
 class Profile(models.Model):
 	user = models.OneToOneField(User,on_delete=models.CASCADE)
