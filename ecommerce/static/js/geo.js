@@ -1,58 +1,66 @@
-//   GEOAPI
 
-if(navigator.geolocation){
-    navigator.geolocation.getCurrentPosition(onSuccessGeo,onErrorGeo)
-}
-else{
-    console.log("UNAUTH");
-
+function onErrorGeo(err){
+    console.log(err);
 }
 
-function onSuccessGeo(pos){
-    const {latitude,longitude} = pos.coords;
-    console.log(latitude);
-    console.log(longitude);
-    console.log("REVERSING LIKE A PRO,FLEXING LIKE A NIGGA");
-    // getReverseGeocodingData(latitude,longitude);
-    document.getElementById("id_latitude").value = latitude;
-    document.getElementById("id_longitude").value = longitude;
+
+$("#id_longitude").change(function(e){
+    console.log("CHIKAA WIGGAA");
+
+    onSuccessGeoredef(document.getElementById("id_longitude").value,document.getElementById("id_latitude").value);
+
+});
+$("#id_latitude").change(function(e){
+    console.log("NIGGAAA WIGGAA");
+    onSuccessGeoredef(document.getElementById("id_longitude").value,document.getElementById("id_latitude").value);
+
+    });
+
+    function onSuccessGeoredef(longitude,latitude){
+
+        console.log(latitude);
+        console.log(longitude);
+        console.log("REVERSING LIKE A PRO,FLEXING LIKE A NIGGA");
+        // getReverseGeocodingData(latitude,longitude);
+        document.getElementById("id_latitude").value = latitude;
+        document.getElementById("id_longitude").value = longitude;
 
 
-    var xhr = new XMLHttpRequest();
+        var xhr = new XMLHttpRequest();
 
-    $( document ).ready(function() {
-        let endpoint = 'http://api.opencagedata.com/geocode/v1/json?q='+latitude+'+'+longitude+'&key=add439a2f90b4b15836d85155ffb848e';
+        $( document ).ready(function() {
+            let endpoint = 'http://api.opencagedata.com/geocode/v1/json?q='+latitude+'+'+longitude+'&key=add439a2f90b4b15836d85155ffb848e';
 
 
-        var request = new XMLHttpRequest();
+            var request = new XMLHttpRequest();
 
-        request.open('GET', endpoint, true);
+            request.open('GET', endpoint, true);
 
-        request.onload = function ()
-        {
-            if (this.status >= 200 && this.status < 500)
+            request.onload = function ()
             {
-                // Success!
-                var data = JSON.parse(this.response);
-                console.log(data.results[0].formatted);
-                document.getElementById("id_location").value = data.results[0].formatted;
+                if (this.status >= 200 && this.status < 500)
+                {
+                    // Success!
+                    var data = JSON.parse(this.response);
+                    console.log(data.results[0].formatted);
+                    document.getElementById("id_location").value = data.results[0].formatted;
 
 
-            } else
+                } else
+                {
+                    // We reached our target server, but it returned an error.
+                    console.log("Error status not between 200 and 400.");
+                }
+            };
+
+            request.onerror = function (e)
             {
-                // We reached our target server, but it returned an error.
-                console.log("Error status not between 200 and 400.");
-            }
-        };
-
-        request.onerror = function (e)
-        {
-            // There was a connection error of some sort.
-            console.log(e);
-        };
-        request.send();
+                // There was a connection error of some sort.
+                console.log(e);
+            };
+            request.send();
 
 
-      });
+          });
 
-}
+    }
