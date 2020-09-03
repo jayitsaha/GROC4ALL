@@ -1,46 +1,37 @@
 from django.http import HttpResponseRedirect
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 import fasttext
 # Create your views here.
 from personal.models import NameForm
 from ecommerce.settings import model1
 from django.views.decorators.csrf import csrf_exempt
 from products.models import Product
+from .models import Reviews, Ratings
+from django.utils.timezone import datetime
+from django.conf import settings
 
-# model1 = fasttext.load_model("amazon_reviews.bin")
-# pred1 = model1.predict("I hate the product")
-# print("PRED1")
-# print(pred1)
-
-def index(request):
-    return render(request,'personal/home.html')
-
-def contact(request):
-    return render(request,'personal/index.html')
-@csrf_exempt
 def prediction(request):
-    #print(MODEL.summary())
-
     Text = request.POST.get('Text',False)
-    TextId = request.POST.get('TextId',False)
+    TextId = request.POST.get('pid',False)
     product = Product.objects.get(productid=TextId)
-
-
-    print(Text)
-    print(TextId)
-    # Sentenceex = Sentence(str(Text))
-    # predct = Sentenceex.predection()
+    
+    review = Reviews.objects.create(
+        text = Text,
+        product = product,
+        author = request.user,
+    )
+    review.save()
     predct = model1.predict(str(Text))
     if(predct[0][0] == '__label__1'):
-        predct = 100 - (predct[1][0])*100
+        predct = 5 - (predct[1][0])*5
     else:
-        predct = (predct[1][0])*100
-    #put(self, request, pk):
-    print("Prediction is :",float(predct))#Sentence preparation
-    ## POST request
-   # model = mlmodel()
-    #model.Text = Text
-    #model.prediction = float(predct)
-    #response = requests.post('/predictions/', data=model)
-
-    return render(request, 'ecom/show.html', {'prediction':  round(float(predct), 2),'title' : product.title,'product': product})
+        predct = (predct[1][0])*5
+    
+    ratings = Ratings.objects.create(
+        rating = predct,
+        product = product,
+        user = request.user,
+        review = review
+    )
+    ratings.save()
+    return redirect('pages:product_by_slug',TextId)
