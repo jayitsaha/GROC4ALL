@@ -53,6 +53,8 @@ INSTALLED_APPS = [
     'processdata',
     'django.contrib.humanize',
     'polls',
+    'personal',
+    'mathfilters',
 ]
 
 MIDDLEWARE = [
@@ -127,7 +129,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Calcutta'
 
 USE_I18N = True
 
@@ -152,7 +154,7 @@ STATIC_ROOT = os.path.join(BASE_DIR , 'static')
 STATIC_URL = '/static/'
 STATICFILES_DIRS=[(os.path.join(BASE_DIR,'ecommerce/static'))]
 
-model1 = fasttext.load_model("amazon_reviews.bin")
+model1 = fasttext.load_model("amazon.ftz")
 # model1 = 'amazon'
 
 # Media Folder Settings

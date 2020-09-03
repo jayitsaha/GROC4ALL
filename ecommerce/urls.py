@@ -40,8 +40,8 @@ urlpatterns = [
     path('updates/', include('processdata.urls')),
     path('updates/', include('app.urls')),  # add this
     path('updates/daily/',results,name='home'),
-    url(r'^review/', include('personal.urls')),
-    url(r'^predictions/',prediction,name='predection')
+    # path('review/', include('personal.urls')),
+    path('review/prediction/',prediction,name='predection')
 
 
 ]

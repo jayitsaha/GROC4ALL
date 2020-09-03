@@ -5,10 +5,11 @@ from django.contrib import messages
 from django.conf import settings
 from django.contrib.auth.decorators import login_required
 import random
-from django.db.models import Count
+from django.db.models import Count,Avg
 
 from products.models import Product
 from categories.models import Category
+from personal.models import Ratings,Reviews
 
 
 def home(request):
@@ -58,11 +59,25 @@ def all_products(request):
 
 def product_by_slug(request,product_productid):
 	product = Product.objects.get(productid=product_productid)
+	reviews = Reviews.objects.filter(product=product)[:5]
+	rating = Ratings.objects.filter(product=product).aggregate(Avg('rating'),Count('rating'))
+
+	rating['rating__avg'] = round(rating['rating__avg'],1)
 	if product.quantity >= 1:
-		context = {
-			'title' : product.title,
-			'product': product
-		}
+		if reviews is None :
+			context = {
+				'title' : product.title,
+				'product': product,
+				'rating': rating,
+				# 'reviews':'No Feedback Available'
+			}
+		else:
+			context = {
+				'title' : product.title,
+				'product': product,
+				'rating': rating,
+				'reviews':reviews
+			}
 		return render(request,'ecom/show.html',context)
 	else:
 		messages.warning(request,'Product is not Available')

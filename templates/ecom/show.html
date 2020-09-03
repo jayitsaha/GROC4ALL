@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load mathfilters %}
 {% load static %}
 
 {% block content %}
@@ -23,56 +24,39 @@
     				<a href="{{ product.photo.url }}" class="image-popup"><img src="{{ product.photo.url }}" class="img-fluid" alt="Colorlib Template"></a>
     			</div>
     			<div class="col-lg-6 product-details pl-md-5 ftco-animate">
-    				<h3>{{ product.name }}</h3>
-    				<div class="rating d-flex">
-							<p class="text-left mr-4">
-								<a href="#" class="mr-2">5.0</a>
-								<a href="#"><span class="ion-ios-star-outline"></span></a>
-								<a href="#"><span class="ion-ios-star-outline"></span></a>
-								<a href="#"><span class="ion-ios-star-outline"></span></a>
-								<a href="#"><span class="ion-ios-star-outline"></span></a>
-								<a href="#"><span class="ion-ios-star-outline"></span></a>
-							</p>
-							<p class="text-left mr-4">
-								<a href="#" class="mr-2" style="color: #000;">100 <span style="color: #bbb;">Rating</span></a>
-							</p>
-							<p class="text-left">
-								<a href="#" class="mr-2" style="color: #000;">500 <span style="color: #bbb;">Sold</span></a>
-							</p>
-						</div>
+    				<h3>{{ product.title }}</h3>
+						
     				<p class="price"><span>&#x20B9; {{ product.price }}</span></p>
     				<p>{{ product.details }}</p>
-                                <p>{{product.description}}</p>
-
+								<p>{{product.description}}</p>
+								
+								<div class="star-ratings" style="unicode-bidi: bidi-override;width: min-content; height: fit-content; color: #ccc; position: relative;margin: 0;padding: 0;" data-toggle="tooltip" data-placement="top" title="Rating: {{rating.rating__avg}}/5.0">
+									<div class="fill-ratings" style="color: #e7711b;padding: 0;position: absolute;z-index: 1;display: block;	top: 0;left: 0;overflow: hidden;width:{{rating.rating__avg|mul:100|div:5}}%;">
+									  <span style="display: inline-block;font-size: 32px;">★★★★★</span>
+									</div>
+									<div class="empty-ratings" style="padding: 0;font-size: 32px;display: block;z-index: 0;">
+									  <span>★★★★★</span>
+									</div>
+								  </div>
+								  <div>
+									<p class="text-left mr-4">
+										<a href="#" class="mr-2" style="color: #000;" >{{rating.rating__count}} <span style="color: #bbb;">User Ratings</span></a>
+									</p>
+								  </div>
 						<div class="row mt-4">
 							<div class="col-md-6">
 								<div class="form-group d-flex">
 		              <div class="select-wrap">
 	                  <div class="icon">
-                    {% comment %} <span class="ion-ios-arrow-down"></span> {% endcomment %}
+                    
                     </div>
-	                  {% comment %} <select name="" id="" class="form-control">
-	                  	<option value="">Small</option>
-	                    <option value="">Medium</option>
-	                    <option value="">Large</option>
-	                    <option value="">Extra Large</option>
-	                  </select> {% endcomment %}
+	                
 	                </div>
 		            </div>
 							</div>
 							<div class="w-100"></div>
 							<div class="input-group col-md-6 d-flex mb-3">
-	             	{% comment %} <span class="input-group-btn mr-2">
-	                	<button type="button" class="quantity-left-minus btn"  data-type="minus" data-field="">
-	                   <i class="ion-ios-remove"></i>
-	                	</button>
-	            		</span>
-	             	<input type="text" id="quantity" name="quantity" class="form-control input-number" value="1" min="1" max="100">
-	             	<span class="input-group-btn ml-2">
-	                	<button type="button" class="quantity-right-plus btn" data-type="plus" data-field="">
-	                     <i class="ion-ios-add"></i>
-	                 </button>
-	             	</span> {% endcomment %}
+	             	
 	          	</div>
 	          	<div class="w-100"></div>
 	          	<div class="col-md-12">
@@ -86,37 +70,55 @@
 	</section>
 
 
- <form id="myform" novalidate="novalidate">
-            <div class="container">
-  <div class="row">
-              <div class="control-group col-11">
-                <div class="form-group floating-label-form-group controls mb-0 pb-2">
-                  <label>Text Input</label>
-                  <textarea class="form-control" name="Text" id="Text" rows="5" placeholder="Text input" required="required" data-validation-required-message="Please enter a message."></textarea>
-                  <p class="help-block text-danger"></p>
-                </div>
-              </div>
+ <form id="myform" action="{% url 'predection' %}" method="POST" novalidate="novalidate">
+	{% csrf_token %}
+	<div class="container">
+  <div class="row ">
+			  
+	<div class="form-group  col-lg-6 col-md-12 ">
+		<h3 style="font-size: 32px; color: #000; font-weight: 600;">Feedbacks</h3>
+		<div style="height: 700px;" class="overflow-auto">
+			  {% if reviews %}
+			  {% for review in reviews %}
+			  <div class="card">
+				<div class="card-header">
+				  {{review.author}}  <span style="float: right;">{{review.timestamp}}</span>
+				</div>
+				<div class="card-body">
+				  <blockquote class="blockquote mb-0">
+					<p>{{review.text}}</p>
+				  </blockquote>
+				</div>
+			  </div>
+			  {% endfor %}
+			  {% else %}
+			  <i><h5>No Feedback Avaiable!!!</h5></i>
+			  {% endif %}
 
-              <div class="form-group  col-1">
-              <br>
-            <div style="padding-left : 30px;">
-                <h6 class="text-center text-uppercase text-secondary mb-0">Result
-                  {% if prediction == None %}
-				  <br />
-				  <br />
-                      <span class="" id="prediction" style="color:#808080;background: rgba(0, 0, 0, 0);border-color: rgba(0, 0, 0, 0);">0 %</span>
-                  {% else %}
-				  <br />
-				  <br />
-                      <span class="" style="min-width:100px!important" id="prediction" >{{ prediction }}</span>
-                  {% endif %}
-                </h6>
-              </div>
-              <div>
-                  <button class="btn btn-md btn-outline-primary btn-block" id="load" style="width: 140px;display:none"><i class="fa fa-paper-plane-o mr-2"></i> Load Sample </button>
-                  <button class="btn btn-md btn-outline-primary btn-block" id="clear" style="width: 140px;display:none"> <i class="fa fa-trash-o mr-2"></i>Clear </button>
-              </div>
-              </div>
+
+			  </div>
+			</div>
+			  <div class="control-group col-lg-6 col-md-12">
+
+                <div class="form-group floating-label-form-group controls ">
+				  <h3 style="font-size: 32px; color: #000; font-weight: 600;">Add Feedback</h3>
+				  <br>
+				  <blockquote class="blockquote mb-0">
+					<p style="font-style: italic;">"Criticism, like rain, should be gentle enough to nourish a man's growth without destroying his roots."</p>
+					
+				  </blockquote>
+				  <br>
+				  <br>
+                  <textarea class="form-control" name="Text" id="Text" rows="10"  placeholder="Enter your views" required="required" data-validation-required-message="Please enter a message."></textarea>
+				</div>
+				<div class="form-group">
+					
+					<input type="text" name="pid" class="form-control" value="{{product.productid}}" hidden>
+				</div>
+				<div>
+				<button class="btn btn-primary" id="p112" type="submit">Post</button>
+				</div>
+			  </div>
             </div>
             </div>
             </form>
@@ -194,62 +196,16 @@
     	</div>
     </section>
 <script>
-
-    {% comment %} TextId = $("#TextId").val(); {% endcomment %}
-	TextId = {{product.productid}}
+	$(document).ready(function() {
+  var star_rating_width = $('.fill-ratings span').width();
+  $('.star-ratings').width(star_rating_width);
+});
 </script>
-		<!-- <section class="ftco-section ftco-no-pt ftco-no-pb py-5 bg-light">
-      <div class="container py-4">
-        <div class="row d-flex justify-content-center py-5">
-          <div class="col-md-6">
-          	<h2 style="font-size: 22px;" class="mb-0">Subcribe to our Newsletter</h2>
-          	<span>Get e-mail updates about our latest shops and special offers</span>
-          </div>
-          <div class="col-md-6 d-flex align-items-center">
-            <form action="#" class="subscribe-form">
-              <div class="form-group d-flex">
-                <input type="text" class="form-control" placeholder="Enter email address">
-                <input type="submit" value="Subscribe" class="submit px-3">
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
-    </section> -->
+		
 
 {% endblock %}
 
 
-
-{% comment %} {% extends "base.html" %}
-
 {% block title %}
     {{title}}
 {% endblock title %}
-
-
-
-{% block content %}
-
-  <div class="col-md-4 mt-4">
-	<ul class="list-group">
-		<li class="list-group-item"><a href="{% url "pages:all_products" %}">All Products</a></li>
-
-	</ul>
-  </div>
-  <div class="col-md-8 mt-4">
-	<h1 class="page-header">{{product.title}}</h1>
-	<img  src="{{product.photo.url}}" width="400px" class="img-thumbnail" alt="">
-    <br>
-    <p>{{product.description}}</p>
-    <p>Price : ${{product.price}}</p>
-    <p>Avaiable : {{product.quantity}}</p>
-
-  </div>
-
-
-
-
-{% endblock content %}
-
- {% endcomment %}
