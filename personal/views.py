@@ -10,7 +10,7 @@ from .models import Reviews, Ratings
 from django.utils.timezone import datetime
 from django.conf import settings
 from django.views.decorators.csrf import csrf_exempt
-from django.shortcuts import render_to_response
+# from django.shortcuts import render_to_response
 from django.contrib import messages
 from django.db.models import Count,Avg
 from personal.models import Ratings,Reviews
@@ -45,7 +45,7 @@ def prediction(request):
     rating = Ratings.objects.filter(product=product).aggregate(Avg('rating'),Count('rating'))
     if(rating['rating__avg']==None):
         rating['rating__avg'] = 0
-    if(rating['rating__avg']!=None):
+    else:
         rating['rating__avg'] = round(rating['rating__avg'],1)
     print(rating)
     print(rating['rating__avg'])
@@ -65,8 +65,8 @@ def prediction(request):
 				'rating': rating,
 				'reviews':reviews
 			}
-        return render_to_response('ecom/show_load.html',context)
+        return render('ecom/show_load.html',context)
     else:
         messages.warning(request,'Product is not Available')
-        return render_to_response('ecom/show_load.html',context)
+        return render('ecom/show_load.html',context)
     return redirect('pages:product_by_slug',TextId)
