@@ -59,11 +59,11 @@ def all_products(request):
 
 def product_by_slug(request,product_productid):
 	product = Product.objects.get(productid=product_productid)
-	reviews = Reviews.objects.filter(product=product)[:5]
+	reviews = Reviews.objects.filter(product=product).order_by('-timestamp')[:5]
 	rating = Ratings.objects.filter(product=product).aggregate(Avg('rating'),Count('rating'))
 	if(rating['rating__avg']==None):
 		rating['rating__avg'] = 0
-	if(rating['rating__avg']!=None):
+	else:
 		rating['rating__avg'] = round(rating['rating__avg'],1)
 	if product.quantity >= 1:
 		if reviews is None :
