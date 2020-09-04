@@ -279,7 +279,6 @@ function getCookie(c_name)
 
 $("#Text").keyup(function(e){
             if (e.keyCode) {
-
         // information to be sent to the server
     var Text = $("#Text").val();
 	console.log("YOMMAAAMAAA");
@@ -290,24 +289,26 @@ $("#Text").keyup(function(e){
         url: '/review/prediction/',
         data: {Text: Text,TextId:TextId},
         success: function (data) {
-        classe = "btn btn-primary btn-xl";
-        color = "#00FA9A"
-            var result = $('<div />').append(data).find('#prediction').html();
-            $('#prediction').html(parseInt(result)+' %');
-            if (parseInt(result) < 50) {
-            //classe = "btn btn-danger btn-xl";
-            color = "Red"
 
-        }
-        if (parseInt(result) >= 50) {
-            //classe = "btn btn-primary btn-xl";
-            color = "#00FA9A"
-        }
-      //  $('#prediction').attr('class', classe);
-            $('#prediction').css('color', color);
-        },
-        error: function (xhr, status) {
- //           $('#prediction').html('50 %');
+			// $('#entire').html(data);
+    //     classe = "btn btn-primary btn-xl";
+    //     color = "#00FA9A"
+    //         var result = $('<div />').append(data).find('#prediction').html();
+    //         $('#prediction').html(parseInt(result)+' %');
+    //         if (parseInt(result) < 50) {
+    //         classe = "btn btn-danger btn-xl";
+    //         color = "Red"
+
+    //     }
+    //     if (parseInt(result) >= 50) {
+    //         classe = "btn btn-primary btn-xl";
+    //         color = "#00FA9A"
+    //     }
+    //    $('#prediction').attr('class', classe);
+    //         $('#prediction').css('color', color);
+    //     },
+    //     error: function (xhr, status) {
+    //        $('#prediction').html('50 %');
 
         }
     });

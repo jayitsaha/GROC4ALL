@@ -1,9 +1,9 @@
+
 {% extends 'base.html' %}
 {% load mathfilters %}
 {% load static %}
 
 {% block content %}
-
     <div class="hero-wrap hero-bread" style="background-image: url({% static 'images/bg_1.jpg' %});">
       <div class="container">
         <div class="row no-gutters slider-text align-items-center justify-content-center">
@@ -18,18 +18,18 @@
     </div>
 
     <section class="ftco-section">
-    	<div class="container">
+    	<div class="container" id="haha">
     		<div class="row">
     			<div class="col-lg-6 mb-5 ftco-animate">
     				<a href="{{ product.photo.url }}" class="image-popup"><img src="{{ product.photo.url }}" class="img-fluid" alt="Colorlib Template"></a>
     			</div>
     			<div class="col-lg-6 product-details pl-md-5 ftco-animate">
     				<h3>{{ product.title }}</h3>
-						
+
     				<p class="price"><span>&#x20B9; {{ product.price }}</span></p>
     				<p>{{ product.details }}</p>
 								<p>{{product.description}}</p>
-								
+
 								<div class="star-ratings" style="unicode-bidi: bidi-override;width: min-content; height: fit-content; color: #ccc; position: relative;margin: 0;padding: 0;" data-toggle="tooltip" data-placement="top" title="Rating: {{rating.rating__avg}}/5.0">
 									<div class="fill-ratings" style="color: #e7711b;padding: 0;position: absolute;z-index: 1;display: block;	top: 0;left: 0;overflow: hidden;width:{{rating.rating__avg|mul:100|div:5}}%;">
 									  <span style="display: inline-block;font-size: 32px;">★★★★★</span>
@@ -48,15 +48,15 @@
 								<div class="form-group d-flex">
 		              <div class="select-wrap">
 	                  <div class="icon">
-                    
+
                     </div>
-	                
+
 	                </div>
 		            </div>
 							</div>
 							<div class="w-100"></div>
 							<div class="input-group col-md-6 d-flex mb-3">
-	             	
+
 	          	</div>
 	          	<div class="w-100"></div>
 	          	<div class="col-md-12">
@@ -69,12 +69,12 @@
     	</div>
 	</section>
 
-
- <form id="myform" action="{% url 'predection' %}" method="POST" novalidate="novalidate">
-	{% csrf_token %}
+<div id="hehe">
+ <form id="myform" novalidate="novalidate">
+	{% comment %} {% csrf_token %} {% endcomment %}
 	<div class="container">
   <div class="row ">
-			  
+
 	<div class="form-group  col-lg-6 col-md-12 ">
 		<h3 style="font-size: 32px; color: #000; font-weight: 600;">Feedbacks</h3>
 		<div style="height: 700px;" class="overflow-auto">
@@ -105,25 +105,25 @@
 				  <br>
 				  <blockquote class="blockquote mb-0">
 					<p style="font-style: italic;">"Criticism, like rain, should be gentle enough to nourish a man's growth without destroying his roots."</p>
-					
+
 				  </blockquote>
 				  <br>
 				  <br>
                   <textarea class="form-control" name="Text" id="Text" rows="10"  placeholder="Enter your views" required="required" data-validation-required-message="Please enter a message."></textarea>
 				</div>
 				<div class="form-group">
-					
-					<input type="text" name="pid" class="form-control" value="{{product.productid}}" hidden>
+
+					<input type="text" name="pid" id="pid" class="form-control" value="{{product.productid}}" hidden>
 				</div>
 				<div>
-				<button class="btn btn-primary" id="p112" type="submit">Post</button>
+				<button class="btn btn-primary" id="p112" type="submit" >Post</button>
 				</div>
 			  </div>
             </div>
             </div>
             </form>
 
-
+</div>
 
 	<div class="container" style="z-index: 100;">
 		<div class="widget">
@@ -195,13 +195,20 @@
     		</div>
     	</div>
     </section>
+
 <script>
 	$(document).ready(function() {
   var star_rating_width = $('.fill-ratings span').width();
   $('.star-ratings').width(star_rating_width);
 });
 </script>
-		
+
+
+<script>
+
+
+</script>
+
 
 {% endblock %}
 

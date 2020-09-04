@@ -34,3 +34,50 @@ function searchSuccess(data , textStatus,jqXHR)
 $(document).ready(function() {
     $('.mdb-select').materialSelect();
     });
+
+    // function submit_review(){
+        jQuery(document).on('click', '#p112', function (e) {
+
+        // $('#p112').on('click', function(e) {
+
+            e.preventDefault();
+            var Text = $("#Text").val();
+            var TextId = $("#pid").val();
+            console.log(TextId);
+            console.log("WHAT UP DAWG");
+
+            $.ajax({
+                type: 'POST',
+                url: "/review/prediction/",
+                data: {Text: Text,TextId:TextId},
+
+                success: function (data) {
+                        // console.log(data);
+                        var data_2 = "";
+                        var data_1 = data;
+                        var length = data_1.length;
+                        var index = data_1.indexOf("jayitsaha")
+                        data_2 = data_1.slice(0,index);
+                        data_1 = data_1.slice(index+9,length);
+                        console.log(data_2);
+                        console.log(data_1);
+
+                        $('#haha').html(data_2);
+                        $('#hehe').html(data_1);
+                        $("#Text").val() = "";
+
+                },
+                error: function (response) {
+                    // alert the error if any error occured
+                    console.log(response);
+                }
+
+
+            })
+        })
+
+
+    // }
+
+
+

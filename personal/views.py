@@ -9,12 +9,18 @@ from products.models import Product
 from .models import Reviews, Ratings
 from django.utils.timezone import datetime
 from django.conf import settings
-
+from django.views.decorators.csrf import csrf_exempt
+from django.shortcuts import render_to_response
+from django.contrib import messages
+from django.db.models import Count,Avg
+from personal.models import Ratings,Reviews
+@csrf_exempt
 def prediction(request):
     Text = request.POST.get('Text',False)
-    TextId = request.POST.get('pid',False)
+    TextId = request.POST.get('TextId',False)
+    print(TextId)
     product = Product.objects.get(productid=TextId)
-    
+
     review = Reviews.objects.create(
         text = Text,
         product = product,
@@ -26,7 +32,7 @@ def prediction(request):
         predct = 5 - (predct[1][0])*5
     else:
         predct = (predct[1][0])*5
-    
+
     ratings = Ratings.objects.create(
         rating = predct,
         product = product,
@@ -34,4 +40,28 @@ def prediction(request):
         review = review
     )
     ratings.save()
+    context = {}
+    reviews = Reviews.objects.filter(product=product)[:5]
+    rating = Ratings.objects.filter(product=product).aggregate(Avg('rating'),Count('rating'))
+    if(rating['rating__avg']!=None):
+        rating['rating__avg'] = round(rating['rating__avg'],1)
+    if product.quantity >= 1:
+        if reviews is None :
+            context = {
+				'title' : product.title,
+				'product': product,
+				'rating': rating,
+				# 'reviews':'No Feedback Available'
+			}
+        else:
+            context = {
+				'title' : product.title,
+				'product': product,
+				'rating': rating,
+				'reviews':reviews
+			}
+        return render_to_response('ecom/show_load.html',context)
+    else:
+        messages.warning(request,'Product is not Available')
+        return render_to_response('ecom/show_load.html',context)
     return redirect('pages:product_by_slug',TextId)

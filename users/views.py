@@ -101,8 +101,8 @@ def login_customer(request):
 			# is_seller = User.objects.filter(username = username).values("is_seller")[0]["is_seller"]
 
 			if user is not None and is_customer:
-				res = face_detect.check(user)
-				# res = True
+				# res = face_detect.check(user)
+				res = True
 				if res:
 					auth.login(request,user)
 					messages.success(request,'You Are Now LoggedIn')
