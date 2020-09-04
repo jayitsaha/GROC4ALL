@@ -32,9 +32,9 @@ function searchSuccess(data , textStatus,jqXHR)
 }
 
 
-$(document).ready(function() {
-    $('.mdb-select').materialSelect();
-    });
+// $(document).ready(function() {
+//     $('.mdb-select').materialSelect();
+//     });
 
     // function submit_review(){
         jQuery(document).on('click', '#p112', function (e) {
