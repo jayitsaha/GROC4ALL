@@ -43,8 +43,13 @@ def prediction(request):
     context = {}
     reviews = Reviews.objects.filter(product=product)[:5]
     rating = Ratings.objects.filter(product=product).aggregate(Avg('rating'),Count('rating'))
+    if(rating['rating__avg']==None):
+        rating['rating__avg'] = 0
     if(rating['rating__avg']!=None):
         rating['rating__avg'] = round(rating['rating__avg'],1)
+    print(rating)
+    print(rating['rating__avg'])
+
     if product.quantity >= 1:
         if reviews is None :
             context = {
