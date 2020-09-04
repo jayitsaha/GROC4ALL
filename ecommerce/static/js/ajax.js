@@ -65,7 +65,7 @@ $(document).ready(function() {
 
                         $('#haha').html(data_2);
                         $('#hehe').html(data_1);
-                        $("#Text").val() = "";
+                        $("#Text").value = "";
 
                 },
                 error: function (response) {

@@ -9,11 +9,11 @@ from products.models import Product
 from .models import Reviews, Ratings
 from django.utils.timezone import datetime
 from django.conf import settings
-from django.views.decorators.csrf import csrf_exempt
 from django.shortcuts import render_to_response
 from django.contrib import messages
 from django.db.models import Count,Avg
 from personal.models import Ratings,Reviews
+import pytz
 @csrf_exempt
 def prediction(request):
     Text = request.POST.get('Text',False)
@@ -25,6 +25,7 @@ def prediction(request):
         text = Text,
         product = product,
         author = request.user,
+        timestamp = datetime.now(pytz.timezone(settings.TIME_ZONE))
     )
     review.save()
     predct = model1.predict(str(Text))
