@@ -6,8 +6,15 @@
 {% endblock title %}
 
 {% block content %}
-
-   <div class="col-md-6 mx-auto mt-3">
+<style>
+	label{
+	  font-size: 20px;
+	  color: black;
+	 
+	}
+	</style>
+   <div class="col-md-10 col-sm-12 col-lg-6 mx-auto mt-3 jumbotron">
+	<h2>Sign up (Customer)</h2><br><br>
         <form action="{% url "users:register" %}" method="POST" enctype="multipart/form-data">
         	{% csrf_token %}
         	<div class="form-group">
@@ -46,18 +53,6 @@
 			</div>
 			<div class="form-group">
 				<label>Upload Profile Picture</label>
-				<!-- <div id="camBox" style="width:100%;height:100%;display: none;">
-					<div class="revdivshowimg" style="top:20%;text-align:center;margin:0 auto;">
-						<div id="camera" style="height:auto;text-align:center;margin:0 auto;">
-						</div>
-						<p>
-							<input type="button" value="Ok" id="btAddPicture" class="btn1 btn-success"
-								onclick="takeSnapshot(this)" />
-							<input type="button" value="Cancel"  class=" btn-danger"
-								onclick="document.getElementById('camBox').style.display = 'none';" />
-						</p>
-					</div>
-				</div> -->
 				<input id="mydata" type="hidden" name="mydata" value=""/>
 			</div>
 			<div id="pic1"></div><p></p>

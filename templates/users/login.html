@@ -6,7 +6,28 @@
 {% endblock title %}
 
 {% block content %}
-
+<style>
+	label{
+	  font-size: 20px;
+	  color: black;
+	 
+	}
+	.alert{
+		background-color: rgb(248, 103, 93);
+        width: 80%;
+        padding: 20px;
+        font-weight: 600;
+        font-size: 20px;
+        border-radius: 10px;
+		margin: auto;
+		color: black;
+	}
+	.close{
+		padding-top: inherit;
+		margin: auto;
+		font-size: x-large;
+	}
+	</style>
  <div class="col-md-6 mx-auto mt-3">
         <form action="{% url "users:login" %}" method="POST">
         	{% csrf_token %}
