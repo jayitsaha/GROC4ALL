@@ -2,6 +2,9 @@
 .jayit_placeholder::placeholder{
  color: #0b0b14 !important
 }
+.modal-backdrop.show {
+    opacity: 0;
+}
 
 </style>
 
@@ -120,10 +123,8 @@
 
 
                   {% else %}
-                  {% comment %} <li class="nav-item ">
-                    <a class="nav-link" href="{% url "users:register" %}">Register</a>
-                  </li> {% endcomment %}
-
+                  
+                  
                   <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">REGISTER</a>
           <div class="dropdown-menu" aria-labelledby="dropdown04">
@@ -142,6 +143,7 @@
 
 
       </ul>
+      
     </div>
   </div>
 </nav>
