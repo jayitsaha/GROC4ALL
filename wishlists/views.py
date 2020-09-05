@@ -26,6 +26,7 @@ def add_wishlist(request,product_productid):
 @login_required(login_url="/users/login")
 def my_wishlists(request):
 	products = WishList.objects.filter(user_id=request.user.id).select_related('product')
+	category = Category.objects.all()
 	wishlists = []
 	for i in products:
 		i = str(i)
@@ -33,7 +34,8 @@ def my_wishlists(request):
 		wishlists.append(product)
 	context = {
 			'title' : 'My WishList',
-			'wishlists' : wishlists
+			'wishlists' : wishlists,
+			'category' : category
 	}
 	return render(request,'wishlists/all_wishlists.html',context)
 
@@ -48,7 +50,8 @@ def clear_wishlists(request):
 
 @login_required(login_url="/users/login")
 def delete_wishlist(request,product_productid):
-	wl = WishList.objects.get(product=product_productid)
+	wl = WishList.objects.filter(product_id=product_productid)
+	print(wl)
 	wl.delete()
 	return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/'))
 

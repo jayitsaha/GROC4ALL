@@ -7,8 +7,12 @@
 
 
 {% block content %}
-
-  <div class="col-md-4">
+<div class="container row">
+	<br>
+	<br>
+  <div class="col-md-4 col-lg-4">
+	  <br>
+	  <h5>View Products</h5>
 	<ul class="list-group">
 		<li class="list-group-item"><a href="/shop">All Products</a></li>
 		{% for cat in category %}
@@ -18,8 +22,8 @@
 
 	</ul>
   </div>
-  <div class="col-md-8 mt-3">
-  		<a href="{% url "wishlists:clear_wishlists" %}" class="btn btn-danger btn-block">Clear wishlists</a><br>
+  <div class="col-md-4 col-lg-8 mt-3">
+	  
 		{% for value in wishlists %}
 			        <div class="card card-block text-{1:center|right} mt-3">
 			        	<img align="center" src="{{value.photo.url}}" width="150px" alt="">
@@ -34,10 +38,17 @@
 					<a href="{% url "wishlists:delete_wishlist" value.productid %}" class="btn btn-primary btn-xs float-right">Delete</a><br>
 					</div>
 		{% endfor %}
+		<br>
+		<br>
+		{% if wishlists %}
+		  <a href="{% url "wishlists:clear_wishlists" %}" class="btn btn-danger " style="float: right;">Clear wishlists</a><br>
+		  {% else %}
+		  <h6>You Wishlist is Empty!!!!</h6>
+		  {% endif %}
 
 
   </div>
-
+</div>
 
 
 
