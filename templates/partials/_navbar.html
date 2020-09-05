@@ -16,10 +16,10 @@
           </div>
           <div class="col-md pr-4 d-flex topper align-items-center">
             <div class="icon mr-2 d-flex justify-content-center align-items-center"><span class="icon-phone-plane"></span></div>
-            <span class="text">CONTACTUS@gmail.com</span>
+            <span class="text">groc4all@gmail.com</span>
           </div>
           <div class="col-md-5 pr-4 d-flex topper align-items-center text-lg-right">
-            <span class="text">Current day delivery &amp; Free Returns</span>
+            <span class="text">We are for you 24X7</span>
           </div>
         </div>
       </div>
@@ -53,6 +53,7 @@
       <ul class="navbar-nav ml-auto">
   {%if user.is_authenticated and user.is_customer%}
             <li class="nav-item"><a class="nav-link" href="/shop">SHOP</a></li>
+            {%endif%}
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">WE CARE FOR YOU</a>
           <div class="dropdown-menu" aria-labelledby="dropdown04">
@@ -63,7 +64,7 @@
           </div>
         </li>
 
-{%endif%}
+
                   {% if user.is_authenticated and user.is_seller%}
 
                   <li class="nav-item "><a class="nav-link" href="{% url "users:home"%}">YOUR PRODUCTS</a></li>

@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="hero-wrap hero-bread" style="background-image: url({% static 'images/bg_1.jpg' %});">
+    <div class="container">
+      <div class="row no-gutters slider-text align-items-center justify-content-center">
+        <div class="col-md-9 ftco-animate text-center">
+            <p class="breadcrumbs"><span class="mr-2"><a href="/">Home</a></span> <span>Corona Predictor</span></p>
+          <h1 class="mb-0 bread">Corona Predictor</h1>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container ">
+  <div class="row" style="margin-top:40px">
+    <!-- Free Tier -->
+    <div class="col-lg-6">
+      <div class="card mb-5 mb-lg-0">
+        <div class="card-body">
+          <h5 class="card-title text-muted text-uppercase text-center" style="color:#0b0b14!important;">
+            Prediction using Randomforest algorithm
+          </h5>
+
+          <hr />
+          <p class="card-p" style="color: #6c757d!important;">
+            Random Forest algorithm is a supervised classification algorithm.There is a direct relationship between the number of trees in the forest and the results it can get: the larger the number of trees, the more accurate the result.
+          </p>
+          <a
+            href="{% url 'diseasepredictor:covid1' %}"
+            class="btn btn-block btn-danger text-uppercase"
+            >Check your Probability</a
+          >
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-6">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title text-muted text-uppercase text-center" style="color:#0b0b14!important;" >
+            Prediction using KNN-algorithm
+          </h5>
+
+          <hr />
+          <p class="card-p" style="color: #6c757d!important;">
+            K-nearest neighbors (KNN) algorithm is a type of supervised Machine Learning algorithm which can be used for both classification as well as regression predictive problems. However, it is mainly used for classification predictive problems in industry.
+          </p>
+          <a
+            href="{% url 'diseasepredictor:covid2' %}"
+            class="btn btn-block btn-primary text-uppercase"
+            >Check your Probability</a
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+{% endblock content %}
