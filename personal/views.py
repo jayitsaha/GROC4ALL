@@ -9,11 +9,11 @@ from products.models import Product
 from .models import Reviews, Ratings
 from django.utils.timezone import datetime
 from django.conf import settings
-from django.views.decorators.csrf import csrf_exempt
 from django.shortcuts import render_to_response
 from django.contrib import messages
 from django.db.models import Count,Avg
 from personal.models import Ratings,Reviews
+import pytz
 @csrf_exempt
 def prediction(request):
     Text = request.POST.get('Text',False)
@@ -25,6 +25,7 @@ def prediction(request):
         text = Text,
         product = product,
         author = request.user,
+        timestamp = datetime.now(pytz.timezone(settings.TIME_ZONE))
     )
     review.save()
     predct = model1.predict(str(Text))
@@ -41,13 +42,13 @@ def prediction(request):
     )
     ratings.save()
     context = {}
-    reviews = Reviews.objects.filter(product=product)[:5]
+    reviews = Reviews.objects.filter(product=product).order_by('-timestamp')[:5]
     rating = Ratings.objects.filter(product=product).aggregate(Avg('rating'),Count('rating'))
     if(rating['rating__avg']==None):
         rating['rating__avg'] = 0
-    if(rating['rating__avg']!=None):
+    else:
         rating['rating__avg'] = round(rating['rating__avg'],1)
-    print(rating)
+    print(reviews)
     print(rating['rating__avg'])
 
     if product.quantity >= 1:

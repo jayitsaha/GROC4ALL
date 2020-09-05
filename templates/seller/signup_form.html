@@ -3,10 +3,21 @@
 {% load crispy_forms_tags %}
 
 {% block content %}
-<div class="container">
+<style>
+  .help-block{color:red;
+              font-weight:bold;
+  }
+  .control-label{
+    font-size: 20px;
+    color: black;
+   
+  }
+  </style>
+<div class="container jumbotron">
   <div class="row">
-    <div class="col-md-8 col-sm-10 col-12">
-      <h2>Sign up as a {{ user_type }}</h2>
+    <div class="container col-md-10 col-sm-12 col-lg-8">
+      <h2>Sign up ({{ user_type }})</h2><br><br>
+      
       <form method="post" novalidate>
         {% csrf_token %}
         <input type="hidden" name="next" value="{{ next }}">
