@@ -24,6 +24,6 @@ app_name = 'diseasepredictor'
 
 urlpatterns = [
     path('RandomForest/', views.covid1, name="covid1"),
-    path('a', views.covid2, name="covid2"),
+    path('knn/', views.covid2, name="covid2"),
     path('', views.home, name="home"),
 ]

@@ -1,0 +1,106 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="hero-wrap hero-bread" style="background-image: url({% static 'images/bg_1.jpg' %});">
+    <div class="container">
+      <div class="row no-gutters slider-text align-items-center justify-content-center">
+        <div class="col-md-9 ftco-animate text-center">
+            <p class="breadcrumbs"><span class="mr-2"><a href="/">Home</a></span> <span>Corona Predictor</span></p>
+          <h1 class="mb-0 bread">KNN Predictor</h1>
+        </div>
+      </div>
+    </div>
+  </div>
+   <br>
+   <br>
+  <div class="container" style="background-color: rgba(255, 255, 255, .4);">
+    {% if context %}
+    <h2 class="text-center" >RESULTS</h2>
+          <hr />
+          
+          <h2 class="text-center">
+          {% comment %} <div class="display-4 my-2 text-center"> {% endcomment %}
+            You {{ context }}
+          {% comment %} </div> {% endcomment %}
+          </h2>
+          {% endif %}
+
+          {% if error %}
+          <div style="background-color: rgb(248, 103, 93);
+          width: 80%;
+          padding: 20px;
+          font-weight: 600;
+          font-size: 20px;
+          border-radius: 10px;
+          margin: auto;
+          color: black;">
+              * {{error}}
+          </div>
+          {% endif %}
+          </div>
+          <br>
+  <div class="container" style="width: 50%;  margin-top: 40px; padding: 10px;" >
+    <form  method="POST" class="appointment-form"  action="{% url 'diseasepredictor:covid1' %}">
+      {% csrf_token %}
+      <div class="form-group-1">      
+        <div class="form-group">
+          <input
+            type="number"
+            step=".2"
+            class="form-control"
+            id="temp"          
+            name="temp"
+            min="96"
+            placeholder="TEMPERATURE"
+            
+          />
+        </div>
+        
+        <div class="form-group">
+          
+          <input
+            type="number"
+            class="form-control"
+            id="age"          
+            name="age"
+            placeholder="AGE"
+          />
+        </div>
+        <div class="form-group">
+          
+          <input
+            type="text"
+            class="form-control"
+            id="bp"          
+            name="bp"
+            placeholder="BODY PAIN (Yes or No)"
+          />
+        </div>
+        <div class="form-group">
+          
+          <input
+            type="text"
+            
+            class="form-control"
+            id="nose"            
+            name="nose"
+            placeholder="RUNNY NOSE (Yes or No)"
+          />
+        </div>
+        <div class="form-group">
+          <input
+            type="text"
+            class="form-control"
+            id="breath"
+            name="breath"
+            placeholder="DIFFICULTY IN BREATHING (Yes or No)"
+          />
+        </div>
+      </div>
+
+    <input type="submit" class="btn btn-success" name="submit" id="submit" class="submit" value="Get Results"/>
+      </div>
+    </form>
+  </div>
+{% endblock content %}
