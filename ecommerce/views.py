@@ -9,11 +9,11 @@ from django.conf import settings
 from speechText.run import Run
 import json
 from django.views.decorators.csrf import csrf_exempt
-# from chatbot1.shopping_bot import ShoppingBot
+from chatbot1.shopping_bot import ShoppingBot
 from cart.cart import Cart
 # from django.shortcuts import render_to_response
 
-# sb = ShoppingBot()
+sb = ShoppingBot()
 global x
 
 def initial(request):
