@@ -175,7 +175,7 @@ typing-extensions==3.7.4.2
 tzlocal==2.1
 ujson==2.0.3
 Unipath==1.1
-urllib3==1.25.9
+urllib3==1.26.5
 uvloop==0.14.0
 wasabi==0.6.0
 watson-developer-cloud==2.0.1
