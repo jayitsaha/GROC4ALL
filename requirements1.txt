@@ -169,7 +169,7 @@ thinc==7.4.0
 tornado==6.0.4
 tqdm==4.45.0
 twilio==6.26.3
-Twisted==20.3.0
+Twisted==22.2.0
 typing==3.7.4.1
 typing-extensions==3.7.4.2
 tzlocal==2.1
