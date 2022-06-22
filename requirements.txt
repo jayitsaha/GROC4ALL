@@ -13,7 +13,7 @@ ibm-cloud-sdk-core==1.5.1
 ibm-watson==4.4.0
 idna==2.9
 joblib==0.14.1
-numpy==1.18.4
+numpy==1.22.0
 opencv-python==4.2.0.34
 ordereddict==1.1
 pandas==1.0.3
