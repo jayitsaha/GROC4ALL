@@ -12,7 +12,7 @@ face-recognition-models==0.3.0
 ibm-cloud-sdk-core==1.5.1
 ibm-watson==4.4.0
 idna==2.9
-joblib==0.14.1
+joblib==1.2.0
 numpy==1.18.4
 opencv-python==4.2.0.34
 ordereddict==1.1
